@@ -47,8 +47,30 @@ Configuration du provider (terraform peut contenir plusieurs bloc provider). Gè
 ### Bloc **`resources`**
 Resources (composant physique/logiciel) qui existent dans l'infrastructure. 
 
-si on fait un truc aws_truc, on utilise le provider aws.
+si on fait une resource "aws_truc", on utilise le provider aws, il en va de même pour openstack.
 
+### Variable
+fichier .tfvars
+`terraform apply -var-file=truc.tfvars`
+
+### Modules
+Terraform peut avoir des modules qui seront installés par terraform. Un modules peut être un morceaux de code terraform ayant une fonction qui sera ensuite appelé.
+```language
+module "Name" {
+	source = "github.../dossier"
+}
+```
+
+Possibilité de créer le même resoures plusieurs fois. 
+Ex : (les ami c'est un truc d'amazon)
+Création de 15 instances
+```
+resource "aws_instance" "example" {
+  count = 15
+  ami = "ami-v1"
+  instance_type = "t2.micro"
+}
+```
 ## Quelques commandes
 - `terraform plan` -- génére un plan d'action de la configuration. plan inclu toutes les actions faites, montre modif que vas effectuer terraform
 - `terraform graph` -- permet visualisation du plan 
@@ -56,5 +78,12 @@ si on fait un truc aws_truc, on utilise le provider aws.
 - `terraform show` -- montre les infra en place
 
 
+## Openstack et teraform
+configuration d'un provider (auth) puis configuration des blocks d'openstack (computer /compute ...) dans des resources Terraform. 
+- [Doc officielle Terraform & openstack](https://www.terraform.io/docs/providers/openstack/index.html)
+- [tuto op/terr](http://www.matt-j.co.uk/2015/03/27/openstack-infrastructure-automation-with-terraform-part-2/)
 
-
+## Lien en vrac
+[link 1](https://www.terraform.io/docs/configuration/variables.html)
+[link 2](https://www.terraform.io/docs/providers/)
+[link4](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)
