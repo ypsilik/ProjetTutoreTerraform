@@ -44,6 +44,25 @@ Terraform disposent de quatres principales caractéristiques.
 
 Ajout du chemin du fichier au PATH `PATH=/usr/local/...:$PATH`
 
+## Syntaxe 
 
+Les configurations de Terraform sont écrites en HashiCorp Configuration Language (HCL). Ce langage ce veut facile a écrire et à lire. On peut également écrire nos configuration en JSON pour JavaScript Object Notation (dérivé de la notation objet du JavaScript).
 
+Les bases du langage :
+
+*Les commentaires :* 
+	- # sur une seule ligne
+	- /\* mon commentaires sur plusieurs lignes \*/
+
+*Affectation des valeurs :* On utilise la syntaxe suivante
+	
+		key = value # la valeur peut être une chaîne, un nombre ou un booléen
+		
+*Chaînes multilignes :* On utilise << - EOF et EOF qui permettent de créer des chaînes multilignes sans avoir à mettre "\n" partout
+
+Il existe également de nombreuses fonctions utilisable avec HCL comme par exemple la fonction format(format, args, ...) qui va permettre de formater une chaîne selon le format que l'on donne.
+
+## Gestion de projet 
+
+-> parler de Github et de notre organisation.
 
