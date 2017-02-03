@@ -11,10 +11,10 @@
 **3.TERRAFORM**
 
 ---------------------------------------------
-	
-###2.INTRODUCTION ET PROBLÉMATIQUE
 
-####Le cloud computing : 
+### 2.INTRODUCTION ET PROBLÉMATIQUE
+
+#### Le cloud computing
 http://www.lebigdata.fr/definition-cloud-computing
 https://www.numergy.com/centre-de-ressources/article/quest-ce-que-le-cloud-computing
 
@@ -27,23 +27,22 @@ Il existe trois catégories de services pour le cloud computing.
 
 - le cloud hybride : est un système mixte qui mélange le cloud privé et public. Le client va faire appel à plusieurs clouds, indépendants les uns des autres, ce qui permet de placer les données sensibles et confidentielles dans un cloud privé et le reste dans un cloud public. Avec ce type de cloud on va aussi pouvoir réduire les coûts d'exploitation en tirant l'avantage des deux infrastuctures, on va ainsi dimensionner son cloud privé pour une charge moyenne et le cloud public pour répondre au monté de charge.
 
-Les différents modèles de cloud englobent plusieurs types de services, que l’on peut regrouperen trois parties (il existe néanmoins d’autres types de « As a Service » comme le DaaS 2, STaaS 3 :
-— IaaS - Infrastructure As a Service : Le but est d’offrir un service de bas niveau, le consommateur peut alors choisir le système d’exploitation et y installer les outils adaptés à ses besoins. Il est possible de louer dynamiquement des machines virtuelles pour une courte
+Les différents modèles de cloud englobent plusieurs types de services, que l’on peut regrouperen trois parties (il existe néanmoins d’autres types de \og As a Service \fg comme le DaaS 2, STaaS 3 :
+- IaaS - Infrastructure As a Service : Le but est d’offrir un service de bas niveau, le consommateur peut alors choisir le système d’exploitation et y installer les outils adaptés à ses besoins. Il est possible de louer dynamiquement des machines virtuelles pour une courte
 durée, mais il est également possible de louer un ensemble de machines constituant une
 infrastructure externe. Les acteurs français du IaaS sont Online.net, OVH (Kimsufi), . . .
-— PaaS - Platform As a Service : Cette fois-ci, le système est déjà installé, c’est le fournisseur
+- PaaS - Platform As a Service : Cette fois-ci, le système est déjà installé, c’est le fournisseur
 qui gère le système et l’infrastructure. Le consommateur profite alors de la plate-forme pour
 y installer les applications souhaitées. Un exemple illustrant bien le PaaS est l’hébergement
 web, où l’hébergeur fournit une plate-forme souvent LAMP 4
 , afin d’y héberger des sites
 web ou des systèmes de gestion de contenus.
-— SaaS - Software As a Service : C’est une suite d’application(s) proposée(s) aux consommateurs.
+- SaaS - Software As a Service : C’est une suite d’application(s) proposée(s) aux consommateurs.
 Ces derniers ne s’occupent de rien, c’est le fournisseur qui gère l’intégralité de
 l’infrastructure, des systèmes et des logiciels. Gmail, Office Web Apps, Google Apps sont
 les fournisseurs de SaaS les plus connus.
 
-
-####Contexte et Problématique : 
+#### Contexte et Problématique 
 Xilopix, start-up basé à Epinal, souhaiterai mettre en place rapidement des services OpenStack, tout en n'etant pas bloqué avec cette technique et voudrais donc pouvoir aux besoins changer d'outils pour le déploiement de cloud en passant par exemple à AWS. Terrafom vas donc leur permettre de réduire leur dépendances avec la syntaxe et la mise en place d'openstack.
 
 L'objectif de notre projet tutoré est de développer un proof of concept sur l'outil Terraform, et de démontrer les avantages de celui-ci.
@@ -54,36 +53,58 @@ La finalité du projet est d'obtenir une création rapide et demandant un minimu
 
 Terraform vas donc nous permettre de réduire les dépendances entre ces outils et les infrastructures qui les utilisent tout en facilitant la mise en place de machines.
 
+#### Quelques mots sur Terraform
 
-####Terraform (intro rapide):
-##### Introduction
+Terraform est une solution pour la construction, la modification et le versionning d'insfrastructure de manière sûre et efficace. Développé depuis 2013 par HashiCorp, c'est un outil en pleine expansion. Il permet de gérer plusieurs fournisseurs de services existant ainsi que des solutions developpées en interne. Avec cette technologie, il est possible d'administrer des composants de bas niveau comme les IaaS, le stockage et la mise à niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
 
-Terraform à été créé en 2013 et développé en Go. De ce fait, l'installation se compose simplement d'une archive à récupérer pour ensuite pouvoir éxécuter la commande terraform contenu dans celui-ci.
-Terraform est un outil pour la construction d'infrastucture, la modification et le versioning de maniére sûre et efficace. Il permet de gérer plusieurs fournisseurs de services existant ainsi que les solutions qui sont developpées en interne.
+#### Gestion de projet
 
-TerraForm fonctionne avec des fichiers de configuration. Ces fichiers texte servent à décrire l'infrastructure et à définir des variables. Il y a deux type de fichier *.tf* et *.tf.json* selon le language utilisé HCL (HashiCorp Configuration Language) ou JSON. Le format JSON est destiné aux machines. C'est fichiers de configuration décrivent les composants qui seront necessaire à l'exécution de TerraForm pour une seule application ou sur l'ensemble d'un data center. TerraForm génère un plan d'éxécution décrivant les étapes qu'il va effectuer *`terraform plan`*, puis exécute le plan *`terraform apply`*. TerraForm peut aussi détecter les changements et créer des nouveaux plans d'exécution.
+-> parler de Github et de notre organisation.
 
-TerraForm permet de gérer les composants de bas niveau, comme les IaaS, le stockage et la mise a niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
 
-##### Caractéristiques de TerraForm 
+## TerraForm
 
-Terraform disposent de quatres principales caractéristiques.
+### 1. Qu'est-ce que Terraform?
 
-- ** Coder son infrastucture : ** L'infrastructure est décrite en utilisant une syntaxe de configuration de haut niveau (HCL). Cela permet à un data center d'être versionné et traité comme tout autre code.L'avantage de cette technique est de permetre le déployment rapide d'une même infrastructure sur différent poste et ainsi obtenir le même environnement de travail / d'exploitation poouvant servir dans plusieurs contexte (test,developpement...).
+Terraform est un outil développé en Go qui permet la gestion d'infrastructure à l'aide de recettes. L'objectif de ce logiciel est de permettre une configuration centralisé, rapide et efficace d'une infrastructure.
 
-- ** Plan d'exécution : ** Terraform a une étape de «planification» qui génère un plan d'exécution. Le plan d'exécution montre les actions que TerraForm effectuera lorsqu'il sera lancé. Cela permet d'augmenter la sécurité en evitant d'avoir des surprises lorsque TerraForm manipule l'infrastructure. 
+Terraform fonctionne avec des fichier texte pour configurer les futures insfrastructures. Ces fichiers texte appelé \og recette \fg servent à décrire l'architecture des providers tel qu'Openstack ou AWS. La configuration se fait dans un fichier \og main.tf \fg qui est écrit en HCL(NOTE: HashiCorp Configuration Language). La configuration peut aussi généré automatiquement par machine avec le format JSON(NOTE). L'extension du fichier sera alors \og main.tf.json \fg.
 
-- ** Graphique des resources : ** Terraform construit un graphique de toutes les ressources des infrastructures, et parallélise la création et la modification de toutes ces ressources non-dépendantes. Grâce à cela, TerraForm construit l'infrastructure aussi effacement que possible, et les utilisateurs peuvent avoir un aperçu des dépendances de leur infrastructure.
+TerraForm génère un plan d'éxécution se basant sur les recettes et décrivant les étapes qu'il va effectuer. Puis exécute le plan précedement défini pour mettre en place l'infrastructure. TerraForm peut aussi détecter les changements et créer des nouveaux plans d'exécution.
+
+TerraForm permet de gérer les composants de bas niveau comme les IaaS, le stockage et la mise à niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
+
+### 2. Caractéristiques de TerraForm 
+
+- ** Coder sont infrastucture : ** L'infrastructure est décrite en utilisant une syntaxe de configuration de haut niveau (HCL). Cela permet à un data center d'être versionné et traité comme tout autre code.
+
+- ** Plan d'exécution : ** Terraform a une étape de \og planification \fg qui génère un plan d'exécution. Le plan d'exécution montre les actions que TerraForm effectuera lorsqu'il sera lancé. Cela permet d'augmenter la sécurité en evitant d'avoir des surprises lorsque TerraForm manipule l'infrastructure.
+
+- ** Graphique des resources : ** Terraform construit un graphique de toutes les ressources des infrastructures, et parallélise la création et la modification de toutes ces ressources non-dépendantes. Grâce à cela, TerraForm construit l'infrastructure aussi efficacement que possible, et les utilisateurs peuvent avoir un aperçu des dépendances de leur infrastructure.
 
 - ** Automatisation des changements : ** Des ensembles complexes de changements peuvent être appliqués à une infrastructure avec une interaction humaine minimale. Pour se faire TerraForm se base sur le plan d'exécution et le graphique de ressources mentionnés précédemment, évitant ainsi des erreurs humaines possibles.
 
-##### Installation
+### 3. Quelques cas d'utilisation de TerraForm
 
-Ajout du chemin du fichier au PATH `PATH=/usr/local/...:$PATH`
+#### Self-Service Clusters
 
-##### Syntaxe 
+Dans de grandes organisations il devient plus attrayant de créer une infrastructure \og self-service \fg, permettant aux équipes de gérer leur propre infrastructure à l'aide de l'outillage fourni par l'équipe centrale d'exploitation.
 
-Les configurations de Terraform sont écrites en HashiCorp Configuration Language (HCL). Ce langage ce veut facile a écrire et à lire. On peut également écrire nos configuration en JSON pour JavaScript Object Notation (dérivé de la notation objet du JavaScript).
+À l'aide de Terraform, la connaissance de la construction de l'infrastructure et de l'échelle d'un service peut être codifiée dans une configuration. La configuration de Terraform peut être partagée au sein d'une organisation permettant aux équipes d'utiliser Terraform comme un outil pour gérer leurs services. sans connaître la configuration.
+
+#### Démos de logiciels
+
+A l'instar de Vagrant qui permet la création d'environnement virtualisé, les éditeurs de logiciels peuvent fournir une configuration TerraForm pour créer et démarrer une infrastructure de démonstration. Ceci permet aux utilisateurs finaux de mettre en place rapidement un environnement de test sur leur propre infrastructure.
+
+#### Multi Cloud-Déploiement
+
+Il est souvent attrayant de répandre l'infrastructure sur plusieurs cloud pour augmenter la tolérance aux pannes. En utilisant une seule région ou un seul fournisseur cloud , la tolérance aux pannes est limitée par la disponibilité de ce fournisseur. Avoir un déploiement multi-cloud permet une meilleure récupération de la perte d'une région ou tout le fournisseur.
+
+Terraform permet la configuraton de plusieurs providers en une seule configuration. Cela simplifie la gestion et l'orchestration des providers, en aidant la création d'infrastructures multi-cloud.
+
+##### Syntaxe
+
+Les configurations de Terraform sont écrites en HashiCorp Configuration Language (HCL). Ce langage ce veut facile à écrire et à lire. On peut également écrire nos configuration en JSON pour JavaScript Object Notation (dérivé de la notation objet du JavaScript).
 
 Les bases du langage :
 
@@ -99,55 +120,11 @@ Les bases du langage :
 
 Il existe également de nombreuses fonctions utilisable avec HCL comme par exemple la fonction format(format, args, ...) qui va permettre de formater une chaîne selon le format que l'on donne.
 
+## Installation
 
+Terraform étant développé en Go, il n'a pas besoin d'être installé. Il suffit de télécharger une archive .zip et de l'extraire. Il est ensuite possible d'utiliser les commandes associés à Terraform via le chemin jusqu'au dossier. Pour faciliter l'utilisation des commandes, il est recomandé de copier le dossier dans */usr/local/* et d'ajouter ensuite le chemin menant jusqu'au dossier en question dans le PATH `PATH=/usr/local/...:$PATH`.
 
-####Gestion de projet :
-
--> parler de Github et de notre organisation.
-
-
-## Introduction a TerraForm 
-
-### 1. Qu'est-ce que Terraform?
-
-Tout d'abord TerraForm est un outil pour la construction d'infrastucture  , la modification et le versioning de maniére sûre et efficace. Il permet de gérer plusieurs fournisseurs de services existant ainsi que les solutions qui sont developpées en interne.
-
-TerraForm fonctionne avec des fichiers de configuration. Ces fichiers texte servent à décrire l'infrastructure et à définir des variables. Il y a deux type de fichier *.tf* et *.tf.json* selon le language utilisé HCL (HashiCorp Configuration Language) ou JSON. Le format JSON est destiné aux machines. C'est fichiers de configuration décrivent les composants qui seront necessaire à l'exécution de TerraForm pour une seule application ou sur l'ensemble d'un data center. TerraForm génère un plan d'éxécution décrivant les étapes qu'il va effectuer *`terraform plan`*, puis exécute le plan *`terraform apply`*. TerraForm peut aussi détecter les changements et créer des nouveaux plans d'exécution.
-
-TerraForm permet de gérer les composants de bas niveau, comme les IaaS, le stockage et la mise a niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
-
-### 2. Caractéristiques de TerraForm 
-
-Les principales caractéristiques de TerraForm 
-
-- ** Coder sont infrastucture : ** L'infrastructure est décrite en utilisant une syntaxe de configuration de haut niveau (HCL). Cela permet à un data center d'être versionné et traité comme tout autre code.
-
-- ** Plan d'exécution : ** Terraform a une étape de «planification» qui génère un plan d'exécution. Le plan d'exécution montre les actions que TerraForm effectuera lorsque qu'il sera lancé. Cela permet d'augmenter la sécurité en evitant d'avoir des surprises lorsque TerraForm manipule l'infrastructure. 
-
-- ** Graphique des resources : ** Terraform construit un graphique de toutes les ressources des infrastructures, et parallélise la création et la modification de toutes ces ressources non-dépendantes. Grâce à ça, TerraForm construit l'infrastructure aussi effacement que possible, et les utilisateurs peuvent avoir un aperçu des dépendances de leur infrastructure.
-
-- ** Automatisation des changements : ** Des ensembles complexes de changements peuvent être appliqués à une infrastructure avec une interaction humaine minimale. Pour se faire TerraForm se base sur le plan d'exécution et le graphique de ressources mentionnés précédemment, évitant ainsi des erreurs humaines possibles.
-
-### 3. Quelque cas d'utilisation de TerraForm 
-
-#### Self-Service Clusters
-
-Dans de grandes organisations il devient plus attrayant de créer une infrastructure «self-service», permettant aux équipes de gérer leur propre infrastructure à l'aide de l'outillage fourni par l'équipe centrale d'exploitation.
-
-À l'aide de Terraform, la connaissance de la construction de l'infrastructure et de l'échelle d'un service peut être codifiée dans une configuration. La configurations de Terraform peut être partagée au sein d'une organisation permettant aux équipes d'utiliser Terraform comme un outil pour gérer leurs services. sans connaître la configuration.
-
-#### Démos de logiciels
-
-A l'instar de Vagrant qui permet la création d'environnement virtualisé, les éditeurs de logiciels peuvent fournir une configuration TerraForm pour créer et démarrer une infrastructure de démonstration. Ceci permet aux utilisateurs finaux de mettre en place rapidement un environnement de test sur leur propre infrastructure.
-
-#### Multi Cloud-Déploiement
-
-Il est souvent attrayant de répandre l'infrastructure sur plusieurs cloud pour augmenter la tolérance aux pannes. En utilisant une seule région ou un seul fournisseur cloud , la tolérance aux pannes est limitée par la disponibilité de ce fournisseur. Avoir un déploiement multi-cloud permet une meilleure récupération de la perte d'une région ou tout le fournisseur.
-
-Terraform permet la configuraton de plusieurs providers en une seule configuration. Cela simplifie la gestion et l'orchestration des providers, en aidant la création d'infrastructures multi-cloud.
-
-## *Installation*
-Les fihciers de configuration sont lu par ordre alphabétique.
+Terraform peut être composé de plusieurs fichiers de configuration pour une infrastructure. Dans ce cas, les fichiers sont lu par ordre alphabétique.
 
 ### Bloc **`provider`**
 Configuration du provider (terraform peut contenir plusieurs bloc provider). Gère le cycle de vie des ressources (create, read, update, delete).
