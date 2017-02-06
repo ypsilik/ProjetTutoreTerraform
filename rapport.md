@@ -104,41 +104,43 @@ Terraform permet la configuraton de plusieurs providers en une seule configurati
 
 ##### Syntaxe
 
-Les configurations de Terraform sont écrites en HashiCorp Configuration Language (HCL). Ce langage ce veut facile à écrire et à lire. On peut également écrire nos configuration en JSON pour JavaScript Object Notation (dérivé de la notation objet du JavaScript).
+Les configurations de Terraform sont écrites en HashiCorp Configuration Language (HCL). Ce langage ce veut facile à écrire et à lire. L'écriture des configurations peut aussi se faire en JSON.
 
-Les bases du langage :
+###### Les bases du langage
 
-*Les commentaires :* 
+*Commentaires* 
 	- # sur une seule ligne
 	- /\* mon commentaires sur plusieurs lignes \*/
 
-*Affectation des valeurs :* On utilise la syntaxe suivante
-	
-		key = value # la valeur peut être une chaîne, un nombre ou un booléen
-		
-*Chaînes multilignes :* On utilise << - EOF et EOF qui permettent de créer des chaînes multilignes sans avoir à mettre "\n" partout
+*Affectation des valeurs*
+
+	key = value # la valeur peut être une chaîne, un nombre ou un booléen
+
+*Chaînes multilignes* : On utilise `<< - EOF` et `EOF` pour créer des chaînes multilignes ce qui permet principalement d'intégrer des scripts dans la confiuration.
 
 Il existe également de nombreuses fonctions utilisable avec HCL comme par exemple la fonction format(format, args, ...) qui va permettre de formater une chaîne selon le format que l'on donne.
 
 ## Installation
 
-Terraform étant développé en Go, il n'a pas besoin d'être installé. Il suffit de télécharger une archive .zip et de l'extraire. Il est ensuite possible d'utiliser les commandes associés à Terraform via le chemin jusqu'au dossier. Pour faciliter l'utilisation des commandes, il est recomandé de copier le dossier dans */usr/local/* et d'ajouter ensuite le chemin menant jusqu'au dossier en question dans le PATH `PATH=/usr/local/...:$PATH`.
+Terraform étant développé en Go, il n'a pas besoin d'être installé. Il suffit de télécharger une archive .zip et de l'extraire. Il est ensuite possible d'utiliser les commandes associés à Terraform via le chemin du dossier. Pour faciliter l'utilisation des commandes, il est recomandé de copier le dossier dans */usr/local/* et d'ajouter ensuite le chemin menant jusqu'au dossier en question dans le PATH `PATH=/usr/local/...:$PATH`.
 
-Terraform peut être composé de plusieurs fichiers de configuration pour une infrastructure. Dans ce cas, les fichiers sont lu par ordre alphabétique.
+Terraform peut être composé de plusieurs fichiers de configuration pour une infrastructure. Dans ce cas, les fichiers sont lu par ordre alphabétique mais la priorité reste au fichier *main.tf*.
 
 ### Bloc **`provider`**
-Configuration du provider (terraform peut contenir plusieurs bloc provider). Gère le cycle de vie des ressources (create, read, update, delete).
+
+C'est la partie configuration du provider avec principalement les accès pour la connexion au provider. Terraform peut contenir plusieurs bloc provider. Ce bloc gère le cycle de vie des ressources (create, read, update, delete).
 
 ### Bloc **`resources`**
-Resources (composant physique/logiciel) qui existent dans l'infrastructure. 
 
-si on fait une resource "aws_truc", on utilise le provider aws, il en va de même pour openstack.
+Partie permettant la gestion des resources (composants physiques / logiciels) qui existent dans l'infrastructure. Le nom d'une resource se compose du nom du provider puis du nom de la ressource. 
 
-### Variable
-fichier .tfvars
-`terraform apply -var-file=truc.tfvars`
+### Variables
+
+Les variables peuvent être enregistré dans un fichier \og variables.tf \fg ou \og .tfvars \fg. Pour appliquer des variables enregistrées sous cette dernière extension, il faut lancer la commande suivante `terraform apply -var-file=truc.tfvars`.
 
 ### Modules
+
+Terraform possède des modules autonome vis à vis des configuration Terraform. Un module peu
 Terraform peut avoir des modules qui seront installés par terraform. Un modules peut être un morceaux de code terraform ayant une fonction qui sera ensuite appelé.
 ```language
 module "Name" {
