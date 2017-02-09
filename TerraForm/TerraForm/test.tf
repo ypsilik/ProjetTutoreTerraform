@@ -1,11 +1,4 @@
 # Configure the OpenStack Provider
-provider "openstack" {
-    user_name  = "admin"
-    tenant_name = "admin"
-    password  = "pwd"
-    auth_url  = "http://myauthurl:5000/v2.0"
-}
-
 resource "openstack_blockstorage_volume_v1" "myvol" {
   name = "myvol"
   size = 5
