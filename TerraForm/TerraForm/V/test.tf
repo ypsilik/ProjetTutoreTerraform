@@ -1,8 +1,4 @@
 # Configure the OpenStack Provider
-resource "openstack_blockstorage_volume_v1" "myvol" {
-  name = "myvol"
-  size = 1
-}
 
 resource "openstack_compute_instance_v2" "volume-attached" {
   name = "volume-attached"
@@ -14,27 +10,14 @@ resource "openstack_compute_instance_v2" "volume-attached" {
    network {
     name = "terraform"
   }
-
-
-  volume {
-    volume_id = "${openstack_blockstorage_volume_v1.myvol.id}"
-  }
 }
 
 resource "openstack_compute_secgroup_v2" "terraform" {
   name        = "terraform"
-  description = "Security group for the Terraform example instances"
 
   rule {
     from_port   = 22
     to_port     = 22
-    ip_protocol = "tcp"
-    cidr        = "0.0.0.0/0"
-  }
-
-  rule {
-    from_port   = 80
-    to_port     = 80
     ip_protocol = "tcp"
     cidr        = "0.0.0.0/0"
   }
