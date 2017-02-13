@@ -1,0 +1,11 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Introduction et probl\IeC {\'e}matique}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Contexte}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Terraform}{5}{0}{1}
+\beamer@subsectionintoc {1}{3}{Les objectifs du projet}{6}{0}{1}
+\beamer@sectionintoc {2}{L'avanc\IeC {\'e}e du Projet}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Comparaison}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Les t\IeC {\^a}ches r\IeC {\'e}alis\IeC {\'e}es}{8}{0}{2}
+\beamer@subsectionintoc {2}{3}{Les t\IeC {\^a}ches en cours}{9}{0}{2}
+\beamer@subsectionintoc {2}{4}{Les t\IeC {\^a}ches \IeC {\`a} pr\IeC {\'e}voir}{10}{0}{2}

@@ -2,7 +2,7 @@
 
 ### 1. Qu'est-ce que Terraform?
 
-Tout d'abord TerraForm est un outil pour la construction d'infrastucture  , la modification et le versioning de maniére sûre et efficace. Il permet de gérer plusieurs fournisseurs de services existant ainsi que les solutions qui sont developpées en interne.
+Tout d'abord TerraForm est un outil pour la construction d'infrastucture , la modification et le versioning de maniére sûre et efficace. Il permet de gérer plusieurs fournisseurs de services existant ainsi que les solutions qui sont developpées en interne.
 
 TerraForm fonctionne avec des fichiers de configuration. Ces fichiers texte servent à décrire l'infrastructure et à définir des variables. Il y a deux type de fichier *.tf* et *.tf.json* selon le language utilisé HCL (HashiCorp Configuration Language) ou JSON. Le format JSON est destiné aux machines. C'est fichiers de configuration décrivent les composants qui seront necessaire à l'exécution de TerraForm pour une seule application ou sur l'ensemble d'un data center. TerraForm génère un plan d'éxécution décrivant les étapes qu'il va effectuer *`terraform plan`*, puis exécute le plan *`terraform apply`*. TerraForm peut aussi détecter les changements et créer des nouveaux plans d'exécution.
 

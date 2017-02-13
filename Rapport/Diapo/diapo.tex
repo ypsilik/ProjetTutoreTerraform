@@ -8,23 +8,26 @@
 \usepackage{color}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{fancyhdr}
 
-\usetheme{PaloAlto} % thème principal
+\usetheme{Hannover} %PaloAlto  thème principal
 \setbeamercolor{background canvas}{bg=yellow!10!white} % couleur de fond
 
 \title[Projet Tutoré]{Déploiement et provisionnement d’un IAAS avec Openstack et Terraform}
 \author{Valentin \textsc{Norberto da silva}, Maud \textsc{Laurent} et Valentin \textsc{Peyregne}}
 \institute{IUT Nancy Charlemagne}
 \date{\today}
+\addtobeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber} % numerotation diapo
 
 \begin{document}
 	
 	% Page de garde :
 		\begin{frame}
-			\titlepage
+		\titlepage
 			\begin{flushright}
 				\includegraphics[scale=0.3]{logo.png}
-			\end{flushright}
+			\end{flushright}			
+			%\thispagestyle{empty} % pas numerotation first page
 		\end{frame}
 
 	% Sommaire :
@@ -32,27 +35,12 @@
 		\begin{frame}
 			\transdissolve[duration=2]
 			\frametitle{Sommaire}
-			\tableofcontents%[currentsection, hideothersubsections, pausesubsections]
+			\tableofcontents%[currentsection, hideothersubsections, pausesubsections]		
 		\end{frame}
 
 
 	\section{Introduction et problématique}
 		
-		% Diapo 1 : le cloud computing
-		
-		\subsection{Le cloud computing}
-			\begin{frame}
-				\frametitle{Le cloud computing}
-				\begin{itemize}
-					\item Permet d'utiliser des ressources informatiques sans les posséder ou encore d'accéder à des services
-					\item On distingue 3 catégories de services :\\
-						- le cloud privé \\
-						- le cloud public \\
-						- le cloud hybride \\
-					\item IaaS / PaaS et SaaS
-				\end{itemize}
-			\end{frame}
-
 		% Diapo 2 : Contexte
 		
 		\subsection{Contexte}
@@ -77,10 +65,24 @@
 			\begin{frame}
 				\frametitle{Problématique \& motivations}
 				\begin{itemize}
-					\item Xilopix utilise une infrastructure cloud avec plusieurs providers tous sur OpenStack
-					\item Souhait de ne plus être dépendant d'OpenStack 
+					%\item Xilopix utilise une infrastructure cloud avec plusieurs providers tous sur OpenStack
+					\item Souhaite ne plus être dépendant d'OpenStack
+					\item Souhaite pouvoir créer plusieurs instances d'Openstack 
 					\item Utilisation de Terraform
 				\end{itemize}
+			\end{frame}
+			
+		\subsection{Terraform}
+			\begin{frame}{Terraform}
+			\begin{itemize}
+			\item Création, gestion d'infrastructure
+			\item Création de recette
+			\end{itemize}
+			\begin{figure}
+				\begin{center}
+					\includegraphics[scale=0.3]{logoTerraform.jpg}
+				\end{center}
+			\end{figure}
 			\end{frame}
 		
 		% Diapo 5 : Objectifs du projet 
@@ -90,7 +92,7 @@
 				\frametitle{Les objectifs}
 				\begin{itemize}
 					\item Développer un proof of concept sur l'outil Terraform
-					\item Mettre en place une infrastucture semblable à celle de Xilopix, avec un provider (cloudwatt) et un cluster de quatres machines virtuelles cliente Openstack avec Terraform
+					\item Mettre en place une infrastructure semblable à celle de Xilopix, avec un provider (cloudwatt) et un cluster de quatre machines virtuelles clientes Openstack avec Terraform
 				\end{itemize}
 			\end{frame}
 		
@@ -100,20 +102,36 @@
 			% Diapo 8 : Comparaison entre les tâches réalisées / en cours et ce qui était attendu
 		
 		\begin{frame}{Comparaison}
-		Objectif attendu 
-			\begin{itemize}
-				\item Compréhension des outils utilisés
-				\item Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec python-nova
-			\end{itemize}
-		Tâches réalisées
-				\begin{itemize}
-					\item \textbf{Documentation sur python-nova, OpenStack et Terraform}
-					\item \textbf{Installation du client python-nova}
-					\item \textbf{Création d'une machine avec python-nova}
-					\item \textbf{Création et application recette de base Terraform}
-					\item Gestion des IPs flotantes
-					\item Documentation Terraform (plus technique)
-				\end{itemize}
+
+		\begin{table}[]
+\centering
+\label{my-label}
+\begin{tabular}{|p{4.5cm}|p{4.5cm}|}
+\hline
+\textbf{Objectifs attendus}                                                               & \textbf{Tâches réalisées}                               \\ \hline
+Compréhension des outils utilisés                                                        & Documentation sur les outils                            \\ \hline
+Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec python-nova & Installation et création d'une machine avec python-nova \\ \hline
+                                                                                         & Création et application de recette de base Terraform    \\ \hline
+                                                                                         & Gestion Ip flottantes                                   \\ \hline
+                                                                                         & Documentation Terraform (technique)                     \\ \hline
+\end{tabular}
+\end{table}
+
+%
+%		Objectifs attendu 
+%			\begin{itemize}
+%				\item Compréhension des outils utilisés
+%				\item Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec python-nova
+%			\end{itemize}
+%		Tâches réalisées
+%				\begin{itemize}
+%					\item \textbf{Documentation sur python-nova, OpenStack et Terraform}
+%					\item \textbf{Installation du client python-nova}
+%					\item \textbf{Création d'une machine avec python-nova}
+%					\item \textbf{Création et application de recette de base Terraform}
+%					\item Gestion des IP flottantes
+%					\item Documentation Terraform (plus technique)
+%				\end{itemize}
 		\end{frame}
 			
 		
@@ -126,7 +144,7 @@
 					\item Création d'un dépôt Git
 					\item Documentation sur python-nova, OpenStack et Terraform
 					\item Installation du client python-nova
-					\item Création et application recette de base Terraform
+					\item Création et application de recette de base Terraform
 				\end{itemize}
 			\end{frame}
 		
@@ -136,7 +154,7 @@
 			\begin{frame}
 				\frametitle{Les tâches en cours}
 				\begin{itemize}
-					\item Gestion des IPs flotantes
+					\item Gestion des IP flottantes
 					\item Documentation Terraform (plus technique)
 				\end{itemize}
 			\end{frame}
@@ -153,8 +171,4 @@
 					\item Provisionnement avec Ansible
 				\end{itemize}
 			\end{frame}
-		
-
-
-
 \end{document}
