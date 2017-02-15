@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  15 FEB 2017 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  15 FEB 2017 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1517,12 +1517,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@snm=\write8
 \openout8 = `diapo.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 179.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 179.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
 
 (./diapo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 179.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 179.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
 Package rerunfilecheck Info: File `diapo.out' has not changed.
 (rerunfilecheck)             Checksum: 3C608D795BB3B343E590036A32EDBA8F;587.
 
@@ -1530,13 +1530,13 @@ Package rerunfilecheck Info: File `diapo.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 179.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
- 21191 strings out of 493013
- 383406 string characters out of 6139317
+ 21192 strings out of 493013
+ 383414 string characters out of 6139317
  465000 words of memory out of 5000000
- 24238 multiletter control sequences out of 15000+600000
+ 24239 multiletter control sequences out of 15000+600000
  12106 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,16n,60p,385b,725s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1552,7 +1552,7 @@ var/fonts/pk/ljfour/public/cm/cmss12.720pk> </home/ypsilik/.texlive/texmf-var/f
 onts/pk/ljfour/public/cm/cmss8.375pk> </home/ypsilik/.texlive/texmf-var/fonts/p
 k/ljfour/public/cm/cmcsc10.360pk> </home/ypsilik/.texlive/texmf-var/fonts/pk/lj
 four/public/cm/cmss8.450pk>
-Output written on diapo.pdf (11 pages, 173412 bytes).
+Output written on diapo.pdf (11 pages, 173470 bytes).
 PDF statistics:
  792 PDF objects out of 1000 (max. 8388607)
  485 compressed objects within 5 object streams
