@@ -66,17 +66,21 @@
 				\frametitle{Problématique \& motivations}
 				\begin{itemize}
 					%\item Xilopix utilise une infrastructure cloud avec plusieurs providers tous sur OpenStack
-					\item Souhaite ne plus être dépendant d'OpenStack
-					\item Souhaite pouvoir créer plusieurs instances d'Openstack 
-					\item Utilisation de Terraform
+					\item Créer une \textit{"infrastructure as code"}
+					\item Réduire les dépendances avec les providers
+					%Souhaite ne Souhaite plus être dépendant d'OpenStack
+					\item Automatiser la création de client OpenStack
+					%Souhaite pouvoir créer plusieurs instances d'Openstack 
+					%\item Utilisation de Terraform
 				\end{itemize}
 			\end{frame}
 			
 		\subsection{Terraform}
 			\begin{frame}{Terraform}
 			\begin{itemize}
-			\item Création, gestion d'infrastructure
-			\item Création de recette
+			\item Centralise l'architecture d'une infrastructure
+			\item Création, gestion d'infrastructures
+			\item Création de recettes
 			\end{itemize}
 			\begin{figure}
 				\begin{center}
@@ -92,7 +96,8 @@
 				\frametitle{Les objectifs}
 				\begin{itemize}
 					\item Développer un proof of concept sur l'outil Terraform
-					\item Mettre en place une infrastructure semblable à celle de Xilopix, avec un provider (cloudwatt) et un cluster de quatre machines virtuelles clientes Openstack avec Terraform
+					\item Créer cluster 4 VM clientes OpenStack grâce à Terraform
+					%Mettre en place une infrastructure semblable à celle de Xilopix, avec un provider (cloudwatt) et un cluster de quatre machines virtuelles clientes Openstack avec Terraform
 				\end{itemize}
 			\end{frame}
 		
@@ -103,41 +108,34 @@
 		
 		\begin{frame}{Comparaison}
 
-		\begin{table}[]
-\centering
-\label{my-label}
-\begin{tabular}{|p{4.5cm}|p{4.5cm}|}
-\hline
-\textbf{Objectifs attendus}                                                               & \textbf{Tâches réalisées}                               \\ \hline
-Compréhension des outils utilisés                                                        & Documentation sur les outils                            \\ \hline
-Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec python-nova & Installation et création d'une machine avec python-nova \\ \hline
-                                                                                         & Création et application de recette de base Terraform    \\ \hline
-                                                                                         & Gestion Ip flottantes                                   \\ \hline
-                                                                                         & Documentation Terraform (technique)                     \\ \hline
-\end{tabular}
-\end{table}
+		\begin{columns}[c]
+            \begin{column}{5cm}
+         
+          {\small \textbf{ Objectifs attendus}}
+                \begin{itemize}
+                \item {\small Compréhension des outils utilisés}                                                    
+                \item {\small Proof of concept Terraform}
+               \end{itemize}
+            \end{column}
+            \begin{column}{5cm}
+          {\small   \textbf{ Tâches réalisées}}
+            \begin{itemize}
+            
+            \item  {\small Documentation sur les outils }
+            \item  {\small Installation et création d'une machine avec python-nova}
+            \item  {\small Création et application de recette de base Terraform }
+            \item  {\small  Gestion Ip flottantes }
+            \item  {\small Documentation Terraform (technique) }
+            \end{itemize}
+               
+                \end{column}
+          \end{columns}
+\end{frame}
 
-%
-%		Objectifs attendu 
-%			\begin{itemize}
-%				\item Compréhension des outils utilisés
-%				\item Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec python-nova
-%			\end{itemize}
-%		Tâches réalisées
-%				\begin{itemize}
-%					\item \textbf{Documentation sur python-nova, OpenStack et Terraform}
-%					\item \textbf{Installation du client python-nova}
-%					\item \textbf{Création d'une machine avec python-nova}
-%					\item \textbf{Création et application de recette de base Terraform}
-%					\item Gestion des IP flottantes
-%					\item Documentation Terraform (plus technique)
-%				\end{itemize}
-		\end{frame}
-			
-		
+	
 		% Diapo 6 : Tâches réalisées
 		
-		\subsection{Les tâches réalisées}
+		\subsection{Tâches réalisées}
 			\begin{frame}
 				\frametitle{Les tâches réalisées}
 				\begin{itemize}
@@ -150,7 +148,7 @@ Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec p
 		
 		% Diapo 7 : Tâches en cours 
 		
-		\subsection{Les tâches en cours}
+		\subsection{Tâches en cours}
 			\begin{frame}
 				\frametitle{Les tâches en cours}
 				\begin{itemize}
@@ -162,7 +160,7 @@ Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec p
 			
 		% Diapo 9 : Tâches prévues 
 		
-		\subsection{Les tâches à prévoir}
+		\subsection{Tâches à prévoir}
 			\begin{frame}
 				\frametitle{Ce qu'il reste à faire}
 				\begin{itemize}
@@ -170,5 +168,12 @@ Proof of concept fonctionnel de 3 machines créées avec Terraform et une avec p
 					\item Création d'un routeur pour accéder à internet
 					\item Provisionnement avec Ansible
 				\end{itemize}
+			\end{frame}
+			
+			
+			\begin{frame}
+			\begin{center}
+			\Huge{Questions ?}
+			\end{center}
 			\end{frame}
 \end{document}

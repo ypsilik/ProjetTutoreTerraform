@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  13 FEB 2017 16:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  15 FEB 2017 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1464,7 +1464,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <6> not available
  <./logo.png>]
 (./diapo.toc) [2
 
-] <img2.png, id=145, 162.6075pt x 60.225pt>
+] <img2.png, id=146, 162.6075pt x 60.225pt>
 File: img2.png Graphic file (type png)
  <use img2.png>
 Package pdftex.def Info: img2.png used on input line 61.
@@ -1479,10 +1479,10 @@ File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
  <./img2.png>] [4
 
 ]
-<logoTerraform.jpg, id=217, 225.84375pt x 225.84375pt>
+<logoTerraform.jpg, id=219, 225.84375pt x 225.84375pt>
 File: logoTerraform.jpg Graphic file (type jpg)
  <use logoTerraform.jpg>
-Package pdftex.def Info: logoTerraform.jpg used on input line 86.
+Package pdftex.def Info: logoTerraform.jpg used on input line 90.
 (pdftex.def)             Requested size: 67.75363pt x 67.75363pt.
 
 [5
@@ -1490,30 +1490,22 @@ Package pdftex.def Info: logoTerraform.jpg used on input line 86.
  <./logoTerraform.jpg>] [6
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 135.
+LaTeX Font Info:    Try loading font information for U+msa on input line 133.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 135.
+LaTeX Font Info:    Try loading font information for U+msb on input line 133.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 3769) in paragraph at lines 135--135
-[]\OT1/cmss/m/n/10.95 Compr^^Sehension des ou-tils
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
-[]\OT1/cmss/m/n/10.95 Documentation Ter-ra-form
- []
-
-[7
+) [7
 
 ] [8
 
 ] [9
 
 ] [10
+
+] [11
 
 ]
 \tf@nav=\write6
@@ -1525,42 +1517,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--135
 \tf@snm=\write8
 \openout8 = `diapo.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
- (./diapo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 174.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 179.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 179.
+
+(./diapo.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 179.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 179.
 Package rerunfilecheck Info: File `diapo.out' has not changed.
-(rerunfilecheck)             Checksum: FAECDF42E0258023D177DDAF0BB7392C;599.
+(rerunfilecheck)             Checksum: 3C608D795BB3B343E590036A32EDBA8F;587.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 174.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 179.
  ) 
 Here is how much of TeX's memory you used:
- 21187 strings out of 493013
- 383370 string characters out of 6139317
- 466064 words of memory out of 5000000
- 24236 multiletter control sequences out of 15000+600000
- 11800 words of font info for 43 fonts, out of 8000000 for 9000
+ 21191 strings out of 493013
+ 383406 string characters out of 6139317
+ 465000 words of memory out of 5000000
+ 24238 multiletter control sequences out of 15000+600000
+ 12106 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,16n,60p,385b,725s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/ypsilik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssbx10.657pk> 
-</home/ypsilik/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1000.600pk> <
-/home/ypsilik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss10.600pk> </home
-/ypsilik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss8.600pk> </home/ypsil
-ik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmcsc10.657pk> </home/ypsilik/.
-texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss10.657pk> </home/ypsilik/.texli
-ve/texmf-var/fonts/pk/ljfour/public/cm/cmss12.720pk> </home/ypsilik/.texlive/te
-xmf-var/fonts/pk/ljfour/public/cm/cmss8.375pk> </home/ypsilik/.texlive/texmf-va
-r/fonts/pk/ljfour/public/cm/cmcsc10.360pk> </home/ypsilik/.texlive/texmf-var/fo
-nts/pk/ljfour/public/cm/cmss8.450pk>
-Output written on diapo.pdf (10 pages, 157168 bytes).
+ </home/ypsilik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss17.864pk> </
+home/ypsilik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssbx10.600pk> </hom
+e/ypsilik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssi10.657pk> </home/yp
+silik/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1000.600pk> </home/yps
+ilik/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss10.600pk> </home/ypsilik/
+.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss8.600pk> </home/ypsilik/.texli
+ve/texmf-var/fonts/pk/ljfour/public/cm/cmcsc10.657pk> </home/ypsilik/.texlive/t
+exmf-var/fonts/pk/ljfour/public/cm/cmss10.657pk> </home/ypsilik/.texlive/texmf-
+var/fonts/pk/ljfour/public/cm/cmss12.720pk> </home/ypsilik/.texlive/texmf-var/f
+onts/pk/ljfour/public/cm/cmss8.375pk> </home/ypsilik/.texlive/texmf-var/fonts/p
+k/ljfour/public/cm/cmcsc10.360pk> </home/ypsilik/.texlive/texmf-var/fonts/pk/lj
+four/public/cm/cmss8.450pk>
+Output written on diapo.pdf (11 pages, 173412 bytes).
 PDF statistics:
- 697 PDF objects out of 1000 (max. 8388607)
- 444 compressed objects within 5 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 792 PDF objects out of 1000 (max. 8388607)
+ 485 compressed objects within 5 object streams
+ 32 named destinations out of 1000 (max. 500000)
  130 words of extra memory for PDF output out of 10000 (max. 10000000)
 
