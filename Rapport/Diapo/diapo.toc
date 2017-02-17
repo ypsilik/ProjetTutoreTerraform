@@ -9,3 +9,4 @@
 \beamer@subsectionintoc {2}{2}{T\IeC {\^a}ches r\IeC {\'e}alis\IeC {\'e}es}{8}{0}{2}
 \beamer@subsectionintoc {2}{3}{T\IeC {\^a}ches en cours}{9}{0}{2}
 \beamer@subsectionintoc {2}{4}{T\IeC {\^a}ches \IeC {\`a} pr\IeC {\'e}voir}{10}{0}{2}
+\beamer@sectionintoc {3}{Conclusion}{11}{0}{3}

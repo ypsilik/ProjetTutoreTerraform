@@ -349,6 +349,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssi8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssi8.tfm
+INPUT logoTerraform.jpg
+INPUT ./logoTerraform.jpg
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
 OUTPUT diapo.nav
 OUTPUT diapo.toc

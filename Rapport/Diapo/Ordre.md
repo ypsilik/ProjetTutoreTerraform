@@ -26,7 +26,11 @@ Nous avons réalisé ces objectifs comme nous l'expliquerons dans les diapo suiv
 # 9 -- momo
 # 10 -- maud
 Pour le mois restant sur ce projet, il nous reste à faie 3 parties principales du projet. La création avec une recette terraform d'un réseau et de sous réseau , l'objectif ici sera de créer en le réseau sur lequelle se conecterons les instances créer après. Viendra en-meme temps la création d'un routeur pour permettre l'accès à iternet aux instances crées. 
-Suite à cela, viendra la mise en place de provisionnement avec ansible. Ce qui permettera ... 
-# 11 -- momo
+Suite à cela, viendra la mise en place de provisionnement avec ansible. Ce qui permettera de configurer et d'installer les logiciels des infrastructures qui seront crées.
+# 11 -- maud
+Pour conclure suite a l'attente des accès cloudwatt pour commencer l'application de nos recettes terraform nous pensions avoir du retard. Finallement ce retard à été rattrapé et nous avons pu créer le proof ofconcept minimal. 
+Nos avons pu voir les avantages de Terraform qui permet de centraliser son infrastructure , et d'afficher le plan d'exécution ce qui permet de prévisualiser l'infrastructure qui vas être mise en place.
+
+# 12 -- momo
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  15 FEB 2017 16:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  16 FEB 2017 10:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1445,7 +1445,7 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available
 (Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 31.
 
-<logo.png, id=49, 222.8325pt x 177.66376pt>
+<logo.png, id=53, 222.8325pt x 177.66376pt>
 File: logo.png Graphic file (type png)
  <use logo.png>
 Package pdftex.def Info: logo.png used on input line 31.
@@ -1464,7 +1464,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <6> not available
  <./logo.png>]
 (./diapo.toc) [2
 
-] <img2.png, id=146, 162.6075pt x 60.225pt>
+] <img2.png, id=155, 162.6075pt x 60.225pt>
 File: img2.png Graphic file (type png)
  <use img2.png>
 Package pdftex.def Info: img2.png used on input line 61.
@@ -1479,7 +1479,7 @@ File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
  <./img2.png>] [4
 
 ]
-<logoTerraform.jpg, id=219, 225.84375pt x 225.84375pt>
+<logoTerraform.jpg, id=229, 225.84375pt x 225.84375pt>
 File: logoTerraform.jpg Graphic file (type jpg)
  <use logoTerraform.jpg>
 Package pdftex.def Info: logoTerraform.jpg used on input line 90.
@@ -1505,7 +1505,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [10
 
-] [11
+]
+File: logoTerraform.jpg Graphic file (type jpg)
+
+<use logoTerraform.jpg>
+Package pdftex.def Info: logoTerraform.jpg used on input line 182.
+(pdftex.def)             Requested size: 158.08954pt x 158.08954pt.
+ [11
+
+] [12
 
 ]
 \tf@nav=\write6
@@ -1517,26 +1525,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@snm=\write8
 \openout8 = `diapo.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
-
-(./diapo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
+ (./diapo.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
 Package rerunfilecheck Info: File `diapo.out' has not changed.
-(rerunfilecheck)             Checksum: 3C608D795BB3B343E590036A32EDBA8F;587.
+(rerunfilecheck)             Checksum: 2CB5D74CE56061E5F8E018D9FE5161CC;633.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 21192 strings out of 493013
- 383414 string characters out of 6139317
+ 21201 strings out of 493013
+ 383495 string characters out of 6139317
  465000 words of memory out of 5000000
- 24239 multiletter control sequences out of 15000+600000
+ 24245 multiletter control sequences out of 15000+600000
  12106 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,16n,60p,385b,725s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1552,10 +1559,10 @@ var/fonts/pk/ljfour/public/cm/cmss12.720pk> </home/ypsilik/.texlive/texmf-var/f
 onts/pk/ljfour/public/cm/cmss8.375pk> </home/ypsilik/.texlive/texmf-var/fonts/p
 k/ljfour/public/cm/cmcsc10.360pk> </home/ypsilik/.texlive/texmf-var/fonts/pk/lj
 four/public/cm/cmss8.450pk>
-Output written on diapo.pdf (11 pages, 173470 bytes).
+Output written on diapo.pdf (12 pages, 177317 bytes).
 PDF statistics:
- 792 PDF objects out of 1000 (max. 8388607)
- 485 compressed objects within 5 object streams
- 32 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 848 PDF objects out of 1000 (max. 8388607)
+ 536 compressed objects within 6 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
