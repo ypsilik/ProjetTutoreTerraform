@@ -27,3 +27,22 @@
 - une machine avec terraform
 
 Terraform et python nova minimal pour que ca marche (pour avant vac)
+
+
+
+# Plan
+
+- introduction
+	+ problématique
+	+ contexte
+	+ enjeu
+- terraform
+	+ presentation
+	+ utilisation
+	+ fonctionnement
+	+ Configuration effectuée (ce qu'on a fait)
+- ansible
+	+ présentation
+	+ utilisation
+	+ fonctionnement
+- Conclusion
