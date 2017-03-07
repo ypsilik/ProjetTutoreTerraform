@@ -19,6 +19,18 @@ resource "openstack_compute_instance_v2" "vps" {
     name = "${openstack_networking_network_v2.network_1.name}"
     fixed_ip_v4 = "192.168.0.1${(count.index)+1}"
   }
+  provisioner "remote-exec" {
+	connection {
+		type = "ssh"
+		user = "root"
+		private_key = "${file("/home/ypsilik/.ssh/id_rsa_terraform")}"
+#		private_key = "${file("/home/ypsilik/.ssh/id_pem_terraform.pem")}"
+	}
+	inline = [
+		"touch truc.txt"
+	#	"ansible fichierAnsible.yml"
+	]
+  }
 }
 
 resource "openstack_compute_instance_v2" "test-network" {
@@ -35,3 +47,4 @@ resource "openstack_compute_instance_v2" "test-network" {
     
   }
 }
+

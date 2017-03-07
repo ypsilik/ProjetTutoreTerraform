@@ -3,7 +3,7 @@
 
 Le Cloud computing est un concept qui s'oppose à la notion de stockage local. Pour faire simple, le cloud computing va permettre d'utiliser des ressources informatiques sans les posséder réellement, de fournir des services ou des applications accessibles partout depuis internet. Il y a de nombreux avantages à utiliser un cloud computing. Tout d'abord, l'utilisateur n'a pas d'infrastructure à gérer, ce qui est parfois plus simple pour des entreprises, car c'est le fournisseur cloud qui s'occupe de la maintenance de ses équipements. Il permet donc une réduction des coûts en n'ayant pas besoin d'investir dans une infrastructure interne, mais en payant uniquement ce qu'il consomme à son fournisseur de cloud. Cependant, on a bien entendu des inconvénients comme le fait de savoir où le prestataire de service stocke nos données (territoire national ou pas -> problèmes de loi), la sécurité du cloud sur le stockage, la confidentialité et aussi vis-à-vis des hackers, on doit donc avoir confiance en le prestataire.
 
-Il existe trois catégories de services pour le cloud computing. 
+Il existe trois catégories de services pour le cloud computing.
 
 - Le cloud privé : infrastructure pouvant être gérée en interne par l'entreprise ou par un prestataire qui se verra confier les tâches relatives à l'administration et l'optimisation des performances. Il est conçu uniquement pour un seul utilisateur pour répondre aux mieux aux besoins. Ce modèle a pour avantage de laisser à l'entreprise le contrôle à la fois sur la gestion des services, des données et de l'infrastructure. Le fait que ce soit un système fermé permet de mieux connaître les paramètres de sécurité, les garanties de service et la politique de confidentialité. Cependant, le déploiement de ce type d'infrastructure est très coûteux à mettre en place.
 
@@ -79,7 +79,7 @@ Les configurations de Terraform sont écrites en HashiCorp Configuration Languag
 
 ### Les bases du langage
 
-*Commentaires* 
+*Commentaires*
 	- # sur une seule ligne
 	- /\* mon commentaires sur plusieurs lignes \*/
 
@@ -103,7 +103,7 @@ C'est la partie configuration du provider avec principalement les accès pour la
 
 ### Bloc **`resources`**
 
-Partie permettant la gestion des ressources (composants physiques et logiciels) qui existent dans l'infrastructure. Le nom d'une ressource se compose du nom du provider puis du nom de la ressource. 
+Partie permettant la gestion des ressources (composants physiques et logiciels) qui existent dans l'infrastructure. Le nom d'une ressource se compose du nom du provider puis du nom de la ressource.
 
 ### Variables
 
@@ -143,7 +143,7 @@ Terraform prend en paramètre pour cette resource un nom et la clef publique à 
 Les instances sont la plus grande partie de la configuration, elles correspondent aux machines qui vont être créées.
 ```language
 resource "openstack_compute_instance_v2" "vps" {
-  count = 3 
+  count = 3
   name = "vps-test-${(count.index)+1}"
   image_id = "185e1975-c9c5-4358-909e-5e329808902e"
   flavor_id = "16"
