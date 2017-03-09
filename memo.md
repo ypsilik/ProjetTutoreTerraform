@@ -11,6 +11,7 @@ L'éxécution du fichier se fait grâce à la commande `source 0750182707_projet
 
 La liste des instances créées sont visibles à l'aide de la commande `nova list`.
 
+`nova-floating-ip-list`
 ##### Création de l'instance
 ###### Génération de la clef ssh
 

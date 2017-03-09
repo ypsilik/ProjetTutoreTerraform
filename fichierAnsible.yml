@@ -1,4 +1,12 @@
-- name: install vim
-  apt:
-	name: emacs
-	state: present
+- hosts: all
+  become: true
+
+  tasks:  
+    - name: update
+      apt:
+        update_cache: yes
+
+    - name: install
+      apt:
+        name: nginx
+        state: present

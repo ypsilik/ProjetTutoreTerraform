@@ -1,10 +1,3 @@
-# Pool ip public
-resource "openstack_compute_floatingip_v2" "terraform" {
-  count = 4
-  pool = "${var.pool}"
-
-}
-
 # vps
 resource "openstack_compute_instance_v2" "vps" {
   count = 3 
@@ -13,23 +6,20 @@ resource "openstack_compute_instance_v2" "vps" {
   flavor_id = "16"
   key_pair = "${openstack_compute_keypair_v2.my_keypair.name}"
   security_groups = ["${openstack_compute_secgroup_v2.terraform.id}"]
-  floating_ip = "${element(openstack_compute_floatingip_v2.terraform.*.address, count.index+1)}"
+  floating_ip = "${var.id_ip_flottante[(count.index)+1]}" # le +1 c'est parce qu'on a test vps qui utilise le 0
 
   network {
     name = "${openstack_networking_network_v2.network_1.name}"
     fixed_ip_v4 = "192.168.0.1${(count.index)+1}"
   }
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
 	connection {
 		type = "ssh"
-		user = "root"
-		private_key = "${file("/home/ypsilik/.ssh/id_rsa_terraform")}"
-#		private_key = "${file("/home/ypsilik/.ssh/id_pem_terraform.pem")}"
+		user = "cloud"
+		private_key = "${file("/home/ypsilik/.ssh/id_rsa_nopass")}"
 	}
-	inline = [
-		"touch truc.txt"
-	#	"ansible fichierAnsible.yml"
-	]
+#	command = "ansible-playbook fichierAnsible.yml"
+	command = "echo OK >> ok.txt"
   }
 }
 
@@ -39,12 +29,10 @@ resource "openstack_compute_instance_v2" "test-network" {
   flavor_id = "16"
   key_pair = "${openstack_compute_keypair_v2.my_keypair.name}"
   security_groups = ["${openstack_compute_secgroup_v2.terraform.id}"]
-#  floating_ip = "89.39.40.107"
-  floating_ip = "${element(openstack_compute_floatingip_v2.terraform.*.address, 0)}"
+  floating_ip = "${var.id_ip_flottante[0]}"
   network {
     name = "${openstack_networking_network_v2.network_1.name}"
     fixed_ip_v4 = "192.168.0.2"
     
   }
 }
-
