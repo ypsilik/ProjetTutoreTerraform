@@ -32,13 +32,16 @@ Terraform et python nova minimal pour que ca marche (pour avant vac)
 
 # Plan
 
-- introduction
-	+ cloud computing
+- introduction (5 pages)
+	+ Infra as code / dev ops
 	+ problématique
 	+ contexte
 	+ enjeu
 	+ QQ mot sur Terraform
-- terraform
+
+- openstack / python nova (3 pages)
+	+ cloud computing
+- terraform (15 pages)
 	+ presentation
 	+ caractéristique
 	+ ex use case
@@ -46,18 +49,19 @@ Terraform et python nova minimal pour que ca marche (pour avant vac)
 	+ fonctionnement
 	+ contexte d'utilisation pour nous (aveec openstack)
 	+ Configuration effectuée (ce qu'on a fait)
-		- keypair
+		- keypair (on ne peut attribuer qu'une keypair aux VPS)
 		- vps
 		- securegroup
 		- ip flotantes
+        parler remote-exec/ local-exec / connection , difference
 		- réseau
 		- router
-- ansible
+- ansible (6 pages )
 	+ présentation
 	+ utilisation
 	+ fonctionnement
 	+ intégration à terraform
-	+ configuration effectué et pk on a fait ca (surtout pour explication pour les clef ssh)
-- Conclusion
+	+ configuration effectué et pk on a fait ca (surtout pour explication pour les clef ssh) bordel ip flo
+- Conclusion (3 pages)
 	+ ce qu'on a fait...
 	+ utilité de Terraform
