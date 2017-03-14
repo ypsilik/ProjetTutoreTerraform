@@ -1,10 +1,10 @@
 Explication de:
-- infrastructure as code
+- infrastructure as code OK
 - provider OK
 - provisionner
 - hébergeur (ovh/ cloudwatt)
 - vps (instance) OK
-- mouvance du devops
+- mouvance du devops OK
 - proof of concept OK
 - cluster
 - recette OK
@@ -233,6 +233,12 @@ resource "openstack_compute_floatingip_v2" "terraform" {
 
 }
 ```
+
+
+Les ip flotantes permettent aux instances d'avoir une ip publique. Permettant ainsi de pouvoir accéder en ssh aux instances.
+Terraform offre la posibilité de générer automatiquement les adresses ip en les piochant dans un pool public d'adresses. Cependant l'utiisation d'ansible requière la connaissance des adresses ip flottantes attribuée au machines. Pour ce faire plusieurs solutions s'offraient à nous.
+- La première est l'importation des adresses ip avec `terraform import`. Cependant Terraform ne permet pas la création de boucle, seule la variable *count* est utilisable. Le changement de nom de la resosurce importée est impossible avec ce système de boucle, 
+
 
 ### Réseau, sous-réseau et routeur (a quoi ca sert, ce qu'on a fait, pk on l'a fait)
 

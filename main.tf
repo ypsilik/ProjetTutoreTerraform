@@ -1,6 +1,6 @@
 # vps
 resource "openstack_compute_instance_v2" "vps" {
-  count = 1 
+  count = 3 
   name = "vps-test-${(count.index)+1}"
   image_id = "185e1975-c9c5-4358-909e-5e329808902e"
   flavor_id = "16"

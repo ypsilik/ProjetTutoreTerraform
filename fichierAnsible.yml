@@ -1,7 +1,10 @@
+
 - hosts: all
   become: true
 
   tasks:  
+    - local_action: wait_for port=22
+
     - name: update
       apt:
         update_cache: yes
