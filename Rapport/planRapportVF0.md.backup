@@ -1,14 +1,14 @@
 Explication de:
 - infrastructure as code OK
 - provider OK
-- provisionner OK
+- provisionner
 - hébergeur (ovh/ cloudwatt)
 - vps (instance) OK
 - mouvance du devops OK
 - proof of concept OK
-- cluster 
+- cluster
 - recette OK
-- ip Flottante (principe etc etc) OK
+- ip Flottante (principe etc etc)
 
 Partie bénéfice terraform a quoi ca sert concretement  / infrastructure as code
 Partie comparaison Avant Térraform / mtn avec Terraform
@@ -18,10 +18,8 @@ Partie comparaison Avant Térraform / mtn avec Terraform
 - Répartition du travail au sein du groupe
 - Section Bibliographie (source image et texte Copié)
 
-- intro sur mtn entreprise besoin infra as code / dev ops / cloud computing  ... (donc amene utilité Terraforml ss entendu) OK
-- python-nova OK
-
-[TOC]
+- intro sur mtn entreprise besoin infra as code / dev ops / cloud computing  ... (donc amene utilité Terraforml ss entendu)
+- python-nova 
 
 # Introduction
 ## Le cloud computing
@@ -66,108 +64,6 @@ OpenStack est un ensemble de logiciels/modules open source permettant de déploy
 ## Quelques mots sur Terraform
 
 Terraform est une solution pour la construction, la modification et le versionning d'infrastructure de manière sûre et efficace. Développé depuis 2013 par HashiCorp, c'est un outil en pleine expansion. Il permet de gérer plusieurs fournisseurs de services existant ainsi que des solutions développées en interne. Avec cette technologie, il est possible d'administrer des composants de bas niveau comme les IaaS, le stockage et la mise à niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
-
-# Openstack / python-nova 
-
-Xilopix fonctionne avec Openstack, nous avons donc du apprendre rapidement son fonctionnement pour pouvoir ensuite travailler plainement sur sa mise en place avec Terraform.
-
-## Introduction
-
-Openstack est un projet qui est né en 2010 (licence Apache 2.0) par l'entreprise RackSpace. OpenStack est un logiciel libre qui va nous permettre de faire du cloud computing et qui permet de faire du IaaS pour du cloud privé ou public. Le but d'Openstack est d'offrir à son utilisateur une multitude de module qui va lui permettre de faire de l'infrastructure as a service c'est à dire deployer des machines virtuelles en optimisant les ressources materielles. On peut les deployer dynamiquement pour une courte durée, mais il est également possible de deployer un ensemble de machines constituant une infrastructure externe.
-
-## Les modules : services d'OpenStack.
-
-Openstack se compose de plusieurs modules pour fonctionner, avec des modules plus ou moins important pour la création d'infrastructure.
-
-### Keystone, le service d'identité
-
-Fournit un service d’authentification et d’autorisation pour les autres services d’OpenStack. Fournit un catalogue de endpoints pour tous les services d’OpenStack.
-
-### Glance, la gestion d'images
-
-Stocke et récupère des images disques de machines virtuelles. OpenStack Compute les utilise lors du provisioning d’instance.
-
-### Nova, le Compute
-
-Nova est le coeur du project Openstack, il gère le cycle de vie des instances dans un environnement OpenStack. Les tâches incluent la planification, la création et la mise hors service de machines virtuelles à la demande.
-
-### Horizon, l'interface web
-
-Fournit un portail libre-service de type web permettant d’interagir avec les services sous-jacents d’OpenStack, comme le lancement d’une instance, l’attribution d’adresses IP ou la configuration des contrôles d’accès.
-
-### Cinder, le service de disques persistants
-
-Fournit un stockage bloc persistant aux instances en cours d’exécution. Son architecture basée sur des drivers de type plugin facilite la création et la gestion des devices de stockage bloc.
-
-### Neutron, la gestion de réseaux
-
-Permet le Network-Connectivity-as-a-Service pour d’autres services d’OpenStack, comme Compute. Il fournit une API utilisateur pour définir les réseaux et les attachements à ces réseaux. Il possède une architecture modulaire qui permet le support de la plupart des fournisseurs et des technologies réseau.
-
-### Swift, le stockage d'objet
-
-Stocke et récupère des objets de données non structurées via une API RESTful basée sur HTTP. Le service est hautement tolérant aux pannes avec sa réplication de données et son architecture de type scale-out. Son implémentation diffère des serveurs de fichiers à répertoires montables. Le service écrit les objets et les fichiers vers plusieurs disques, en s’assurant que les données sont répliquées sur un cluster de serveurs.
-
-### Heat, le service d'orchestration
-
-Orchestre de nombreuses applications de cloud composites en utilisant soit le format de template natif HOT ou le format CloudFormation d’AWS, soit au travers d’une API REST native OpenStack, soit au travers d’une API compatible avec CloudFormation.
-
-### Ceilometer, le service de métrologie
-
-Surveille et mesure un cloud OpenStack dans un but de facturation, de mesure de performances, de scalabilité et de statistiques.
-
-Voici un shema qui permet de montrer le lien entre tout les modules.
-
-![](../Momo/Openstack_diagramme_conceptuel.jpg) 
-
-## Le Client Python nova 
-
-Le client Python-nova est un client en ligne de commande pour le module Nova OpenStack , il va nous permmetre de mettre en oeuvre 100% de l'API Nova , et aussi la gestion des instances, des images, etc...
-
-### Installation de python-nova
-
-Pour installer le plugin python-nova, il faut avoir préalablement installé python et son système d’installation pip.
-Pour lancer l’installation il suffit de taper pip install -U python-novaclient .
- 
-### Configuration des variables d’environnement pour Openstack
-
-Pour configurer toutes les variables, Openstack génère un fichier RC contenant la totalité des variables d’environnement à configurer.
-
-Depuis Cloudwatt il faut aller dans les paramètres *accès et sécurité* puis *accès API* et enfin télécharger le fichier. En effet Cloudwatt génère un fichier contenant toutes les variables d'environnement nécésaire à la configuration de la connexion Openstack.
-
-L’éxécution du fichier se fait grâce à la commande `source 0750182707_projet_tutore_2017-openrc.sh` et permet la configuration automatique des variables.
-
-### Liste des instances 
-La liste des instances créées sont visibles à l’aide de la commande `nova list`.
-
-## Création de l’instance
-### Génération de la clef ssh
-
-`ssh-keygen`
-
-### Intégration clef ssh au keypair Openstack
-
-`nova keypair-add --pub-key .ssh/id_rsa.pub SSHKEY`
-
-### Choix du flavor
-
-`nova flavor-list` affiche la liste des flavors disponibles. Une fois choisi, il faut récuperer son ID qui sera renseigné lors de la création de l’instance.
-
-### Choix de l’image (système installé)
-
-`nova image-list` affiche la liste des images systèmes disponibles. Une fois choisi,
-Il faut récuperer son ID qui sera demandé lors de la génération de l’instance.
-
-### Création de l’instance
-
-`nova boot --key-name SSHKEY --flavor 16 --image 185e1975-c9c5-4358-909e-5e329808902e instance1`
-
-Pour la création de l’instance on retrouve quatre éléments :
-- le nom du keypair
-- l’id du flavor
-- l’id de l’image
-- le nom de l’instance
-
-![](/home/valentin/Images/eeee.png) 
 
 
 # Terraform
@@ -229,13 +125,6 @@ Les configurations de Terraform sont écrites en HashiCorp Configuration Languag
 
 Il existe également de nombreuses fonctions utilisables avec HCL comme par exemple la fonction format(format, args, ...) qui va permettre de formater une chaîne selon le format que l'on donne.
 
-Les différents bloc se définissent avec des accolades dans le même principe que des fonctions dans les autres langages connu.
-```language
-ressource "nom_type_ressource" "nomRessource" {
-	...
-}
-```
-
 ## Fonctionnement
 
 Terraform étant développé en Go, il n'a pas besoin d'être installé. Il suffit de télécharger une archive .zip et de l'extraire. Il est ensuite possible d'utiliser les commandes associées à Terraform avec `./terraform ...`. Pour faciliter l'utilisation des commandes, il est recommandé de copier le fichier dans */usr/local/* et d'ajouter ensuite le chemin menant jusqu'au fichier en question dans le PATH `PATH=/usr/local/...:$PATH`.
@@ -283,10 +172,10 @@ module "Name" {
 
 - `terraform plan` -- génère un plan d'action de la configuration. Le plan inclu toutes les actions faites et montre les modifications que va effectuer Terraform.
 - `terraform plan -destroy -out=destroy.tf` -- génère un plan d'action qui à pour objectif de détruire tous le projet défini pas les fichiers de configuration. Le résultat est enregistré dans un fichier pour ensuite être appliqué avec `terraform apply destroy.tf`.
-- `terraform destroy` -- détruit l'infrastructure généré par Terraform avec le compte importé (idendique à la technique du dessus).
-- `terraform apply` -- applique le code Terraform en générant ce que `terraform plan` à montré précédement
-- `terraform graph` -- permet la visualisation du plan en images 
-- `terraform show` -- montre les infrastructures en place
+- `terraform destroy` -- détruit les configurations terraform qui ont été lancées depuis la même machine (équivalent à la technique du dessus).
+- `terraform apply` -- applique le plan
+- `terraform graph` -- permet visualisation du plan
+- `terraform show` -- montre les infra en place
 
 ## Configurations effectuées
 ### Keypair
@@ -347,12 +236,11 @@ Terraform offre la posibilité de générer automatiquement les adresses ip en l
 - La seconde solution est la création d'une liste contenant les adresses ip floatantes créées depuis l'interface web de l'hébergeur. L'appel de l'adresse se fait depuis la ressource instance de terraform qui vas récuperer une adresse dans la liste.
 
 ```language
-# Fichier variables.tf
+#Ip flotantes
 variable "id_ip_flottante" {
     default = ["84.39.49.19","84.39.46.157","84.39.44.165","84.39.41.206"]
 }
 
-# Fichier main.tf
 resource "openstack_compute_instance_v2" "vps" {
 	floating_ip = "${var.id_ip_flottante[(count.index)+1]}"
 }
@@ -366,7 +254,7 @@ Terraform permettant de créer toute une infrastructure, nous nous sommes aussi 
 
 #### Réseau et sous-réseau
 
-Pour être utilisable, les instances doivent être connectées à un réseau. Terraform offre la possibilité de crée rapidement et facilement un réseau ainsi que les sous-réseaux et port utile à celui-ci. Les instances sont donc configurées pour être intégrées à ce réseau et obtenir une adresse ip dans ce dernier.
+Pour être utilisable, les instances doivent être connectées à un réseau. Terraform offre la possibilité de crée rapidement et facilement un réseau ainsi que les sous-réseaux et port utile à celui-ci. Les instances sont donc configuré pour être intégrées à ce réseau et obtenir une adresse ip dans ce dernier.
 ```language
 resource "openstack_networking_network_v2" "network_1" {
   name = "resTerraform"
@@ -400,12 +288,9 @@ resource "openstack_networking_router_v2" "router_1" {
 }
 ```
 
-![reseau.png](./reseau.png)
-
 # Provisionnement 
-Terraform permet aussi le provisionnement de ses instances avec différents provisionners comme chef, puppet ou encore ansible. Cependant Terraform n'offre un service que pour Chef mais permet d'éxécuter différentes commandes automatiquement depuis la machine lancant `terraform apply` avec le provisionner `local_exec` ou depuis la machine générée avec Terraform grâce au provisionner `remote_exec`. Celui-ci se compléte avec le bloc `connection` effectuant une connexion ssh avec les identifiants désiré. Ces dernières se mettant dans les instances.
+Terraform permet aussi le provisionnement de ses instances avec différents provisionners comme chef, puppet ou encore ansible. Cependant Terraform n'offre un service que pour Chef mais permet d'éxécuter différentes commande automatiquement depuis la machine lancant `terraform apply` avec le provisionner `local_exec` ou depuis la machine générée avec Terraform grâce au provisionner `remote_exec`. Celui-ci se compléte avec le bloc `connection` effectuant une connexion ssh avec les identifiants désiré. Ces dernières se mettant dans les instances.
 Les ressources de type `null-ressource` permettent d'executer des commandes après la création des certaines ressources. Grâce à cela, il est possible de lancer ansible automatiquement à la fin de la création des vps.
-
 
 # Ansible
 ## Présentation
@@ -413,29 +298,6 @@ Les ressources de type `null-ressource` permettent d'executer des commandes apr�
 ## Intégration à Terraform
 ## Configuration effectuée (pk on l'a fait, surtout expliqué pour les clef ssh)
 
-# Répartition des tâches au seins du groupe
-Le projet se tenait sur une seule technologie qui est Terraform. La répartition des tâches c'est donc faite par rapport aux différentes parties que nous avons du créer pour faire fonctionner notre infrastructure.
-(TODO: Diagramme de GANTT ? ou truc semblable ?)
-
-# Avant TerraForm 
-## AWS CloudFormation 
-
-CloudFormation fournit par Amazon Web Service permet de créer et de gérer un ensemble de ressources qui sont liées, de les ordonner, les mettre en service et les actualiser en mode ordonnée. Il permait d'avoir aussi une infrastructure as code avec des simples fichiers textes au format JSON ou YAML. Il fonctionne uniquement avec AWS mais le fonctionnement resemble à Terraform. Il permet de créer un modèle qui décrit toutes les ressources AWS que l'on veut (telles que des instances Amazon EC2 ou des instances de base de données Amazon RDS). De plus AWS CloudFormation s'occupe de leur mise en service et de leur configuration.
-AWS CloudFormation a des modéles d'exemples déjà crée qui peuvent etre utilisés. Il est aussi possible de créer des modèles personalisés. 
-
-## Heat 
-
-Heat est un module de la partie orchestraction de OpenStack. La mission du programme OpenStack Orchestration est de créer un service accessible pour gérer l'ensemble du cycle de vie des infrastructures et des applications dans le cloud OpenStack. Heat fournit une orchestration à base de modèle pour décrire une application cloud. En s'exécutant OpenStack appels différentes API pour générer l'exécution d'applications cloud. Un template Heat décrit l'infrastructure pour une application cloud dans des fichiers textes qui sont lisibles et modifiables par les humains, et peut être géré par des outils de contrôle de version. Le logiciel intègre d'autres composants d'OpenStack. Les modèles permettent la création de la plupart des types de ressources OpenStack tels que les instances, ip flottantes, des volumes, des groupes de sécurité, les utilisateurs, etc. Ainsi que certaines fonctionnalités plus avancées telles que la haute disponibilité. Heat gère principalement l'infrastructure, mais les templates intègrent aussi des outils de gestion de configuration logiciel tels que Puppet et Ansible.
-
-
-# TerraForm vs les autres logiciels
-
-Les outils comme CloudFormation, Heat, etc... permettent à une infrastructure d'être codifiés dans un fichier de configuration. Les fichiers de configuration permettent à l'infrastructure d'être élastiquement créé, modifiée et détruite. Terraform est inspiré par les problèmes qu'ils résolvent.
-
-Terraform utilise de la même façon des fichiers de configuration pour détailler la configuration de l'infrastructure, mais il va plus loin par le diagnostique ainsi que la permission de fournisseurs multiples et des services combiné et composé. Par exemple, Terraform peut être utilisé pour orchestrer un AWS et un groupe OpenStack simultanément, en permettant des fournisseurs du 3ème parti comme CloudFlare et DNSIMPLE d'être intégré pour fournir des services de DNS et CDN. Ceci permet à Terraform de représenter et gérer l'infrastructure entière avec ses services de soutien. Au lieu de seulement le sous-ensemble qui existe dans un fournisseur seul. Il fournit une syntaxe unifiée, au lieu d'exiger que des opérateurs utilisent des outils indépendants et non-interopérables pour chaque plate-forme et service.
-
-Terraform sépare également la phase de planification de la phase d'exécution, en utilisant le concept d'un plan d'exécution. En exécutant terraform plan, l'état actuel est actualisé et la configuration est consulté pour générer un plan d'action. Le plan comprend toutes les actions à entreprendre. Quelles ressources seront créés, détruites ou modifiées ? Terraform génère un plan d'exécution décrivant ce qu'il va faire pour atteindre l'état désiré. En utilisant terraform graph, le plan peut être visualisé pour montrer les commandes qui vont être executées par celui-ci . Une fois que le plan est capturé, la phase d'exécution peut être limitée aux seules actions du plan. D'autres outils combinent les phases de planification et d'exécution, ce qui signifie que terraform montre les effets de changement qui va se produire sur l'infrastructure, qui devient rapidement insoluble dans les grandes infrastructures. Terraform permet aux opérateurs d'appliquer des changements avec confiance, car ils savent exactement ce qui se passera au préalable.
-
 # Conclusion
-
-TerraForm est un outils formidable permmetant de deployer des infrastructures de maniere simple et efficace. Il fournit une syntaxe simple et unifiée permettant de gérer presque toutes les ressources sans apprendre de nouveaux outils. En outre, Terraform est un outil open source. En plus de HashiCorp, la communauté autour de Terraform contribue à étendre ses fonctionnalités, corriger les bugs et documenter de nouveaux cas d'utilisation. Terraform aide à résoudre un problème qui existe dans chaque organisation et fournit un standard qui peut être adoptée pour éviter de réinventer la roue entre et au sein des organisations.
+## Ce qu'on a fait
+## Utilité de Terraform, easy to use ? 

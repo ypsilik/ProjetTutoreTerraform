@@ -2,7 +2,7 @@
   become: true
 
   tasks:  
-#    - local_action: wait_for port=22 
+    - local_action: wait_for port=22 host="{{ ansible_ssh_host }}"  search_regex=OpenSSH delay=10
 
     - name: update
       apt:
