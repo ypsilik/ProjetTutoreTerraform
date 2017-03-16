@@ -1,14 +1,14 @@
 Explication de:
 - infrastructure as code OK
 - provider OK
-- provisionner
+- provisionner OK
 - hébergeur (ovh/ cloudwatt)
 - vps (instance) OK
 - mouvance du devops OK
 - proof of concept OK
-- cluster
+- cluster 
 - recette OK
-- ip Flottante (principe etc etc)
+- ip Flottante (principe etc etc) OK
 
 Partie bénéfice terraform a quoi ca sert concretement  / infrastructure as code
 Partie comparaison Avant Térraform / mtn avec Terraform
@@ -18,8 +18,10 @@ Partie comparaison Avant Térraform / mtn avec Terraform
 - Répartition du travail au sein du groupe
 - Section Bibliographie (source image et texte Copié)
 
-- intro sur mtn entreprise besoin infra as code / dev ops / cloud computing  ... (donc amene utilité Terraforml ss entendu)
-- python-nova 
+- intro sur mtn entreprise besoin infra as code / dev ops / cloud computing  ... (donc amene utilité Terraforml ss entendu) OK
+- python-nova OK
+
+[TOC]
 
 # Introduction
 ## Le cloud computing
@@ -64,6 +66,108 @@ OpenStack est un ensemble de logiciels/modules open source permettant de déploy
 ## Quelques mots sur Terraform
 
 Terraform est une solution pour la construction, la modification et le versionning d'infrastructure de manière sûre et efficace. Développé depuis 2013 par HashiCorp, c'est un outil en pleine expansion. Il permet de gérer plusieurs fournisseurs de services existant ainsi que des solutions développées en interne. Avec cette technologie, il est possible d'administrer des composants de bas niveau comme les IaaS, le stockage et la mise à niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
+
+# Openstack / python-nova 
+
+Xilopix fonctionne avec Openstack, nous avons donc du apprendre rapidement son fonctionnement pour pouvoir ensuite travailler plainement sur sa mise en place avec Terraform.
+
+## Introduction
+
+Openstack est un projet qui est né en 2010 (licence Apache 2.0) par l'entreprise RackSpace. OpenStack est un logiciel libre qui va nous permettre de faire du cloud computing et qui permet de faire du IaaS pour du cloud privé ou public. Le but d'Openstack est d'offrir à son utilisateur une multitude de module qui va lui permettre de faire de l'infrastructure as a service c'est à dire deployer des machines virtuelles en optimisant les ressources materielles. On peut les deployer dynamiquement pour une courte durée, mais il est également possible de deployer un ensemble de machines constituant une infrastructure externe.
+
+## Les modules : services d'OpenStack.
+
+Openstack se compose de plusieurs modules pour fonctionner, avec des modules plus ou moins important pour la création d'infrastructure.
+
+### Keystone, le service d'identité
+
+Fournit un service d’authentification et d’autorisation pour les autres services d’OpenStack. Fournit un catalogue de endpoints pour tous les services d’OpenStack.
+
+### Glance, la gestion d'images
+
+Stocke et récupère des images disques de machines virtuelles. OpenStack Compute les utilise lors du provisioning d’instance.
+
+### Nova, le Compute
+
+Nova est le coeur du project Openstack, il gère le cycle de vie des instances dans un environnement OpenStack. Les tâches incluent la planification, la création et la mise hors service de machines virtuelles à la demande.
+
+### Horizon, l'interface web
+
+Fournit un portail libre-service de type web permettant d’interagir avec les services sous-jacents d’OpenStack, comme le lancement d’une instance, l’attribution d’adresses IP ou la configuration des contrôles d’accès.
+
+### Cinder, le service de disques persistants
+
+Fournit un stockage bloc persistant aux instances en cours d’exécution. Son architecture basée sur des drivers de type plugin facilite la création et la gestion des devices de stockage bloc.
+
+### Neutron, la gestion de réseaux
+
+Permet le Network-Connectivity-as-a-Service pour d’autres services d’OpenStack, comme Compute. Il fournit une API utilisateur pour définir les réseaux et les attachements à ces réseaux. Il possède une architecture modulaire qui permet le support de la plupart des fournisseurs et des technologies réseau.
+
+### Swift, le stockage d'objet
+
+Stocke et récupère des objets de données non structurées via une API RESTful basée sur HTTP. Le service est hautement tolérant aux pannes avec sa réplication de données et son architecture de type scale-out. Son implémentation diffère des serveurs de fichiers à répertoires montables. Le service écrit les objets et les fichiers vers plusieurs disques, en s’assurant que les données sont répliquées sur un cluster de serveurs.
+
+### Heat, le service d'orchestration
+
+Orchestre de nombreuses applications de cloud composites en utilisant soit le format de template natif HOT ou le format CloudFormation d’AWS, soit au travers d’une API REST native OpenStack, soit au travers d’une API compatible avec CloudFormation.
+
+### Ceilometer, le service de métrologie
+
+Surveille et mesure un cloud OpenStack dans un but de facturation, de mesure de performances, de scalabilité et de statistiques.
+
+Voici un shema qui permet de montrer le lien entre tout les modules.
+
+![](../Momo/Openstack_diagramme_conceptuel.jpg) 
+
+## Le Client Python nova 
+
+Le client Python-nova est un client en ligne de commande pour le module Nova OpenStack , il va nous permmetre de mettre en oeuvre 100% de l'API Nova , et aussi la gestion des instances, des images, etc...
+
+### Installation de python-nova
+
+Pour installer le plugin python-nova, il faut avoir préalablement installé python et son système d’installation pip.
+Pour lancer l’installation il suffit de taper pip install -U python-novaclient .
+ 
+### Configuration des variables d’environnement pour Openstack
+
+Pour configurer toutes les variables, Openstack génère un fichier RC contenant la totalité des variables d’environnement à configurer.
+
+Depuis Cloudwatt il faut aller dans les paramètres *accès et sécurité* puis *accès API* et enfin télécharger le fichier. En effet Cloudwatt génère un fichier contenant toutes les variables d'environnement nécésaire à la configuration de la connexion Openstack.
+
+L’éxécution du fichier se fait grâce à la commande `source 0750182707_projet_tutore_2017-openrc.sh` et permet la configuration automatique des variables.
+
+### Liste des instances 
+La liste des instances créées sont visibles à l’aide de la commande `nova list`.
+
+## Création de l’instance
+### Génération de la clef ssh
+
+`ssh-keygen`
+
+### Intégration clef ssh au keypair Openstack
+
+`nova keypair-add --pub-key .ssh/id_rsa.pub SSHKEY`
+
+### Choix du flavor
+
+`nova flavor-list` affiche la liste des flavors disponibles. Une fois choisi, il faut récuperer son ID qui sera renseigné lors de la création de l’instance.
+
+### Choix de l’image (système installé)
+
+`nova image-list` affiche la liste des images systèmes disponibles. Une fois choisi,
+Il faut récuperer son ID qui sera demandé lors de la génération de l’instance.
+
+### Création de l’instance
+
+`nova boot --key-name SSHKEY --flavor 16 --image 185e1975-c9c5-4358-909e-5e329808902e instance1`
+
+Pour la création de l’instance on retrouve quatre éléments :
+- le nom du keypair
+- l’id du flavor
+- l’id de l’image
+- le nom de l’instance
+
+![](/home/valentin/Images/eeee.png) 
 
 
 # Terraform
@@ -125,11 +229,21 @@ Les configurations de Terraform sont écrites en HashiCorp Configuration Languag
 
 Il existe également de nombreuses fonctions utilisables avec HCL comme par exemple la fonction format(format, args, ...) qui va permettre de formater une chaîne selon le format que l'on donne.
 
+Les différents bloc se définissent avec des accolades dans le même principe que des fonctions dans les autres langages connu.
+```language
+ressource "nom_type_ressource" "nomRessource" {
+	...
+}
+```
+
 ## Fonctionnement
 
 Terraform étant développé en Go, il n'a pas besoin d'être installé. Il suffit de télécharger une archive .zip et de l'extraire. Il est ensuite possible d'utiliser les commandes associées à Terraform avec `./terraform ...`. Pour faciliter l'utilisation des commandes, il est recommandé de copier le fichier dans */usr/local/* et d'ajouter ensuite le chemin menant jusqu'au fichier en question dans le PATH `PATH=/usr/local/...:$PATH`.
 
 Terraform peut être composé de plusieurs fichiers de configuration pour une infrastructure. Dans ce cas, les fichiers sont lus par ordre alphabétique, mais la priorité reste au fichier *main.tf*.
+
+
+Les fichiers Terraform se composent de différents type de bloc : le bloc provider et le bloc ressource. Chacun de ses blocs peut se retrouver plusieurs fois dans un fichier.
 
 ### Bloc **`provider`**
 
@@ -143,9 +257,9 @@ provider "openstack" {
 }
 ```
 
-Cloudwatt offre la génération d'un fichier .sh avec la totalité des identifiants est accès pour Openstack. Pour la connection, nous avons pu ommettre le bloc provider, Terraform se charge de récuperer les variables environnementale correspondant aux paramètres dont il a besoin pour retrouver le provider.
+Cloudwatt offre la génération d'un fichier .sh avec la totalité des identifiants est accès pour Openstack. Pour la connection, nous avons pu ommettre le bloc provider, Terraform se charge de récuperer les variables environnementales correspondant aux paramètres dont il a besoin pour retrouver le provider.
 
-### Bloc **`resources`**
+### Bloc **`resource`**
 
 Partie permettant la gestion des ressources (composants physiques et logiciels) qui existent dans l'infrastructure. Le nom d'une ressource se compose du nom du provider puis du nom de la ressource en un bloc et enfin un nom pour cette ressource terraform qui sera utilisé uniquement par terraform.
 ```language
@@ -175,20 +289,21 @@ module "Name" {
 - `terraform show` -- montre les infra en place
 
 ## Configurations effectuées
-### Keypair (a quoi ca sert, ce qu'on a fait, pk on l'a fait)
+### Keypair
 
-Une des premières configuration effectuée fut l'ajout de clef ssh pour le projet. Cet ajout avait pour objectif de nous permettre de nous connecter en ssh avec les instances créées.
+Une des premières configurations effectuées fut l'ajout de clef ssh pour le projet. Cet ajout avait pour objectif de nous permettre de nous connecter en ssh avec les instances créées.
 ```language
 resource "openstack_compute_keypair_v2" "my_keypair" {
   name = "my_keypair"
   public_key = "${var.keypair}"
 }
 ```
-Terraform prend en paramètre pour cette resource un nom et la clef publique à ajouter. Chaque instance peut etre accessible avec une clef ssh. Dans un premier temps pour avoir tous accès aux instances nous avons du nous partager la clef privé créée spécialement pour le projet. (NOTE: si on l'a fait: Nous avons ensuite réglé ce problème grâce à ansible.)
+Terraform prend en paramètre pour cette resource un nom et la clef publique à ajouter.
+Cette clef ssh est requise lors de la création d'instance. En effet celles-ci prennent en paramètre une keypair - `key_pair = "${openstack_compute_keypair_v2.my_keypair.name}"` - pour permettre la connection ssh à l'instance en question. Cependant une seule keypair peut être intégrée dans la ressource *instance*. Pour avoir tous accès en ssh aux instances, nous nous sommes paratagé la clef privé créée spécialement pour le projet et n'ayant pas de passphrase pour permettre à ansible de se connecter ensuite.
 
-### Instances (vps) (a quoi ca sert, ce qu'on a fait, pk on l'a fait)
+### Instances
 
-Les instances sont la plus grande partie de la configuration, elles correspondent aux machines virtuelles qui vont être créées.
+Les instances sont la plus grande partie de la configuration, elles correspondent aux réseaux privés virtuels (vps) qui vont être créées.
 ```language
 resource "openstack_compute_instance_v2" "vps" {
   count = 3
@@ -205,11 +320,12 @@ resource "openstack_compute_instance_v2" "vps" {
   }
 }
 ```
-Une instance peut être créée dans une configuration unique, mais il est aussi possible d'en généré plusieurs automatiquement avec une seule ressource associée grâce au paramètre `count`. la récupération du nombre actuel d'ou est le count (NOTE : ca veux rien dire faut que je trouve comment le dire) est possible avec `count.index`. Chaque instance est rataché à un ou plusieurs réseau selon les besoins. Pour les ratacher, il faut ecrire un bloc *network* comme ci-dessus.
+Une instance peut être créée dans une configuration unique, mais il est aussi possible d'en générer plusieurs automatiquement avec une seule ressource associée grâce au paramètre `count`.
+La création des insantances se fait donc en partant de zéro. Avec `count.index` nous pouvons récuperer l'index actuel de la boucle générée par tarraform. Chaque instance est ratachée à un ou plusieurs réseaus selon les besoins. Pour notre proof of concept, nous avons utilisé un seul réseau. Pour connecter les instances au réseau, il faut écrire un bloc *network* comme ci-dessus.
 
-### Security group (a quoi ca sert, ce qu'on a fait, pk on l'a fait)
+### Security group
 
-Le Sécurity group permet d'autoriser les transmissions sur certain port. Un sécurity group fonctionne dans le même principe d'un firewall. Il est conposé de règles (*rule*). Une règle est définit pour un port.
+Le security group permet d'autoriser les transmissions sur certain port. Un security group fonctionne sur le même principe qu'un firewall. Il est conposé de règles *rule*. Une règle est définit pour un port. Nous avons crés un security group nommé \og terraform \fg composé d'une seule règle permettant la connection ssh (port 22).
 ```language
 resource "openstack_compute_secgroup_v2" "terraform" {
   name        = "terraform"
@@ -223,30 +339,33 @@ resource "openstack_compute_secgroup_v2" "terraform" {
 }
 ```
 
-### Ip flotante (a quoi ca sert, ce qu'on a fait, pk on l'a fait)
-
-Les ip flotantes permettent aux instances d'avoir une ip publique. Cela permet de pouvoir acceder en ssh à celle-ci. Les ip flotantes sont définies dans un pool. Aucune intervention n'est nécessaire sur l'hébergeur pour créer ses adresses. Terraform ne se contente pas d'attribuer les adresses publiques aux instances qu'il crée mais génére aussi automatiquement les ip disponibles à partir du pool défini. Le pool par défaut pour les ip publiqude est le plus souvent *public*.
-```language
-resource "openstack_compute_floatingip_v2" "terraform" {
-  count = 4
-  pool = "${var.pool}"
-
-}
-```
-
+### Ip flotantes
 
 Les ip flotantes permettent aux instances d'avoir une ip publique. Permettant ainsi de pouvoir accéder en ssh aux instances.
-Terraform offre la posibilité de générer automatiquement les adresses ip en les piochant dans un pool public d'adresses. Cependant l'utiisation d'ansible requière la connaissance des adresses ip flottantes attribuée au machines. Pour ce faire plusieurs solutions s'offraient à nous.
-- La première est l'importation des adresses ip avec `terraform import`. Cependant Terraform ne permet pas la création de boucle, seule la variable *count* est utilisable. Le changement de nom de la resosurce importée est impossible avec ce système de boucle, 
+Terraform offre la posibilité de générer automatiquement les adresses ip en les piochant dans un pool public d'adresses. Cependant l'utiisation d'ansible requière la connaissance des adresses ip flottantes attribuée aux machines. Pour ce faire plusieurs solutions s'offraient à nous.
+- La première est l'importation des adresses ip avec `terraform import`. Cependant Terraform ne permet pas la création de boucle, seule la variable *count* est utilisable. Le changement de nom de la ressource importée est impossible avec ce système de boucle. L'importation avec terraform fonctionne de la manière suivante : La ressource est importé avec la commande, mais pour être utilisable elle doit avoir une ressource créée dans le fichier .tf. L'importation d'une multitude d'adresses ip entrainaient la création du même nombre de ressources le tout créé à la main. La tâche devenaient vite fastidieuse.
+- La seconde solution est la création d'une liste contenant les adresses ip floatantes créées depuis l'interface web de l'hébergeur. L'appel de l'adresse se fait depuis la ressource instance de terraform qui vas récuperer une adresse dans la liste.
+
+```language
+#Ip flotantes
+variable "id_ip_flottante" {
+    default = ["84.39.49.19","84.39.46.157","84.39.44.165","84.39.41.206"]
+}
+
+resource "openstack_compute_instance_v2" "vps" {
+	floating_ip = "${var.id_ip_flottante[(count.index)+1]}"
+}
+```
+Nous avons donc choisit cette dernière pour mettre en place le système d'ip flotantes dans notre infrastructure terraform.
 
 
-### Réseau, sous-réseau et routeur (a quoi ca sert, ce qu'on a fait, pk on l'a fait)
+### Réseau, sous-réseau et routeur
 
 Terraform permettant de créer toute une infrastructure, nous nous sommes aussi penchés sur la création du réseau, de ses sous-réseaux et du routeur nous permettant un accès au monde extérieur.
 
 #### Réseau et sous-réseau
 
-Créer uniquement des machines virtuelles est inutile, pour qu'elles soient fonctionnelles il faut les connecter à un réseau ou un sous-réseau. Ainsi, elles seront capables de communiquer entre-elles. 
+Pour être utilisable, les instances doivent être connectées à un réseau. Terraform offre la possibilité de crée rapidement et facilement un réseau ainsi que les sous-réseaux et port utile à celui-ci. Les instances sont donc configurées pour être intégrées à ce réseau et obtenir une adresse ip dans ce dernier.
 ```language
 resource "openstack_networking_network_v2" "network_1" {
   name = "resTerraform"
@@ -271,22 +390,20 @@ resource "openstack_networking_port_v2" "port_1" {
 
 #### Routeur
 
-Pour que le tout accède à internet ,la connexion du réseau avec un routeur était obligatoire. Nous avons donc créer toujours avec Terraform un routeur rataché à internet et au réseaux internes.
+Pour que l'infrastructure créée soit opérationelle, il faut lui autoriser un accès à l'extérieur du réseau. Pour se faire nous passons par un routeur qui est lui même composé d'une interface le relinant à un des réseau crée précedement.
 ```language
 resource "openstack_networking_router_v2" "router_1" {
   name = "routerTerraform"
   admin_state_up = "true"
   external_gateway = "6ea98324-0f14-49f6-97c0-885d1b8dc517"
 }
-
-resource "openstack_networking_router_interface_v2" "int_1" {
-  router_id = "${openstack_networking_router_v2.router_1.id}"
-  subnet_id = "${openstack_networking_subnet_v2.subnet_2.id}"
-}
 ```
 
+![reseau.png](./reseau.png)
 
-La création de l'infrastructure étant terminée. Il fallait encore remplir les instances créées.
+# Provisionnement 
+Terraform permet aussi le provisionnement de ses instances avec différents provisionners comme chef, puppet ou encore ansible. Cependant Terraform n'offre un service que pour Chef mais permet d'éxécuter différentes commande automatiquement depuis la machine lancant `terraform apply` avec le provisionner `local_exec` ou depuis la machine générée avec Terraform grâce au provisionner `remote_exec`. Celui-ci se compléte avec le bloc `connection` effectuant une connexion ssh avec les identifiants désiré. Ces dernières se mettant dans les instances.
+Les ressources de type `null-ressource` permettent d'executer des commandes après la création des certaines ressources. Grâce à cela, il est possible de lancer ansible automatiquement à la fin de la création des vps.
 
 # Ansible
 ## Présentation
@@ -294,6 +411,29 @@ La création de l'infrastructure étant terminée. Il fallait encore remplir les
 ## Intégration à Terraform
 ## Configuration effectuée (pk on l'a fait, surtout expliqué pour les clef ssh)
 
+# Répartition des tâches au seins du groupe
+Le projet se tenait sur une seule technologie qui est Terraform. La répartition des tâches c'est donc faite par rapport aux différentes parties que nous avons du créer pour faire fonctionner notre infrastructure.
+(TODO: Diagramme de GANTT ? ou truc semblable ?)
+
+# Avant TerraForm 
+## AWS CloudFormation 
+
+CloudFormation fournit par Amazon Web Service permet de créer et de gérer un ensemble de ressources qui sont liées, de les ordonner, les mettre en service et les actualiser en mode ordonnée. Il permait d'avoir aussi une infrastructure as code avec des simples fichiers textes au format JSON ou YAML. Il fonctionne uniquement avec AWS mais le fonctionnement resemble à Terraform. Il permet de créer un modèle qui décrit toutes les ressources AWS que l'on veut (telles que des instances Amazon EC2 ou des instances de base de données Amazon RDS). De plus AWS CloudFormation s'occupe de leur mise en service et de leur configuration.
+AWS CloudFormation a des modéles d'exemples déjà crée qui peuvent etre utilisés. Il est aussi possible de créer des modèles personalisés. 
+
+## Heat 
+
+Heat est un module de la partie orchestraction de OpenStack. La mission du programme OpenStack Orchestration est de créer un service accessible pour gérer l'ensemble du cycle de vie des infrastructures et des applications dans le cloud OpenStack. Heat fournit une orchestration à base de modèle pour décrire une application cloud. En s'exécutant OpenStack appels différentes API pour générer l'exécution d'applications cloud. Un template Heat décrit l'infrastructure pour une application cloud dans des fichiers textes qui sont lisibles et modifiables par les humains, et peut être géré par des outils de contrôle de version. Le logiciel intègre d'autres composants d'OpenStack. Les modèles permettent la création de la plupart des types de ressources OpenStack tels que les instances, ip flottantes, des volumes, des groupes de sécurité, les utilisateurs, etc. Ainsi que certaines fonctionnalités plus avancées telles que la haute disponibilité. Heat gère principalement l'infrastructure, mais les templates intègrent aussi des outils de gestion de configuration logiciel tels que Puppet et Ansible.
+
+
+# TerraForm vs les autres logiciels
+
+Les outils comme CloudFormation, Heat, etc... permettent à une infrastructure d'être codifiés dans un fichier de configuration. Les fichiers de configuration permettent à l'infrastructure d'être élastiquement créé, modifiée et détruite. Terraform est inspiré par les problèmes qu'ils résolvent.
+
+Terraform utilise de la même façon des fichiers de configuration pour détailler la configuration de l'infrastructure, mais il va plus loin par le diagnostique ainsi que la permission de fournisseurs multiples et des services combiné et composé. Par exemple, Terraform peut être utilisé pour orchestrer un AWS et un groupe OpenStack simultanément, en permettant des fournisseurs du 3ème parti comme CloudFlare et DNSIMPLE d'être intégré pour fournir des services de DNS et CDN. Ceci permet à Terraform de représenter et gérer l'infrastructure entière avec ses services de soutien. Au lieu de seulement le sous-ensemble qui existe dans un fournisseur seul. Il fournit une syntaxe unifiée, au lieu d'exiger que des opérateurs utilisent des outils indépendants et non-interopérables pour chaque plate-forme et service.
+
+Terraform sépare également la phase de planification de la phase d'exécution, en utilisant le concept d'un plan d'exécution. En exécutant terraform plan, l'état actuel est actualisé et la configuration est consulté pour générer un plan d'action. Le plan comprend toutes les actions à entreprendre. Quelles ressources seront créés, détruites ou modifiées ? Terraform génère un plan d'exécution décrivant ce qu'il va faire pour atteindre l'état désiré. En utilisant terraform graph, le plan peut être visualisé pour montrer les commandes qui vont être executées par celui-ci . Une fois que le plan est capturé, la phase d'exécution peut être limitée aux seules actions du plan. D'autres outils combinent les phases de planification et d'exécution, ce qui signifie que terraform montre les effets de changement qui va se produire sur l'infrastructure, qui devient rapidement insoluble dans les grandes infrastructures. Terraform permet aux opérateurs d'appliquer des changements avec confiance, car ils savent exactement ce qui se passera au préalable.
+
 # Conclusion
-## Ce qu'on a fait
-## Utilité de Terraform, easy to use ? 
+
+TerraForm est un outils formidable permmetant de deployer des infrastructures de maniere simple et efficace. Il fournit une syntaxe simple et unifiée permettant de gérer presque toutes les ressources sans apprendre de nouveaux outils. En outre, Terraform est un outil open source. En plus de HashiCorp, la communauté autour de Terraform contribue à étendre ses fonctionnalités, corriger les bugs et documenter de nouveaux cas d'utilisation. Terraform aide à résoudre un problème qui existe dans chaque organisation et fournit un standard qui peut être adoptée pour éviter de réinventer la roue entre et au sein des organisations.
