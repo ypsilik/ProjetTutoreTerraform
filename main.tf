@@ -12,14 +12,16 @@ resource "openstack_compute_instance_v2" "vps" {
     name = "${openstack_networking_network_v2.network_1.name}"
     fixed_ip_v4 = "192.168.0.1${(count.index)+1}"
   }
-  provisioner "local-exec" {
-	connection {
-		type = "ssh"
-		user = "cloud"
-		private_key = "${file("/home/ypsilik/.ssh/id_rsa_nopass")}"
-	}
-	command = "ansible-playbook --private-key=/home/ypsilik/.ssh/id_rsa_nopass -u cloud -i ${var.id_ip_flottante[(count.index)+1]}, fichierAnsible.yml"
-  }
+#  provisioner "local-exec" {
+#	connection {
+#		type = "ssh"
+#		user = "cloud"
+#		private_key = "${file("/home/ypsilik/.ssh/id_rsa_nopass")}"
+#	}
+#	command =  "echo \"[host${(count.index)+1}]\n ansible_ssh_host=${var.id_ip_flottante[(count.index)+1]}\n\" >> hosts"
+#	command = "echo OK"
+# 	command = "ansible-playbook --private-key=/home/ypsilik/.ssh/id_rsa_nopass -u cloud -i ${var.id_ip_flottante[(count.index)+1]}, fichierAnsible.yml"
+# }
 }
 
 resource "openstack_compute_instance_v2" "test-network" {
@@ -33,6 +35,22 @@ resource "openstack_compute_instance_v2" "test-network" {
     name = "${openstack_networking_network_v2.network_1.name}"
     fixed_ip_v4 = "192.168.0.2"
     
+  }
+}
+
+resource "null_resource" "ansible-provision"{
+  triggers { 
+    cluster_instance_ids = "${join(",", openstack_compute_instance_v2.vps.*.id)}"
+  }
+  count = 3
+  provisioner "local-exec" {
+    connection {
+        type = "ssh"
+        user = "cloud"
+       private_key = "${file("/home/ypsilik/.ssh/id_rsa_nopass")}"
+    }
+    command = "ansible-playbook --private-key=/home/ypsilik/.ssh/id_rsa_nopass -u cloud -i ${element(openstack_compute_instance_v2.vps.*.floating_ip, count.index)}, fichierAnsible.yml"
+#    command = "ansible-playbook --private-key=/home/ypsilik/.ssh/id_rsa_nopass -U cloud -u cloud -i hosts fichierAnsible.yml"
   }
 }
 
