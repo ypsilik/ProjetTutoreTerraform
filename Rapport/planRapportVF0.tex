@@ -27,6 +27,15 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -57,32 +66,75 @@
 
 \begin{document}
 
-Explication de: - infrastructure as code OK - provider OK - provisionner
-- hébergeur (ovh/ cloudwatt) - vps (instance) OK - mouvance du devops OK
-- proof of concept OK - cluster - recette OK - ip Flottante (principe
-etc etc)
+\tableofcontents
 
-Partie bénéfice terraform a quoi ca sert concretement / infrastructure
-as code Partie comparaison Avant Térraform / mtn avec Terraform
-
-\begin{itemize}
-\item
-  Réponse au sujet initial (contexte / motivations /
-  problématique,réalisations, etc.)
-\item
-  Inventaire des tâches réalisées, des ressources produites
-\item
-  Répartition du travail au sein du groupe
-\item
-  Section Bibliographie (source image et texte Copié)
-\item
-  intro sur mtn entreprise besoin infra as code / dev ops / cloud
-  computing \ldots{} (donc amene utilité Terraforml ss entendu)
-\item
-  python-nova
-\end{itemize}
-
+\newpage
 \section{Introduction}\label{introduction}
+
+\subsection{Infrastructure as code}\label{infrastructure-as-code}
+
+L'infrastructure as code ou encore ``infrastructure programmable'' est
+un type d'infrastructure IT administré via du code (avec divers langage
+possible suivant la technologie utilisée). L'IAC est utilsée à la fois
+pour gérer les configurations, déployer et automatiser le
+provisionnement d'une infrastructure. Nous allons donc avoir le code
+écrit pour pouvoir fournir et gérer nos serveurs tout en permettant
+d'automatiser les tâches. L'IAC, n'est plus seulement utilisée par les
+admins sys, en effet les développeurs de logiciels et d'applications
+peuvent facilement écrire un code d'infrastructure pour pouvoir se créer
+un environnement à des fins expérimentales pour tester leurs logiciels.
+De nombreux outils utilisent l'IAC comme par exemple Vagrant qui va
+permettre de créer un environnement virtuel grâce au code contenu dans
+le Vagrantfile, ou encore Ansible qui va lui permettre un
+provisionement. Plus récemment le logiciel Docker qui permet
+d'automatiser le déploiement d'applications dans des conteneurs
+logiciels utilise également l'IAC avec les dockerfile. Une
+infrastructure as code à aussi la particularité de pouvoir être déployée
+(suivant la technologie que l'on utlise) à la fois sur des machines
+locales, des serveurs, des environnements virtuels ou encore dans le
+cloud. L'IAC permet aussi de suivre les modifications d'une
+infrastructure, en cas de problème il sera alors très simple de revenir
+à la configuration précédente. Cependant, l'infrastructure as code
+possède aussi des inconvénients. Une mauvaise configuration sera
+dupliquée sur toutes les machines concernées, il faut aussi faire
+attention aux modifications que l'on fait, par exemple si on modifie la
+configuration d'un serveur manuellement, elle n'aura plus rien à voir
+avec le modèle de base qui est dans le code. L'IAC utilisant de nombreux
+logiciels différents, il faut aussi effectuer des tâches de recherche
+pour savoir lequel va le plus correspondre à ses besoins.
+
+\subsection{Mouvance Devops}\label{mouvance-devops}
+
+Devops est la concaténation du mot \emph{development} et
+\emph{operations} (en anglais). Au début de l'informatique en
+entreprise, les applications ne jouaient pas un grand rôle et étaient
+peu intégrées, il n'y avait alors pas de séparation entre développement
+et opérations, la même équipe d'informaticiens se chargeait à la fois du
+développement de l'application et de sa maintenance.
+
+L'évolution de l'informatique d'entreprise a fait que les logiciels ont
+évolués et prisent plus de place en terme d'utilisation ce qui a conduit
+à une séparation de dev et ops en deux équipes distinctes. L'équipe de
+dev apportait les changements au logiciels souvent le plus rapidement
+possible pour un moindre coût tandis que l'équipe ops garantissait la
+stabilité du système en ce concentrant sur la qualité.
+
+\begin{quote}
+Sanjeev Sharma et Bernie Coyne7 recommandent :
+\end{quote}
+
+\begin{verbatim}
+un déploiement régulier des applications, la seule répétition contribuant à fiabiliser le processus ;
+un décalage des tests "vers la gauche", autrement dit de tester au plus tôt ;
+une pratique des tests dans un environnement similaire à celui de production ;
+une intégration continue incluant des "tests continus" ;
+une boucle d'amélioration courte (i.e. un feed-back rapide des utilisateurs) ;
+une surveillance étroite de l'exploitation et de la qualité de production factualisée par des métriques et indicateurs "clé".
+\end{verbatim}
+
+La mise en oeuvre du DevOPs vient de la vonlonté de travaller ensemble
+pour produire de la valeur pour l'entreprise. Pour cela on va définir
+des objectifs communs aux équipes de développement et de production
 
 \subsection{Le cloud computing}\label{le-cloud-computing}
 
@@ -233,6 +285,173 @@ possible d'administrer des composants de bas niveau comme les IaaS, le
 stockage et la mise à niveau, ainsi que des composants haut niveau comme
 les entrées DNS et les fonctionnalités SaaS.
 
+\section{Openstack / python-nova}\label{openstack-python-nova}
+
+Xilopix fonctionne avec Openstack, nous avons donc du apprendre
+rapidement son fonctionnement pour pouvoir ensuite travailler plainement
+sur sa mise en place avec Terraform.
+
+\subsection{Introduction}\label{introduction-1}
+
+Openstack est un projet qui est né en 2010 (licence Apache 2.0) par
+l'entreprise RackSpace. OpenStack est un logiciel libre qui va nous
+permettre de faire du cloud computing et qui permet de faire du IaaS
+pour du cloud privé ou public. Le but d'Openstack est d'offrir à son
+utilisateur une multitude de module qui va lui permettre de faire de
+l'infrastructure as a service c'est à dire deployer des machines
+virtuelles en optimisant les ressources materielles. On peut les
+deployer dynamiquement pour une courte durée, mais il est également
+possible de deployer un ensemble de machines constituant une
+infrastructure externe.
+
+\subsection{Les modules : services
+d'OpenStack.}\label{les-modules-services-dopenstack.}
+
+Openstack se compose de plusieurs modules pour fonctionner, avec des
+modules plus ou moins important pour la création d'infrastructure.
+
+\subsubsection{Keystone, le service
+d'identité}\label{keystone-le-service-didentituxe9}
+
+Fournit un service d'authentification et d'autorisation pour les autres
+services d'OpenStack. Fournit un catalogue de endpoints pour tous les
+services d'OpenStack.
+
+\subsubsection{Glance, la gestion
+d'images}\label{glance-la-gestion-dimages}
+
+Stocke et récupère des images disques de machines virtuelles. OpenStack
+Compute les utilise lors du provisioning d'instance.
+
+\subsubsection{Nova, le Compute}\label{nova-le-compute}
+
+Nova est le coeur du project Openstack, il gère le cycle de vie des
+instances dans un environnement OpenStack. Les tâches incluent la
+planification, la création et la mise hors service de machines
+virtuelles à la demande.
+
+\subsubsection{Horizon, l'interface web}\label{horizon-linterface-web}
+
+Fournit un portail libre-service de type web permettant d'interagir avec
+les services sous-jacents d'OpenStack, comme le lancement d'une
+instance, l'attribution d'adresses IP ou la configuration des contrôles
+d'accès.
+
+\subsubsection{Cinder, le service de disques
+persistants}\label{cinder-le-service-de-disques-persistants}
+
+Fournit un stockage bloc persistant aux instances en cours d'exécution.
+Son architecture basée sur des drivers de type plugin facilite la
+création et la gestion des devices de stockage bloc.
+
+\subsubsection{Neutron, la gestion de
+réseaux}\label{neutron-la-gestion-de-ruxe9seaux}
+
+Permet le Network-Connectivity-as-a-Service pour d'autres services
+d'OpenStack, comme Compute. Il fournit une API utilisateur pour définir
+les réseaux et les attachements à ces réseaux. Il possède une
+architecture modulaire qui permet le support de la plupart des
+fournisseurs et des technologies réseau.
+
+\subsubsection{Swift, le stockage
+d'objet}\label{swift-le-stockage-dobjet}
+
+Stocke et récupère des objets de données non structurées via une API
+RESTful basée sur HTTP. Le service est hautement tolérant aux pannes
+avec sa réplication de données et son architecture de type scale-out.
+Son implémentation diffère des serveurs de fichiers à répertoires
+montables. Le service écrit les objets et les fichiers vers plusieurs
+disques, en s'assurant que les données sont répliquées sur un cluster de
+serveurs.
+
+\subsubsection{Heat, le service
+d'orchestration}\label{heat-le-service-dorchestration}
+
+Orchestre de nombreuses applications de cloud composites en utilisant
+soit le format de template natif HOT ou le format CloudFormation d'AWS,
+soit au travers d'une API REST native OpenStack, soit au travers d'une
+API compatible avec CloudFormation.
+
+\subsubsection{Ceilometer, le service de
+métrologie}\label{ceilometer-le-service-de-muxe9trologie}
+
+Surveille et mesure un cloud OpenStack dans un but de facturation, de
+mesure de performances, de scalabilité et de statistiques.
+
+Voici un shema qui permet de montrer le lien entre tout les modules.
+
+\begin{figure}
+\centering
+\includegraphics{../Momo/Openstack_diagramme_conceptuel.jpg}
+\caption{}
+\end{figure}
+
+\subsection{Le Client Python nova}\label{le-client-python-nova}
+
+Le client Python-nova est un client en ligne de commande pour le module
+Nova OpenStack , il va nous permmetre de mettre en oeuvre 100\% de l'API
+Nova , et aussi la gestion des instances, des images, etc\ldots{}
+
+\subsubsection{Installation de
+python-nova}\label{installation-de-python-nova}
+
+Pour installer le plugin python-nova, il faut avoir préalablement
+installé python et son système d'installation pip. Pour lancer
+l'installation il suffit de taper pip install -U python-novaclient .
+
+\subsubsection{Configuration des variables d'environnement pour
+Openstack}\label{configuration-des-variables-denvironnement-pour-openstack}
+
+Pour configurer toutes les variables, Openstack génère un fichier RC
+contenant la totalité des variables d'environnement à configurer.
+
+Depuis Cloudwatt il faut aller dans les paramètres \emph{accès et
+sécurité} puis \emph{accès API} et enfin télécharger le fichier. En
+effet Cloudwatt génère un fichier contenant toutes les variables
+d'environnement nécésaire à la configuration de la connexion Openstack.
+
+L'éxécution du fichier se fait grâce à la commande
+\texttt{source\ 0750182707\_projet\_tutore\_2017-openrc.sh} et permet la
+configuration automatique des variables.
+
+\subsubsection{Liste des instances}\label{liste-des-instances}
+
+La liste des instances créées sont visibles à l'aide de la commande
+\texttt{nova\ list}.
+
+\subsection{Création de l'instance}\label{cruxe9ation-de-linstance}
+
+\subsubsection{Génération de la clef
+ssh}\label{guxe9nuxe9ration-de-la-clef-ssh}
+
+\texttt{ssh-keygen}
+
+\subsubsection{Intégration clef ssh au keypair
+Openstack}\label{intuxe9gration-clef-ssh-au-keypair-openstack}
+
+\texttt{nova\ keypair-add\ -\/-pub-key\ .ssh/id\_rsa.pub\ SSHKEY}
+
+\subsubsection{Choix du flavor}\label{choix-du-flavor}
+
+\texttt{nova\ flavor-list} affiche la liste des flavors disponibles. Une
+fois choisi, il faut récuperer son ID qui sera renseigné lors de la
+création de l'instance.
+
+\subsubsection{Choix de l'image (système
+installé)}\label{choix-de-limage-systuxe8me-installuxe9}
+
+\texttt{nova\ image-list} affiche la liste des images systèmes
+disponibles. Une fois choisi, Il faut récuperer son ID qui sera demandé
+lors de la génération de l'instance.
+
+\subsubsection{Création de l'instance}\label{cruxe9ation-de-linstance-1}
+
+\texttt{nova\ boot\ -\/-key-name\ SSHKEY\ -\/-flavor\ 16\ -\/-image\ 185e1975-c9c5-4358-909e-5e329808902e\ instance1}
+
+Pour la création de l'instance on retrouve quatre éléments : - le nom du
+keypair - l'id du flavor - l'id de l'image - le nom de l'instance
+
+
 \section{Terraform}\label{terraform}
 
 \subsection{Présenation (Schéma de ou se place dans prod -dans meme
@@ -361,6 +580,10 @@ Il existe également de nombreuses fonctions utilisables avec HCL comme
 par exemple la fonction format(format, args, \ldots{}) qui va permettre
 de formater une chaîne selon le format que l'on donne.
 
+Les différents blocs se définissent avec des accolades dans le même
+principe que des fonctions dans les autres langages connu.
+\texttt{language\ ressource\ "nom\_type\_ressource"\ "nomRessource"\ \{\ \ \ \ \ ...\ \}}
+
 \subsection{Fonctionnement}\label{fonctionnement}
 
 Terraform étant développé en Go, il n'a pas besoin d'être installé. Il
@@ -414,14 +637,29 @@ sous cette dernière extension, il faut lancer la commande suivante
 généralement utilisé dans les fichiers sous la forme suivante
 \texttt{\$\{var.nomVar\}}.
 
-\subsubsection{Modules (on a pas vraiment exploré ca, on le met
-?)}\label{modules-on-a-pas-vraiment-exploruxe9-ca-on-le-met}
+\subsubsection{Modules}\label{modules}
 
-Terraform possède des modules autonome vis-à-vis des configurations
-Terraform. Ces modules peuvent être installés par Terraform. Un module
-peut être un morceau de code Terraform ayant une fonction qui sera
-ensuite appelé.
-\texttt{language\ module\ "Name"\ \{\ \ \ \ \ source\ =\ "github.../dossier"\ \}}
+Il est possible d'intégrer des modules à Terraform. Terraform se charge
+du téléchargement et de l'intégration des modules. L'appel d'un module
+se fait de la même manière qu'une ressource mais avec le mot clef
+\emph{module}. La source est ensuite indiquée dans une variable. La
+source peut provenir d'un dépot github, d'une archive (de multiples
+format sont compris comme tar.gz, zip, bz2\ldots{}), d'un dossier
+local\ldots{} Concrétement un module Teraform est un dossier contenant
+des fichiers \emph{.tf} qui ont besoin d'être utilisé plusieurs fois.
+Pour régler ce problème de copie multiple du code, il est possible
+d'utiliser ce dossier en-tant que module et ainsi avoir un code plus
+clair.
+
+\subsubsection{Plugins}\label{plugins}
+
+Terraform a été crée avec la possibilité d'importer des plugins. Pour
+installer un plugin, il faut récuperer le code du plugin, et créer un
+fichier \emph{\textasciitilde{}/.terraformrc} contenant un bloc
+providers avec une variable indiquant le chemin jusqu'au dossier du
+plugin. L'utilisation du plugin se fait apres dans le fichier .tf de
+l'insfrastructureet s'utilise comme un bloc ressource normal en suivant
+la syntaxe définie dans la documentation du plugin en question.
 
 \subsubsection{Les commandes}\label{les-commandes}
 
@@ -437,15 +675,15 @@ ensuite appelé.
   fichiers de configuration. Le résultat est enregistré dans un fichier
   pour ensuite être appliqué avec \texttt{terraform\ apply\ destroy.tf}.
 \item
-  \texttt{terraform\ destroy} -- détruit les configurations terraform
-  qui ont été lancées depuis la même machine (équivalent à la technique
-  du dessus).
+  \texttt{terraform\ destroy} -- détruit l'infrastructure généré par
+  Terraform avec le compte importé (idendique à la technique du dessus).
 \item
-  \texttt{terraform\ apply} -- applique le plan
+  \texttt{terraform\ apply} -- applique le code Terraform en générant ce
+  que \texttt{terraform\ plan} à montré précédement
 \item
-  \texttt{terraform\ graph} -- permet visualisation du plan
+  \texttt{terraform\ graph} -- permet la visualisation du plan en images
 \item
-  \texttt{terraform\ show} -- montre les infra en place
+  \texttt{terraform\ show} -- montre les infrastructures en place
 \end{itemize}
 
 \subsection{Configurations
@@ -463,8 +701,8 @@ d'instance. En effet celles-ci prennent en paramètre une keypair -
 \texttt{key\_pair\ =\ "\$\{openstack\_compute\_keypair\_v2.my\_keypair.name\}"}
 - pour permettre la connection ssh à l'instance en question. Cependant
 une seule keypair peut être intégrée dans la ressource \emph{instance}.
-Pour avoir tous accès en ssh aux instances, nous nous sommes paratagé la
-clef privé créée spécialement pour le projet et n'ayant pas de
+Pour avoir tous accès en ssh aux instances, nous nous sommes paratagés
+la clef privé créée spécialement pour le projet et n'ayant pas de
 passphrase pour permettre à ansible de se connecter ensuite.
 
 \subsubsection{Instances}\label{instances}
@@ -486,7 +724,7 @@ network \{ name =
 fixed\_ip\_v4 = ``192.168.0.1\$\{(count.index)+1\}'' \} \}
 ``\texttt{Une\ instance\ peut\ être\ créée\ dans\ une\ configuration\ unique,\ mais\ il\ est\ aussi\ possible\ d\textquotesingle{}en\ générer\ plusieurs\ automatiquement\ avec\ une\ seule\ ressource\ associée\ grâce\ au\ paramètre}count\texttt{.\ La\ création\ des\ insantances\ se\ fait\ donc\ en\ partant\ de\ zéro.\ Avec}count.index`
 nous pouvons récuperer l'index actuel de la boucle générée par
-tarraform. Chaque instance est ratachée à un ou plusieurs réseaus selon
+tarraform. Chaque instance est ratachée à un ou plusieurs réseaux selon
 les besoins. Pour notre proof of concept, nous avons utilisé un seul
 réseau. Pour connecter les instances au réseau, il faut écrire un bloc
 \emph{network} comme ci-dessus.
@@ -525,11 +763,13 @@ de terraform qui vas récuperer une adresse dans la liste.
 
 ```language
 
-\section{Ip flotantes}\label{ip-flotantes-1}
+\section{Fichier variables.tf}\label{fichier-variables.tf}
 
 variable ``id\_ip\_flottante'' \{ default =
 {[}``84.39.49.19'',``84.39.46.157'',``84.39.44.165'',``84.39.41.206''{]}
 \}
+
+\section{Fichier main.tf}\label{fichier-main.tf}
 
 resource ``openstack\_compute\_instance\_v2'' ``vps'' \{ floating\_ip =
 ``\$\{var.id\_ip\_flottante{[}(count.index)+1{]}\}'' \} ``` Nous avons
@@ -548,8 +788,8 @@ routeur nous permettant un accès au monde extérieur.
 Pour être utilisable, les instances doivent être connectées à un réseau.
 Terraform offre la possibilité de crée rapidement et facilement un
 réseau ainsi que les sous-réseaux et port utile à celui-ci. Les
-instances sont donc configuré pour être intégrées à ce réseau et obtenir
-une adresse ip dans ce dernier. ```language resource
+instances sont donc configurées pour être intégrées à ce réseau et
+obtenir une adresse ip dans ce dernier. ```language resource
 ``openstack\_networking\_network\_v2'' ``network\_1'' \{ name =
 ``resTerraform'' admin\_state\_up = ``true'' \}
 
@@ -575,12 +815,18 @@ par un routeur qui est lui même composé d'une interface le relinant à un
 des réseau crée précedement.
 \texttt{language\ resource\ "openstack\_networking\_router\_v2"\ "router\_1"\ \{\ \ \ name\ =\ "routerTerraform"\ \ \ admin\_state\_up\ =\ "true"\ \ \ external\_gateway\ =\ "6ea98324-0f14-49f6-97c0-885d1b8dc517"\ \}}
 
+\begin{figure}
+\centering
+\includegraphics{./reseau.png}
+\caption{reseau.png}
+\end{figure}
+
 \section{Provisionnement}\label{provisionnement}
 
 Terraform permet aussi le provisionnement de ses instances avec
 différents provisionners comme chef, puppet ou encore ansible. Cependant
 Terraform n'offre un service que pour Chef mais permet d'éxécuter
-différentes commande automatiquement depuis la machine lancant
+différentes commandes automatiquement depuis la machine lancant
 \texttt{terraform\ apply} avec le provisionner \texttt{local\_exec} ou
 depuis la machine générée avec Terraform grâce au provisionner
 \texttt{remote\_exec}. Celui-ci se compléte avec le bloc
@@ -607,11 +853,97 @@ ssh)}\label{configuration-effectuuxe9e-pk-on-la-fait-surtout-expliquuxe9-pour-le
 \section{Répartition des tâches au seins du
 groupe}\label{ruxe9partition-des-tuxe2ches-au-seins-du-groupe}
 
+Le projet se tenait sur une seule technologie qui est Terraform. La
+répartition des tâches c'est donc faite par rapport aux différentes
+parties que nous avons du créer pour faire fonctionner notre
+infrastructure. (TODO: Diagramme de GANTT ? ou truc semblable ?)
+
+\section{Avant TerraForm}\label{avant-terraform}
+
+\subsection{AWS CloudFormation}\label{aws-cloudformation}
+
+CloudFormation fournit par Amazon Web Service permet de créer et de
+gérer un ensemble de ressources qui sont liées, de les ordonner, les
+mettre en service et les actualiser en mode ordonnée. Il permait d'avoir
+aussi une infrastructure as code avec des simples fichiers textes au
+format JSON ou YAML. Il fonctionne uniquement avec AWS mais le
+fonctionnement resemble à Terraform. Il permet de créer un modèle qui
+décrit toutes les ressources AWS que l'on veut (telles que des instances
+Amazon EC2 ou des instances de base de données Amazon RDS). De plus AWS
+CloudFormation s'occupe de leur mise en service et de leur
+configuration. AWS CloudFormation a des modéles d'exemples déjà crée qui
+peuvent etre utilisés. Il est aussi possible de créer des modèles
+personalisés.
+
+\subsection{Heat}\label{heat}
+
+Heat est un module de la partie orchestraction de OpenStack. La mission
+du programme OpenStack Orchestration est de créer un service accessible
+pour gérer l'ensemble du cycle de vie des infrastructures et des
+applications dans le cloud OpenStack. Heat fournit une orchestration à
+base de modèle pour décrire une application cloud. En s'exécutant
+OpenStack appels différentes API pour générer l'exécution d'applications
+cloud. Un template Heat décrit l'infrastructure pour une application
+cloud dans des fichiers textes qui sont lisibles et modifiables par les
+humains, et peut être géré par des outils de contrôle de version. Le
+logiciel intègre d'autres composants d'OpenStack. Les modèles permettent
+la création de la plupart des types de ressources OpenStack tels que les
+instances, ip flottantes, des volumes, des groupes de sécurité, les
+utilisateurs, etc. Ainsi que certaines fonctionnalités plus avancées
+telles que la haute disponibilité. Heat gère principalement
+l'infrastructure, mais les templates intègrent aussi des outils de
+gestion de configuration logiciel tels que Puppet et Ansible.
+
+\section{TerraForm vs les autres
+logiciels}\label{terraform-vs-les-autres-logiciels}
+
+Les outils comme CloudFormation, Heat, etc\ldots{} permettent à une
+infrastructure d'être codifiés dans un fichier de configuration. Les
+fichiers de configuration permettent à l'infrastructure d'être
+élastiquement créé, modifiée et détruite. Terraform est inspiré par les
+problèmes qu'ils résolvent.
+
+Terraform utilise de la même façon des fichiers de configuration pour
+détailler la configuration de l'infrastructure, mais il va plus loin par
+le diagnostique ainsi que la permission de fournisseurs multiples et des
+services combiné et composé. Par exemple, Terraform peut être utilisé
+pour orchestrer un AWS et un groupe OpenStack simultanément, en
+permettant des fournisseurs du 3ème parti comme CloudFlare et DNSIMPLE
+d'être intégré pour fournir des services de DNS et CDN. Ceci permet à
+Terraform de représenter et gérer l'infrastructure entière avec ses
+services de soutien. Au lieu de seulement le sous-ensemble qui existe
+dans un fournisseur seul. Il fournit une syntaxe unifiée, au lieu
+d'exiger que des opérateurs utilisent des outils indépendants et
+non-interopérables pour chaque plate-forme et service.
+
+Terraform sépare également la phase de planification de la phase
+d'exécution, en utilisant le concept d'un plan d'exécution. En exécutant
+terraform plan, l'état actuel est actualisé et la configuration est
+consulté pour générer un plan d'action. Le plan comprend toutes les
+actions à entreprendre. Quelles ressources seront créés, détruites ou
+modifiées ? Terraform génère un plan d'exécution décrivant ce qu'il va
+faire pour atteindre l'état désiré. En utilisant terraform graph, le
+plan peut être visualisé pour montrer les commandes qui vont être
+executées par celui-ci . Une fois que le plan est capturé, la phase
+d'exécution peut être limitée aux seules actions du plan. D'autres
+outils combinent les phases de planification et d'exécution, ce qui
+signifie que terraform montre les effets de changement qui va se
+produire sur l'infrastructure, qui devient rapidement insoluble dans les
+grandes infrastructures. Terraform permet aux opérateurs d'appliquer des
+changements avec confiance, car ils savent exactement ce qui se passera
+au préalable.
+
 \section{Conclusion}\label{conclusion}
 
-\subsection{Ce qu'on a fait}\label{ce-quon-a-fait}
-
-\subsection{Utilité de Terraform, easy to use
-?}\label{utilituxe9-de-terraform-easy-to-use}
+TerraForm est un outils formidable permmetant de deployer des
+infrastructures de maniere simple et efficace. Il fournit une syntaxe
+simple et unifiée permettant de gérer presque toutes les ressources sans
+apprendre de nouveaux outils. En outre, Terraform est un outil open
+source. En plus de HashiCorp, la communauté autour de Terraform
+contribue à étendre ses fonctionnalités, corriger les bugs et documenter
+de nouveaux cas d'utilisation. Terraform aide à résoudre un problème qui
+existe dans chaque organisation et fournit un standard qui peut être
+adoptée pour éviter de réinventer la roue entre et au sein des
+organisations.
 
 \end{document}

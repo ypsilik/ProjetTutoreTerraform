@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  16 MAR 2017 09:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  17 MAR 2017 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,40 +770,68 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `breaklinks' set `true' on input line 28.
 
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/07/10 v1.0t Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
+\Gread@gobject=\count111
+))
+\Gin@req@height=\dimen117
+\Gin@req@width=\dimen118
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/grffile.sty
+Package: grffile 2016/05/16 v1.17 Extended file name support for graphics (HO)
+Package grffile Info: Option `multidot' is set to `true'.
+Package grffile Info: Option `extendedchars' is set to `false'.
+Package grffile Info: Option `space' is set to `true'.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
+)
 (/usr/share/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 ) (./planRapportVF0.aux)
 \openout1 = `planRapportVF0.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 67.
 
 (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 58.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 67.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \microtypecontext on input line 58.
+LaTeX Info: Redefining \microtypecontext on input line 67.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -819,7 +847,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 58.
+Package hyperref Info: Link coloring OFF on input line 67.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -827,199 +855,324 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count111
+\c@section@level=\count112
 )
-LaTeX Info: Redefining \ref on input line 58.
-LaTeX Info: Redefining \pageref on input line 58.
-LaTeX Info: Redefining \nameref on input line 58.
+LaTeX Info: Redefining \ref on input line 67.
+LaTeX Info: Redefining \pageref on input line 67.
+LaTeX Info: Redefining \nameref on input line 67.
 
 (./planRapportVF0.out) (./planRapportVF0.out)
 \@outlinefile=\write3
 \openout3 = `planRapportVF0.out'.
 
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 70.
 
-(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count113
+\scratchdimen=\dimen119
+\scratchbox=\box29
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen120
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks25
+) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
-Underfull \hbox (badness 5681) in paragraph at lines 70--73
-[]\T1/lmr/m/n/10 (+20) Réponse au su-jet ini-tial (con-texte / mo-ti-va-tions /
- prob-lé-ma-
- []
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
 
-[1
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(./planRapportVF0.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 2.
+ (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 2.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 351.
+(/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 2.
 
+(/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 2.
+
+(/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 2.
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 41.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 353--353
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 41.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+\tf@toc=\write4
+\openout4 = `planRapportVF0.toc'.
+
+ [2]
+Overfull \hbox (185.24846pt too wide) in paragraph at lines 133--133
+[]\T1/lmtt/m/n/10 un déploiement régulier des applications, la seule répétition
+ contribuant à fiabiliser le processus ;[] 
+ []
+
+[3]
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 133--133
+[]\T1/lmtt/m/n/10 un décalage des tests "vers la gauche", autrement dit de test
+er au plus tôt ;[] 
+ []
+
+
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 133--133
+[]\T1/lmtt/m/n/10 une pratique des tests dans un environnement similaire à celu
+i de production ;[] 
+ []
+
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 133
+.
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 133--133
+[]\T1/lmtt/m/n/10 une boucle d\TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 amélioration co
+urte (i.e. un feed-back rapide des utilisateurs) ;[] 
+ []
+
+
+Overfull \hbox (311.2481pt too wide) in paragraph at lines 133--133
+[]\T1/lmtt/m/n/10 une surveillance étroite de l\TS1/lmtt/m/n/10 '\T1/lmtt/m/n/1
+0 exploitation et de la qualité de production factualisée par des métriques et 
+indicateurs "clé".[] 
+ []
+
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 161.
+
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [4] [5] [6] [7] [8]
+<../Momo/Openstack_diagramme_conceptuel.jpg, id=390, 702.625pt x 432.61626pt>
+File: ../Momo/Openstack_diagramme_conceptuel.jpg Graphic file (type jpg)
+
+<use ../Momo/Openstack_diagramme_conceptuel.jpg>
+Package pdftex.def Info: ../Momo/Openstack_diagramme_conceptuel.jpg used on inp
+ut line 385.
+(pdftex.def)             Requested size: 345.00758pt x 212.4261pt.
+ [9 <../Momo/Openstack_diagramme_conceptuel.jpg>]
+Overfull \hbox (105.93286pt too wide) in paragraph at lines 413--416
+[]\T1/lmr/m/n/10 (-20) L'éxécution du fichier se fait grâce à la com-mande \T1/
+lmtt/m/n/10 source 0750182707_projet_tutore_2017-openrc.sh
+ []
+
+
+Overfull \hbox (95.99872pt too wide) in paragraph at lines 449--450
+\T1/lmtt/m/n/10 nova boot --key-name SSHKEY --flavor 16 --image 185e1975-c9c5-4
+358-909e-5e329808902e
+ []
+
+[10] [11] [12]
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 572--572
 []\T1/lmtt/m/n/10 key = value # la valeur peut être une chaîne, un nombre ou un
  booléen[] 
  []
 
-[6]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 383.
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--390
+Underfull \hbox (badness 10000) in paragraph at lines 608--613
 \T1/lmtt/m/n/10 "openstack" {     user_name  = "admin"     tenant_name = "admin
 "
  []
 
-[7]
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 456--469
+[13] [14]
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 694--707
 \T1/lmtt/m/n/10 "my_keypair" {   name = "my_keypair"   public_key = "${var.keyp
 air}"
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 456--469
+Underfull \hbox (badness 2205) in paragraph at lines 694--707
 \T1/lmtt/m/n/10 } \T1/lmr/m/n/10 (+20) Ter-raform prend en paramètre pour cette
  re-source un nom et la
  []
 
 
-Underfull \hbox (badness 3803) in paragraph at lines 472--483
+Underfull \hbox (badness 3803) in paragraph at lines 710--721
 \T1/lmr/m/n/10 (+20) Les in-stances sont la plus grande par-tie de la con-fig-u
 -ra-tion, elles
  []
 
 
-Underfull \hbox (badness 2393) in paragraph at lines 472--483
+Underfull \hbox (badness 2393) in paragraph at lines 710--721
 \T1/lmr/m/n/10 (+20) cor-re-spon-dent aux réseaux privés virtuels (vps) qui von
 t être créées.
  []
 
 
-Underfull \hbox (badness 4927) in paragraph at lines 472--483
+Underfull \hbox (badness 4927) in paragraph at lines 710--721
 \T1/lmr/m/n/10 (+20) ```lan-guage re-source ``open-stack_compute_instance_v2'' 
 ``vps'' { count
  []
 
 
-Underfull \hbox (badness 5403) in paragraph at lines 472--483
+Underfull \hbox (badness 5403) in paragraph at lines 710--721
 \T1/lmr/m/n/10 (+20) = 3 name = ``vps-test-${(count.index)+1}'' im-age_id = ``1
 85e1975-
  []
 
 
-Underfull \hbox (badness 4518) in paragraph at lines 472--483
+Underfull \hbox (badness 4518) in paragraph at lines 710--721
 \T1/lmr/m/n/10 (+20) c9c5-4358-909e-5e329808902e'' fla-vor_id = ``16'' key_pair
  = ``${open-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--483
+Underfull \hbox (badness 10000) in paragraph at lines 710--721
 \T1/lmr/m/n/10 (+20) stack_compute_keypair_v2.my_keypair.name}'' se-cu-rity_gro
 ups =
  []
 
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 487
-.
-(/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 484--493
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--731
 \T1/lmtt/m/n/10 créée dans une configuration unique, mais il est aussi possible
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--493
+Underfull \hbox (badness 10000) in paragraph at lines 722--731
 \T1/lmtt/m/n/10 d\TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 en générer plusieurs automat
 iquement avec une seule ressource
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--493
+Underfull \hbox (badness 10000) in paragraph at lines 722--731
 \T1/lmtt/m/n/10 associée grâce au paramètre\T1/lmr/m/n/10 (+20) count\T1/lmtt/m
 /n/10 . La création des insantances se
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 496--503
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 734--741
 \T1/lmtt/m/n/10 {   name        = "terraform"   description = "security group"
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 496--503
+Underfull \hbox (badness 10000) in paragraph at lines 734--741
 \T1/lmtt/m/n/10 rule {     from_port   = 22     to_port     = 22     ip_protoco
 l
  []
 
 
-Overfull \hbox (72.81184pt too wide) in paragraph at lines 530--533
+Overfull \hbox (72.81184pt too wide) in paragraph at lines 768--771
 \T1/lmr/m/n/10 (-20) variable ``id_ip_flottante'' { de-fault = [``84.39.49.19''
 ,``84.39.46.157'',``84.39.44.165'',``84.39.41.206'']
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 534--538
-[]\T1/lmr/m/n/10 (+20) resource ``open-stack_compute_instance_v2'' ``vps'' { fl
-oat-ing_ip =
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 774--778
+\T1/lmr/m/n/10 (+20) resource ``open-stack_compute_instance_v2'' ``vps'' { floa
+t-ing_ip =
  []
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 534--538
+Underfull \hbox (badness 1902) in paragraph at lines 774--778
 \T1/lmr/m/n/10 (+20) ``${var.id_ip_flottante[(count.index)+1]}'' } ``` Nous avo
 ns donc choisit
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 540.
+(hyperref)                than one, level fixed on input line 780.
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 565--569
+Underfull \hbox (badness 2073) in paragraph at lines 805--809
 \T1/lmr/m/n/10 (+20) net-work_id = ``${open-stack_networking_network_v2.network
 _1.id}'' ad-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 572--577
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 812--817
 \T1/lmtt/m/n/10 resource "openstack_networking_router_v2" "router_1" {   name =
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--577
+Underfull \hbox (badness 10000) in paragraph at lines 812--817
 \T1/lmtt/m/n/10 "routerTerraform"   admin_state_up = "true"   external_gateway 
 =
  []
 
-[10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 617.
- [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 617.
+<./reseau.png, id=431, 1606.0pt x 903.375pt>
+File: ./reseau.png Graphic file (type png)
+ <use ./reseau.png>
+Package pdftex.def Info: ./reseau.png used on input line 820.
+(pdftex.def)             Requested size: 344.98921pt x 194.05643pt.
+ [18 <./reseau.png>] [19] [20]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 949.
+ [21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 949.
  (./planRapportVF0.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 617.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 617.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 949.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 949.
 Package rerunfilecheck Info: File `planRapportVF0.out' has not changed.
-(rerunfilecheck)             Checksum: 34A1D637A087048103C7FA40BD945BAB;7240.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 617.
+(rerunfilecheck)             Checksum: AE2067107CB12BB2DCF528850C6E79B1;12297.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 949.
  ) 
 Here is how much of TeX's memory you used:
- 11027 strings out of 493013
- 157572 string characters out of 6139317
- 253423 words of memory out of 5000000
- 14349 multiletter control sequences out of 15000+600000
- 32021 words of font info for 72 fonts, out of 8000000 for 9000
+ 12163 strings out of 493013
+ 175013 string characters out of 6139317
+ 273034 words of memory out of 5000000
+ 15351 multiletter control sequences out of 15000+600000
+ 44785 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,5n,38p,841b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,5n,38p,845b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/f
 onts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10
 .pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-
 dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/
 lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on planRapportVF0.pdf (11 pages, 195568 bytes).
+Output written on planRapportVF0.pdf (21 pages, 359373 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 239 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 6465 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 463 compressed objects within 5 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 8747 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,43 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] null_resource.ansible-provision" [label = "null_resource.ansible-provision", shape = "box"]
+		"[root] openstack_compute_instance_v2.test-network" [label = "openstack_compute_instance_v2.test-network", shape = "box"]
+		"[root] openstack_compute_instance_v2.vps" [label = "openstack_compute_instance_v2.vps", shape = "box"]
+		"[root] openstack_compute_keypair_v2.my_keypair" [label = "openstack_compute_keypair_v2.my_keypair", shape = "box"]
+		"[root] openstack_compute_secgroup_v2.terraform" [label = "openstack_compute_secgroup_v2.terraform", shape = "box"]
+		"[root] openstack_networking_network_v2.network_1" [label = "openstack_networking_network_v2.network_1", shape = "box"]
+		"[root] openstack_networking_port_v2.port_1" [label = "openstack_networking_port_v2.port_1", shape = "box"]
+		"[root] openstack_networking_router_interface_v2.int_1" [label = "openstack_networking_router_interface_v2.int_1", shape = "box"]
+		"[root] openstack_networking_router_v2.router_1" [label = "openstack_networking_router_v2.router_1", shape = "box"]
+		"[root] openstack_networking_subnet_v2.subnet_2" [label = "openstack_networking_subnet_v2.subnet_2", shape = "box"]
+		"[root] provider.null" [label = "provider.null", shape = "diamond"]
+		"[root] provider.openstack" [label = "provider.openstack", shape = "diamond"]
+		"[root] null_resource.ansible-provision" -> "[root] openstack_compute_instance_v2.vps"
+		"[root] null_resource.ansible-provision" -> "[root] provider.null"
+		"[root] openstack_compute_instance_v2.test-network" -> "[root] openstack_compute_keypair_v2.my_keypair"
+		"[root] openstack_compute_instance_v2.test-network" -> "[root] openstack_compute_secgroup_v2.terraform"
+		"[root] openstack_compute_instance_v2.test-network" -> "[root] openstack_networking_network_v2.network_1"
+		"[root] openstack_compute_instance_v2.test-network" -> "[root] var.id_ip_flottante"
+		"[root] openstack_compute_instance_v2.vps" -> "[root] openstack_compute_keypair_v2.my_keypair"
+		"[root] openstack_compute_instance_v2.vps" -> "[root] openstack_compute_secgroup_v2.terraform"
+		"[root] openstack_compute_instance_v2.vps" -> "[root] openstack_networking_network_v2.network_1"
+		"[root] openstack_compute_instance_v2.vps" -> "[root] var.id_ip_flottante"
+		"[root] openstack_compute_keypair_v2.my_keypair" -> "[root] provider.openstack"
+		"[root] openstack_compute_keypair_v2.my_keypair" -> "[root] var.keypair"
+		"[root] openstack_compute_secgroup_v2.terraform" -> "[root] provider.openstack"
+		"[root] openstack_networking_network_v2.network_1" -> "[root] provider.openstack"
+		"[root] openstack_networking_port_v2.port_1" -> "[root] openstack_networking_network_v2.network_1"
+		"[root] openstack_networking_router_interface_v2.int_1" -> "[root] openstack_networking_router_v2.router_1"
+		"[root] openstack_networking_router_interface_v2.int_1" -> "[root] openstack_networking_subnet_v2.subnet_2"
+		"[root] openstack_networking_router_v2.router_1" -> "[root] provider.openstack"
+		"[root] openstack_networking_subnet_v2.subnet_2" -> "[root] openstack_networking_network_v2.network_1"
+		"[root] root" -> "[root] null_resource.ansible-provision"
+		"[root] root" -> "[root] openstack_compute_instance_v2.test-network"
+		"[root] root" -> "[root] openstack_networking_port_v2.port_1"
+		"[root] root" -> "[root] openstack_networking_router_interface_v2.int_1"
+		"[root] root" -> "[root] var.pool"
+	}
+}
+

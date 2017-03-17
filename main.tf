@@ -49,7 +49,7 @@ resource "null_resource" "ansible-provision"{
         user = "cloud"
        private_key = "${file("/home/ypsilik/.ssh/id_rsa_nopass")}"
     }
-    command = "ansible-playbook --private-key=/home/ypsilik/.ssh/id_rsa_nopass -u cloud -i ${element(openstack_compute_instance_v2.vps.*.floating_ip, count.index)}, fichierAnsible.yml"
+    command = "sleep 5 && ansible-playbook --private-key=/home/ypsilik/.ssh/id_rsa_nopass -u cloud -i ${element(openstack_compute_instance_v2.vps.*.floating_ip, count.index)}, fichierAnsible.yml"
 #    command = "ansible-playbook --private-key=/home/ypsilik/.ssh/id_rsa_nopass -U cloud -u cloud -i hosts fichierAnsible.yml"
   }
 }

@@ -24,6 +24,33 @@ Partie comparaison Avant Térraform / mtn avec Terraform
 [TOC]
 
 # Introduction
+## Infrastructure as code
+
+L'infrastructure as code ou encore "infrastructure programmable" est un type d'infrastructure IT administré via du code (avec divers langage possible suivant la technologie utilisée). L'IAC est utilsée à la fois pour gérer les configurations, déployer et automatiser le provisionnement d'une infrastructure. Nous allons donc avoir le code écrit pour pouvoir fournir et gérer nos serveurs tout en permettant d'automatiser les tâches. 
+L'IAC, n'est plus seulement utilisée par les admins sys, en effet les développeurs de logiciels et d'applications peuvent facilement écrire un code d'infrastructure pour pouvoir se créer un environnement à des fins expérimentales pour tester leurs logiciels.
+De nombreux outils utilisent l'IAC comme par exemple Vagrant qui va permettre de créer un environnement virtuel grâce au code contenu dans le Vagrantfile, ou encore Ansible qui va lui permettre un provisionement. Plus récemment le logiciel Docker qui permet d'automatiser le déploiement d'applications dans des conteneurs logiciels utilise également l'IAC avec les dockerfile.
+Une infrastructure as code à aussi la particularité de pouvoir être déployée (suivant la technologie que l'on utlise) à la fois sur des machines locales, des serveurs, des environnements virtuels ou encore dans le cloud.
+L'IAC permet aussi de suivre les modifications d'une infrastructure, en cas de problème il sera alors très simple de revenir à la configuration précédente.
+Cependant, l'infrastructure as code possède aussi des inconvénients. Une mauvaise configuration sera dupliquée sur toutes les machines concernées, il faut aussi faire attention aux modifications que l'on fait, par exemple si on modifie la configuration d'un serveur manuellement, elle n'aura plus rien à voir avec le modèle de base qui est dans le code. L'IAC utilisant de nombreux logiciels différents, il faut aussi effectuer des tâches de recherche pour savoir lequel va le plus correspondre à ses besoins.
+
+## Mouvance Devops
+
+Devops est la concaténation du mot *development* et *operations* (en anglais). Au début de l'informatique en entreprise, les applications ne jouaient pas un grand rôle et étaient peu intégrées, il n'y avait alors pas de séparation entre développement et opérations, la même équipe d'informaticiens se chargeait à la fois du développement de l'application et de sa maintenance.
+
+
+L'évolution de l'informatique d'entreprise a fait que les logiciels ont évolués et prisent plus de place en terme d'utilisation ce qui a conduit à une séparation de dev et ops en deux équipes distinctes. L'équipe de dev apportait les changements au logiciels souvent le plus rapidement possible pour un moindre coût tandis que l'équipe ops garantissait la stabilité du système en ce concentrant sur la qualité. 
+
+> Sanjeev Sharma et Bernie Coyne7 recommandent :
+
+    un déploiement régulier des applications, la seule répétition contribuant à fiabiliser le processus ;
+    un décalage des tests "vers la gauche", autrement dit de tester au plus tôt ;
+    une pratique des tests dans un environnement similaire à celui de production ;
+    une intégration continue incluant des "tests continus" ;
+    une boucle d'amélioration courte (i.e. un feed-back rapide des utilisateurs) ;
+    une surveillance étroite de l'exploitation et de la qualité de production factualisée par des métriques et indicateurs "clé".
+
+La mise en oeuvre du DevOPs vient de la vonlonté de travaller ensemble pour produire de la valeur pour l'entreprise. Pour cela on va définir des objectifs communs aux équipes de développement et de production
+
 ## Le cloud computing
 
 Le Cloud computing est un concept qui s'oppose à la notion de stockage local. Pour faire simple, le cloud computing va permettre d'utiliser des ressources informatiques sans les posséder réellement, de fournir des services ou des applications accessibles partout depuis internet. Il y a de nombreux avantages à utiliser un cloud computing. Tout d'abord, l'utilisateur n'a pas d'infrastructure à gérer, ce qui est parfois plus simple pour des entreprises, car c'est le fournisseur cloud qui s'occupe de la maintenance de ses équipements. Il permet donc une réduction des coûts en n'ayant pas besoin d'investir dans une infrastructure interne, mais en payant uniquement ce qu'il consomme à son fournisseur de cloud. Cependant, on a bien entendu des inconvénients comme le fait de savoir où le prestataire de service stocke nos données (territoire national ou pas -> problèmes de loi), la sécurité du cloud sur le stockage, la confidentialité et aussi vis-à-vis des hackers, on doit donc avoir confiance en le prestataire.
@@ -66,6 +93,8 @@ OpenStack est un ensemble de logiciels/modules open source permettant de déploy
 ## Quelques mots sur Terraform
 
 Terraform est une solution pour la construction, la modification et le versionning d'infrastructure de manière sûre et efficace. Développé depuis 2013 par HashiCorp, c'est un outil en pleine expansion. Il permet de gérer plusieurs fournisseurs de services existant ainsi que des solutions développées en interne. Avec cette technologie, il est possible d'administrer des composants de bas niveau comme les IaaS, le stockage et la mise à niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
+
+
 
 # Openstack / python-nova 
 
@@ -229,7 +258,7 @@ Les configurations de Terraform sont écrites en HashiCorp Configuration Languag
 
 Il existe également de nombreuses fonctions utilisables avec HCL comme par exemple la fonction format(format, args, ...) qui va permettre de formater une chaîne selon le format que l'on donne.
 
-Les différents bloc se définissent avec des accolades dans le même principe que des fonctions dans les autres langages connu.
+Les différents blocs se définissent avec des accolades dans le même principe que des fonctions dans les autres langages connu.
 ```language
 ressource "nom_type_ressource" "nomRessource" {
 	...
@@ -271,14 +300,15 @@ resource "openstack_compute_instance_v2" "nomTerraform" {
 
 Les variables peuvent être enregistrées dans un fichier \og variables.tf \fg ou \og .tfvars \fg. Pour appliquer des variables enregistrées sous cette dernière extension, il faut lancer la commande suivante `terraform apply -var-file=truc.tfvars`. Les variable sont généralement utilisé dans les fichiers sous la forme suivante `${var.nomVar}`.
 
-### Modules (on a pas vraiment exploré ca, on le met ?)
+### Modules
 
-Terraform possède des modules autonome vis-à-vis des configurations Terraform. Ces modules peuvent être installés par Terraform. Un module peut être un morceau de code Terraform ayant une fonction qui sera ensuite appelé.
-```language
-module "Name" {
-	source = "github.../dossier"
-}
-```
+Il est possible d'intégrer des modules à Terraform. Terraform se charge du téléchargement et de l'intégration des modules. L'appel d'un module se fait de la même manière qu'une ressource mais avec le mot clef *module*. La source est ensuite indiquée dans une variable. La source peut provenir d'un dépot github, d'une archive (de multiples format sont compris comme tar.gz, zip, bz2...), d'un dossier local...
+Concrétement un module Teraform est un dossier contenant des fichiers *.tf* qui ont besoin d'être utilisé plusieurs fois. Pour régler ce problème de copie multiple du code, il est possible d'utiliser ce dossier en-tant que module et ainsi avoir un code plus clair.
+
+### Plugins
+
+Terraform a été crée avec la possibilité d'importer des plugins. Pour installer un plugin, il faut récuperer le code du plugin, et créer un fichier *~/.terraformrc* contenant un bloc providers avec une variable indiquant le chemin jusqu'au dossier du plugin. L'utilisation du plugin se fait apres dans le fichier .tf de l'insfrastructureet s'utilise comme un bloc ressource normal en suivant la syntaxe définie dans la documentation du plugin en question.
+
 ### Les commandes
 
 - `terraform plan` -- génère un plan d'action de la configuration. Le plan inclu toutes les actions faites et montre les modifications que va effectuer Terraform.
@@ -299,7 +329,7 @@ resource "openstack_compute_keypair_v2" "my_keypair" {
 }
 ```
 Terraform prend en paramètre pour cette resource un nom et la clef publique à ajouter.
-Cette clef ssh est requise lors de la création d'instance. En effet celles-ci prennent en paramètre une keypair - `key_pair = "${openstack_compute_keypair_v2.my_keypair.name}"` - pour permettre la connection ssh à l'instance en question. Cependant une seule keypair peut être intégrée dans la ressource *instance*. Pour avoir tous accès en ssh aux instances, nous nous sommes paratagé la clef privé créée spécialement pour le projet et n'ayant pas de passphrase pour permettre à ansible de se connecter ensuite.
+Cette clef ssh est requise lors de la création d'instance. En effet celles-ci prennent en paramètre une keypair - `key_pair = "${openstack_compute_keypair_v2.my_keypair.name}"` - pour permettre la connection ssh à l'instance en question. Cependant une seule keypair peut être intégrée dans la ressource *instance*. Pour avoir tous accès en ssh aux instances, nous nous sommes paratagés la clef privé créée spécialement pour le projet et n'ayant pas de passphrase pour permettre à ansible de se connecter ensuite.
 
 ### Instances
 
@@ -321,7 +351,7 @@ resource "openstack_compute_instance_v2" "vps" {
 }
 ```
 Une instance peut être créée dans une configuration unique, mais il est aussi possible d'en générer plusieurs automatiquement avec une seule ressource associée grâce au paramètre `count`.
-La création des insantances se fait donc en partant de zéro. Avec `count.index` nous pouvons récuperer l'index actuel de la boucle générée par tarraform. Chaque instance est ratachée à un ou plusieurs réseaus selon les besoins. Pour notre proof of concept, nous avons utilisé un seul réseau. Pour connecter les instances au réseau, il faut écrire un bloc *network* comme ci-dessus.
+La création des insantances se fait donc en partant de zéro. Avec `count.index` nous pouvons récuperer l'index actuel de la boucle générée par tarraform. Chaque instance est ratachée à un ou plusieurs réseaux selon les besoins. Pour notre proof of concept, nous avons utilisé un seul réseau. Pour connecter les instances au réseau, il faut écrire un bloc *network* comme ci-dessus.
 
 ### Security group
 
