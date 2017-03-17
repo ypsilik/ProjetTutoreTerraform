@@ -13,8 +13,7 @@ Cependant, l'infrastructure as code possède aussi des inconvénients. Une mauva
 Devops est la concaténation du mot *development* et *operations* (en anglais). Au début de l'informatique en entreprise, les applications ne jouaient pas un grand rôle et étaient peu intégrées, il n'y avait alors pas de séparation entre développement et opérations, la même équipe d'informaticiens se chargeait à la fois du développement de l'application et de sa maintenance.
 
 
-L'évolution de l'informatique d'entreprise a entrainé l'évolution de l'utilisation des logiciels. Aujourd'hui les logiciels ont une place beaucoup plus importante dans une entreprise.
-et ont prisent plus de place en terme d'utilisation ce qui a conduit à une séparation de dev et ops en deux équipes distinctes. L'équipe de développement apportait les changements aux logiciels souvent le plus rapidement possible pour un moindre coût tandis que l'équipe ops garantissait la stabilité du système en ce concentrant sur la qualité. 
+L'évolution de l'informatique d'entreprise a entrainé l'évolution de l'utilisation des logiciels. Aujourd'hui les logiciels ont une place beaucoup plus importante dans une entreprise ce qui a conduit à une séparation du développement et de la partie opérationnelles en deux équipes distinctes. L'équipe de développement apportait les changements aux logiciels souvent le plus rapidement possible pour un moindre coût tandis que l'équipe operation garantissait la stabilité du système en ce concentrant sur la qualité.
 
 > Sanjeev Sharma et Bernie Coyne7 recommandent :
 
@@ -25,7 +24,7 @@ et ont prisent plus de place en terme d'utilisation ce qui a conduit à une sép
     une boucle d'amélioration courte (i.e. un feed-back rapide des utilisateurs) ;
     une surveillance étroite de l'exploitation et de la qualité de production factualisée par des métriques et indicateurs "clé".
 
-La mise en oeuvre du DevOPs vient de la vonlonté de travaller ensemble pour produire de la valeur pour l'entreprise. Pour cela on va définir des objectifs communs aux équipes de développement et de production
+La mise en oeuvre du DevOPs vient de la vonlonté de travaller ensemble pour produire de la valeur pour l'entreprise. Pour cela on va définir des objectifs communs aux équipes de développement et de production.
 
 ## Le cloud computing
 
@@ -39,7 +38,6 @@ Il existe trois catégories de services pour le cloud computing.
 
 - le cloud hybride : est un système mixte qui mélange le cloud privé et public. Le client va faire appel à plusieurs clouds indépendants les uns des autres, ce qui permet de placer les données sensibles et confidentielles dans un cloud privé et les autres dans un cloud public. Avec ce type de cloud, on va aussi pouvoir réduire les coûts d'exploitation en tirant l'avantage des deux infrastructures, on va ainsi dimensionner son cloud privé pour une charge moyenne et le cloud public pour répondre aux montées de charge.
 
-(TODO : encore du C/c)
 Les différents modèles de cloud englobent plusieurs types de services, que l’on peut regrouper en trois parties :
 - IaaS - Infrastructure As a Service : le but est d’offrir un service de bas niveau, le consommateur peut alors choisir le système d’exploitation et y installer les outils adaptés à ses besoins. Il est possible de louer dynamiquement des machines virtuelles pour une courte durée. Il est également possible de louer un ensemble de machines constituant une infrastructure externe. Les acteurs français du IaaS sont Online.net, OVH (Kimsufi), ...
 - PaaS - Platform As a Service : cette fois-ci, le système est déjà installé, c’est le fournisseur qui gère le système et l’infrastructure. Le consommateur profite alors de la plate-forme pour y installer les applications souhaitées. Un exemple illustrant bien le PaaS est l’hébergement web, où l’hébergeur fournit une plate-forme souvent LAMP4, afin d’y héberger des sites web ou des systèmes de gestion de contenus.

@@ -38,18 +38,17 @@ Cependant, l'infrastructure as code possède aussi des inconvénients. Une mauva
 Devops est la concaténation du mot *development* et *operations* (en anglais). Au début de l'informatique en entreprise, les applications ne jouaient pas un grand rôle et étaient peu intégrées, il n'y avait alors pas de séparation entre développement et opérations, la même équipe d'informaticiens se chargeait à la fois du développement de l'application et de sa maintenance.
 
 
-L'évolution de l'informatique d'entreprise a fait que les logiciels ont évolués et prisent plus de place en terme d'utilisation ce qui a conduit à une séparation de dev et ops en deux équipes distinctes. L'équipe de dev apportait les changements au logiciels souvent le plus rapidement possible pour un moindre coût tandis que l'équipe ops garantissait la stabilité du système en ce concentrant sur la qualité. 
+L'évolution de l'informatique d'entreprise a entrainé l'évolution de l'utilisation des logiciels. Aujourd'hui les logiciels ont une place beaucoup plus importante dans une entreprise ce qui a conduit à une séparation du développement et de la partie opérationnelles en deux équipes distinctes. L'équipe de développement apportait les changements aux logiciels souvent le plus rapidement possible pour un moindre coût tandis que l'équipe operation garantissait la stabilité du système en ce concentrant sur la qualité.
 
-> Sanjeev Sharma et Bernie Coyne7 recommandent :
+> Sanjeev Sharma et Bernie Coyne recommandent :
+- un déploiement régulier des applications, la seule répétition contribuant à fiabiliser le processus ;
+- un décalage des tests "vers la gauche", autrement dit de tester au plus tôt
+- une pratique des tests dans un environnement similaire à celui de production
+- une intégration continue incluant des "tests continus"
+- une boucle d'amélioration courte (i.e. un feed-back rapide des utilisateurs)
+- une surveillance étroite de l'exploitation et de la qualité de production factualisée par des métriques et indicateurs "clé"
 
-    un déploiement régulier des applications, la seule répétition contribuant à fiabiliser le processus ;
-    un décalage des tests "vers la gauche", autrement dit de tester au plus tôt ;
-    une pratique des tests dans un environnement similaire à celui de production ;
-    une intégration continue incluant des "tests continus" ;
-    une boucle d'amélioration courte (i.e. un feed-back rapide des utilisateurs) ;
-    une surveillance étroite de l'exploitation et de la qualité de production factualisée par des métriques et indicateurs "clé".
-
-La mise en oeuvre du DevOPs vient de la vonlonté de travaller ensemble pour produire de la valeur pour l'entreprise. Pour cela on va définir des objectifs communs aux équipes de développement et de production
+La mise en oeuvre du DevOPs vient de la vonlonté de travaller ensemble pour produire de la valeur pour l'entreprise. Pour cela on va définir des objectifs communs aux équipes de développement et de production.
 
 ## Le cloud computing
 
@@ -63,7 +62,6 @@ Il existe trois catégories de services pour le cloud computing.
 
 - le cloud hybride : est un système mixte qui mélange le cloud privé et public. Le client va faire appel à plusieurs clouds indépendants les uns des autres, ce qui permet de placer les données sensibles et confidentielles dans un cloud privé et les autres dans un cloud public. Avec ce type de cloud, on va aussi pouvoir réduire les coûts d'exploitation en tirant l'avantage des deux infrastructures, on va ainsi dimensionner son cloud privé pour une charge moyenne et le cloud public pour répondre aux montées de charge.
 
-(TODO : encore du C/c)
 Les différents modèles de cloud englobent plusieurs types de services, que l’on peut regrouper en trois parties :
 - IaaS - Infrastructure As a Service : le but est d’offrir un service de bas niveau, le consommateur peut alors choisir le système d’exploitation et y installer les outils adaptés à ses besoins. Il est possible de louer dynamiquement des machines virtuelles pour une courte durée. Il est également possible de louer un ensemble de machines constituant une infrastructure externe. Les acteurs français du IaaS sont Online.net, OVH (Kimsufi), ...
 - PaaS - Platform As a Service : cette fois-ci, le système est déjà installé, c’est le fournisseur qui gère le système et l’infrastructure. Le consommateur profite alors de la plate-forme pour y installer les applications souhaitées. Un exemple illustrant bien le PaaS est l’hébergement web, où l’hébergeur fournit une plate-forme souvent LAMP4, afin d’y héberger des sites web ou des systèmes de gestion de contenus.
@@ -93,8 +91,6 @@ OpenStack est un ensemble de logiciels/modules open source permettant de déploy
 ## Quelques mots sur Terraform
 
 Terraform est une solution pour la construction, la modification et le versionning d'infrastructure de manière sûre et efficace. Développé depuis 2013 par HashiCorp, c'est un outil en pleine expansion. Il permet de gérer plusieurs fournisseurs de services existant ainsi que des solutions développées en interne. Avec cette technologie, il est possible d'administrer des composants de bas niveau comme les IaaS, le stockage et la mise à niveau, ainsi que des composants haut niveau comme les entrées DNS et les fonctionnalités SaaS.
-
-
 
 # Openstack / python-nova 
 
@@ -146,7 +142,7 @@ Surveille et mesure un cloud OpenStack dans un but de facturation, de mesure de 
 
 Voici un shema qui permet de montrer le lien entre tout les modules.
 
-![](../Momo/Openstack_diagramme_conceptuel.jpg) 
+![](Images/Openstack_diagramme_conceptuel.jpg) 
 
 ## Le Client Python nova 
 
@@ -196,7 +192,7 @@ Pour la création de l’instance on retrouve quatre éléments :
 - l’id de l’image
 - le nom de l’instance
 
-![](/home/valentin/Images/eeee.png) 
+![](Images/eeee.png) 
 
 
 # Terraform
@@ -315,7 +311,7 @@ Terraform a été crée avec la possibilité d'importer des plugins. Pour instal
 - `terraform plan -destroy -out=destroy.tf` -- génère un plan d'action qui à pour objectif de détruire tous le projet défini pas les fichiers de configuration. Le résultat est enregistré dans un fichier pour ensuite être appliqué avec `terraform apply destroy.tf`.
 - `terraform destroy` -- détruit l'infrastructure généré par Terraform avec le compte importé (idendique à la technique du dessus).
 - `terraform apply` -- applique le code Terraform en générant ce que `terraform plan` à montré précédement
-- `terraform graph` -- permet la visualisation du plan en images 
+- `terraform graph` -- permet la visualisation du plan. Cette commande génère un fichier dot qui peut ensuite être retransformé en fichier image ce qui permet d'obtenir toutes les étapes que va seffectuer Terraform en schéma.
 - `terraform show` -- montre les infrastructures en place
 
 ## Configurations effectuées
@@ -430,7 +426,7 @@ resource "openstack_networking_router_v2" "router_1" {
 }
 ```
 
-![reseau.png](./reseau.png)
+![reseau.png](Images/reseau.png)
 
 # Provisionnement 
 Terraform permet aussi le provisionnement de ses instances avec différents provisionners comme chef, puppet ou encore ansible. Cependant Terraform n'offre un service que pour Chef mais permet d'éxécuter différentes commandes automatiquement depuis la machine lancant `terraform apply` avec le provisionner `local_exec` ou depuis la machine générée avec Terraform grâce au provisionner `remote_exec`. Celui-ci se compléte avec le bloc `connection` effectuant une connexion ssh avec les identifiants désiré. Ces dernières se mettant dans les instances.
