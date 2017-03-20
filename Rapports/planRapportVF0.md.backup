@@ -1,3 +1,26 @@
+Explication de:
+- infrastructure as code OK
+- provider OK
+- provisionner OK
+- hébergeur (ovh/ cloudwatt)
+- vps (instance) OK
+- mouvance du devops OK
+- proof of concept OK
+- cluster 
+- recette OK
+- ip Flottante (principe etc etc) OK
+
+Partie bénéfice terraform a quoi ca sert concretement  / infrastructure as code
+Partie comparaison Avant Térraform / mtn avec Terraform
+
+- Réponse au sujet initial (contexte / motivations / problématique,réalisations, etc.)
+- Inventaire des tâches réalisées, des ressources produites
+- Répartition du travail au sein du groupe
+- Section Bibliographie (source image et texte Copié)
+
+- intro sur mtn entreprise besoin infra as code / dev ops / cloud computing  ... (donc amene utilité Terraforml ss entendu) OK
+- python-nova OK
+
 [TOC]
 
 # Introduction

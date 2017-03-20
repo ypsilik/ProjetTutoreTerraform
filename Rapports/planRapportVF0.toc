@@ -1,0 +1,72 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Infrastructure as code}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Mouvance Devops}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Le cloud computing}{4}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Contexte du projet}{5}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Enjeu et probl\IeC {\'e}matique}{5}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Quelques mots sur Openstack}{6}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}Quelques mots sur Terraform}{6}{subsection.1.7}
+\contentsline {section}{\numberline {2}Openstack / python-nova}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Introduction}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Les modules : services d'OpenStack.}{7}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Keystone, le service d'identit\IeC {\'e}}{7}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Glance, la gestion d'images}{7}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Nova, le Compute}{7}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}Horizon, l'interface web}{7}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.5}Cinder, le service de disques persistants}{8}{subsubsection.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.6}Neutron, la gestion de r\IeC {\'e}seaux}{8}{subsubsection.2.2.6}
+\contentsline {subsubsection}{\numberline {2.2.7}Swift, le stockage d'objet}{8}{subsubsection.2.2.7}
+\contentsline {subsubsection}{\numberline {2.2.8}Heat, le service d'orchestration}{8}{subsubsection.2.2.8}
+\contentsline {subsubsection}{\numberline {2.2.9}Ceilometer, le service de m\IeC {\'e}trologie}{8}{subsubsection.2.2.9}
+\contentsline {subsection}{\numberline {2.3}Le Client Python nova}{8}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Installation de python-nova}{8}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Configuration des variables d'environnement pour Openstack}{9}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Liste des instances}{9}{subsubsection.2.3.3}
+\contentsline {subsection}{\numberline {2.4}Cr\IeC {\'e}ation de l'instance}{9}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}G\IeC {\'e}n\IeC {\'e}ration de la clef ssh}{9}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Int\IeC {\'e}gration clef ssh au keypair Openstack}{10}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Choix du flavor}{10}{subsubsection.2.4.3}
+\contentsline {subsubsection}{\numberline {2.4.4}Choix de l'image (syst\IeC {\`e}me install\IeC {\'e})}{10}{subsubsection.2.4.4}
+\contentsline {subsubsection}{\numberline {2.4.5}Cr\IeC {\'e}ation de l'instance}{10}{subsubsection.2.4.5}
+\contentsline {section}{\numberline {3}Terraform}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Pr\IeC {\'e}senation}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Caract\IeC {\'e}ristiques}{11}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Quelques cas d'utilisations}{12}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Self-service Cluster}{12}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}D\IeC {\'e}mos de logiciels}{12}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Multi Cloud-D\IeC {\'e}ploiement}{12}{subsubsection.3.3.3}
+\contentsline {subsection}{\numberline {3.4}Syntaxe utilis\IeC {\'e}e\IeC {\'e}}{12}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Les bases du langage}{12}{subsubsection.3.4.1}
+\contentsline {subsection}{\numberline {3.5}Fonctionnement}{13}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Bloc \textbf {\texttt {provider}}}{13}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Bloc \textbf {\texttt {resource}}}{14}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Variables}{14}{subsubsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.4}Modules}{14}{subsubsection.3.5.4}
+\contentsline {subsubsection}{\numberline {3.5.5}Plugins}{14}{subsubsection.3.5.5}
+\contentsline {subsubsection}{\numberline {3.5.6}Les commandes}{15}{subsubsection.3.5.6}
+\contentsline {subsection}{\numberline {3.6}Configurations effectu\IeC {\'e}es}{15}{subsection.3.6}
+\contentsline {subsubsection}{\numberline {3.6.1}Keypair}{15}{subsubsection.3.6.1}
+\contentsline {subsubsection}{\numberline {3.6.2}Instances}{15}{subsubsection.3.6.2}
+\contentsline {subsubsection}{\numberline {3.6.3}Security group}{16}{subsubsection.3.6.3}
+\contentsline {subsubsection}{\numberline {3.6.4}Ip flottantes}{16}{subsubsection.3.6.4}
+\contentsline {subsubsection}{\numberline {3.6.5}R\IeC {\'e}seau, sous-r\IeC {\'e}seau et routeur}{17}{subsubsection.3.6.5}
+\contentsline {paragraph}{R\IeC {\'e}seau et sous-r\IeC {\'e}seau}{17}{section*.2}
+\contentsline {subparagraph}{Sous-r\IeC {\'e}seau}{17}{section*.3}
+\contentsline {subparagraph}{Port du sous-r\IeC {\'e}seau}{17}{section*.4}
+\contentsline {paragraph}{Routeur}{17}{section*.5}
+\contentsline {section}{\numberline {4}Provisionnement - Ansible}{19}{section.4}
+\contentsline {subsection}{\numberline {4.1}Pr\IeC {\'e}sentation}{19}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Utilisation}{19}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Fonctionnement}{20}{subsection.4.3}
+\contentsline {paragraph}{Les h\IeC {\^o}tes et les utilisateurs}{20}{section*.6}
+\contentsline {paragraph}{La liste des t\IeC {\^a}ches}{20}{section*.7}
+\contentsline {paragraph}{Le premier playbook}{20}{section*.8}
+\contentsline {section}{\numberline {5}Int\IeC {\'e}gration avec Terraform}{22}{section.5}
+\contentsline {subsection}{\numberline {5.1}Probl\IeC {\`e}me que l'on a eu}{22}{subsection.5.1}
+\contentsline {section}{\numberline {6}Gestion du projet}{24}{section.6}
+\contentsline {section}{\numberline {7}Avant TerraForm}{25}{section.7}
+\contentsline {subsection}{\numberline {7.1}AWS CloudFormation}{25}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Heat}{25}{subsection.7.2}
+\contentsline {section}{\numberline {8}TerraForm vs les autres logiciels}{25}{section.8}
+\contentsline {section}{\numberline {9}Conclusion}{27}{section.9}
