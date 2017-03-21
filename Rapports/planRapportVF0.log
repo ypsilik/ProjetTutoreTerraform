@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  20 MAR 2017 14:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.2.13)  21 MAR 2017 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -866,37 +866,37 @@ ily
 ) (./planRapportVF0.aux)
 \openout1 = `planRapportVF0.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 82.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 80.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 82.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \degres on input line 80.
-LaTeX Info: Redefining \dots on input line 80.
-LaTeX Info: Redefining \up on input line 80.
-LaTeX Info: Redefining \microtypecontext on input line 80.
+LaTeX Info: Redefining \degres on input line 82.
+LaTeX Info: Redefining \dots on input line 82.
+LaTeX Info: Redefining \up on input line 82.
+LaTeX Info: Redefining \microtypecontext on input line 82.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -912,7 +912,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 82.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -922,9 +922,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count120
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 82.
+LaTeX Info: Redefining \pageref on input line 82.
+LaTeX Info: Redefining \nameref on input line 82.
 
 (./planRapportVF0.out) (./planRapportVF0.out)
 \@outlinefile=\write3
@@ -998,11 +998,11 @@ e
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-<Images/download.jpeg, id=261, 225.84375pt x 225.84375pt>
+<Images/download.jpeg, id=132, 225.84375pt x 225.84375pt>
 File: Images/download.jpeg Graphic file (type jpg)
 
 <use Images/download.jpeg>
-Package pdftex.def Info: Images/download.jpeg used on input line 89.
+Package pdftex.def Info: Images/download.jpeg used on input line 92.
 (pdftex.def)             Requested size: 103.78255pt x 103.78255pt.
  [1
 
@@ -1049,12 +1049,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 42.
+))
+\tf@toc=\write4
+\openout4 = `planRapportVF0.toc'.
 
-(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 12.80502pt.
@@ -1065,84 +1064,84 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.49 ...e {3.6.1}Keypair}{15}{subsubsection.3.6.1}
-                                                   [1])
-\tf@toc=\write4
-\openout4 = `planRapportVF0.toc'.
-
- [2] [3] [4] [5]
-[6] [7]
-<Images/Openstack_diagramme_conceptuel.jpg, id=373, 702.625pt x 432.61626pt>
+l.100 \newpage
+               [1] [2] [3] [4] [5] [6] [7]
+<Images/Openstack_diagramme_conceptuel.jpg, id=217, 702.625pt x 432.61626pt>
 File: Images/Openstack_diagramme_conceptuel.jpg Graphic file (type jpg)
 
 <use Images/Openstack_diagramme_conceptuel.jpg>
 Package pdftex.def Info: Images/Openstack_diagramme_conceptuel.jpg used on inpu
-t line 420.
+t line 417.
 (pdftex.def)             Requested size: 415.13481pt x 255.60445pt.
 
-Underfull \hbox (badness 5417) in paragraph at lines 421--421
+Underfull \hbox (badness 5417) in paragraph at lines 418--418
 []\T1/lmr/m/sc/10 (+20) Figure \T1/lmr/m/n/10 (+20) 1 ^^U []Schéma d'or-ga-ni-s
 a-tion des mo-dules d'Opens-tack \T1/lmr/m/n/8 (+20) source : http ://lea-
  []
 
 [8]
-Overfull \hbox (35.80714pt too wide) in paragraph at lines 448--451
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 447.
+
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (35.80714pt too wide) in paragraph at lines 446--449
 []\T1/lmr/m/n/10 (-20) L'exécution du fi-chier se fait grâce à la com-mande \T1
 /lmtt/m/n/10 source 0750182707_projet_tutore_2017-openrc.sh
  []
 
 [9 <./Images/Openstack_diagramme_conceptuel.jpg>]
-Overfull \hbox (25.873pt too wide) in paragraph at lines 484--485
+Overfull \hbox (25.873pt too wide) in paragraph at lines 483--484
 []\T1/lmtt/m/n/10 nova boot --key-name SSHKEY --flavor 16 --image 185e1975-c9c5
 -4358-909e-5e329808902e
  []
 
-<Images/eeee.png, id=384, 858.20625pt x 430.60875pt>
+<Images/eeee.png, id=237, 858.20625pt x 430.60875pt>
 File: Images/eeee.png Graphic file (type png)
  <use Images/eeee.png>
-Package pdftex.def Info: Images/eeee.png used on input line 496.
+Package pdftex.def Info: Images/eeee.png used on input line 495.
 (pdftex.def)             Requested size: 415.12955pt x 208.29306pt.
 
 [10 <./Images/eeee.png>] [11] [12]
-<Images/DiagramTerraform.png, id=405, 743.77875pt x 442.65375pt>
+<Images/DiagramTerraform.png, id=266, 743.77875pt x 442.65375pt>
 File: Images/DiagramTerraform.png Graphic file (type png)
 
 <use Images/DiagramTerraform.png>
-Package pdftex.def Info: Images/DiagramTerraform.png used on input line 633.
+Package pdftex.def Info: Images/DiagramTerraform.png used on input line 639.
 (pdftex.def)             Requested size: 415.14001pt x 247.06712pt.
  [13 <./Images/DiagramTerraform.png>] [14]
-[15] [16] [17] <Images/reseau.png, id=433, 619.31375pt x 413.545pt>
+[15] [16] [17] <Images/reseau.png, id=305, 619.31375pt x 413.545pt>
 File: Images/reseau.png Graphic file (type png)
 
 <use Images/reseau.png>
 Package pdftex.def Info: Images/reseau.png used on input line 910.
 (pdftex.def)             Requested size: 300.64085pt x 200.75208pt.
  [18 <./Images/reseau.png>]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 978
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 979
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [19]
-<Images/ansible_diagramme.png, id=446, 536.0025pt x 231.86626pt>
+<Images/ansible_diagramme.png, id=319, 536.0025pt x 231.86626pt>
 File: Images/ansible_diagramme.png Graphic file (type png)
 
 <use Images/ansible_diagramme.png>
-Package pdftex.def Info: Images/ansible_diagramme.png used on input line 995.
+Package pdftex.def Info: Images/ansible_diagramme.png used on input line 996.
 (pdftex.def)             Requested size: 348.06216pt x 150.56621pt.
  [20 <./Images/ansible_diagramme.png>]
-<Images/application.png, id=456, 1123.19624pt x 370.38374pt>
+<Images/application.png, id=329, 1123.19624pt x 370.38374pt>
 File: Images/application.png Graphic file (type png)
 
 <use Images/application.png>
-Package pdftex.def Info: Images/application.png used on input line 1068.
+Package pdftex.def Info: Images/application.png used on input line 1069.
 (pdftex.def)             Requested size: 415.11336pt x 136.88724pt.
 
-<Images/verification.png, id=457, 1062.97125pt x 403.5075pt>
+<Images/verification.png, id=330, 1062.97125pt x 403.5075pt>
 File: Images/verification.png Graphic file (type png)
 
 <use Images/verification.png>
-Package pdftex.def Info: Images/verification.png used on input line 1077.
+Package pdftex.def Info: Images/verification.png used on input line 1078.
 (pdftex.def)             Requested size: 415.12482pt x 157.58278pt.
  [21 <./Images/application.png>]
 Overfull \hbox (10.12305pt too wide) in paragraph at lines 1098--1098
@@ -1157,63 +1156,75 @@ ng_ip, count.index)},[]
  []
 
 [22 <./Images/verification.png>] [23]
-<Images/TerraFormGant.png, id=473, 1305.87875pt x 354.32375pt>
+<Images/TerraFormGant.png, id=346, 1305.87875pt x 354.32375pt>
 File: Images/TerraFormGant.png Graphic file (type png)
 
 <use Images/TerraFormGant.png>
-Package pdftex.def Info: Images/TerraFormGant.png used on input line 1156.
+Package pdftex.def Info: Images/TerraFormGant.png used on input line 1151.
 (pdftex.def)             Requested size: 415.12001pt x 112.6344pt.
  [24 <./Images/TerraFormGant.png (PNG copy)>]
 [25] [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1256--1260
+Underfull \hbox (badness 10000) in paragraph at lines 1250--1254
 []$\T1/lmr/m/n/10 (+20) http : / / www . matt -[] j . co . uk / 2015 / 03 / 27 
 / openstack -[] infrastructure -[] automation -[] with -[] terraform -[]
  []
 
 [28] [29]
-Overfull \hbox (25.873pt too wide) in paragraph at lines 1356--1356
+Overfull \hbox (25.873pt too wide) in paragraph at lines 1350--1350
 []\T1/lmtt/m/n/10 +2OlmvGHIJNW6U7VWDS0jSFr3QJJQsBIJ1KLCxIP0alveWNqUMz4xbUBof8Ai
 8ULelN5Gk64EsRmkH2Bncxs[] 
  []
 
 
-Overfull \hbox (25.873pt too wide) in paragraph at lines 1356--1356
+Overfull \hbox (25.873pt too wide) in paragraph at lines 1350--1350
 []\T1/lmtt/m/n/10 +8vuLNRdyPQqx6iBiy7mwDDuF6oNW7CZK3HPe2n9geZSTtjE18FNvHvCTOITV
 WSnGdSPy2e89ahemM0B3ROo[] 
  []
 
 
-Overfull \hbox (25.873pt too wide) in paragraph at lines 1356--1356
+Overfull \hbox (25.873pt too wide) in paragraph at lines 1350--1350
 []\T1/lmtt/m/n/10 aogn76Xw0BeNrhUfywXyA4GaS4F1Y28uduvXIO8QRaIiIWRjhPH83wswjnPnD
 ciPEg7/uAa/yZSy1SXFU5V"[] 
  []
 
 [30]
-Overfull \hbox (10.12305pt too wide) in paragraph at lines 1407--1407
-[]    \T1/lmtt/m/n/10 cluster_instance_ids = "${join(",", openstack_compute_ins
-tance_v2.vps.*.id)}"[] 
+Overfull \hbox (15.37303pt too wide) in paragraph at lines 1401--1401
+[]    \T1/lmtt/m/n/10 cluster_instance_ids = "${join(é",", openstack_compute_in
+stance_v2.vps.*.id)}"[] 
+ []
+
+
+Overfull \hbox (20.62302pt too wide) in paragraph at lines 1401--1401
+[]         \T1/lmtt/m/n/10 command = "ansible-playbook --private-key=/home/ypsi
+lik/.ssh/id_rsa_nopass[] 
+ []
+
+
+Overfull \hbox (4.87306pt too wide) in paragraph at lines 1401--1401
+[]          \T1/lmtt/m/n/10 -u cloud -i ${element(openstack_compute_instance_v2
+.vps.*.floating_ip,[] 
  []
 
 [31]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1431.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1425.
  [32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1431.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1425.
  (./planRapportVF0.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1431.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1431.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1425.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1425.
 
 Package rerunfilecheck Info: File `planRapportVF0.out' has not changed.
-(rerunfilecheck)             Checksum: B062F0CD22C61F6D15D58AD044BBDF62;10925.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1431.
+(rerunfilecheck)             Checksum: BE74F05DC27A626EEA5E55CC727E69D2;4916.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1425.
  ) 
 Here is how much of TeX's memory you used:
- 13851 strings out of 493013
- 199287 string characters out of 6139317
- 313666 words of memory out of 5000000
- 16971 multiletter control sequences out of 15000+600000
- 56729 words of font info for 101 fonts, out of 8000000 for 9000
+ 13816 strings out of 493013
+ 198600 string characters out of 6139317
+ 310656 words of memory out of 5000000
+ 16939 multiletter control sequences out of 15000+600000
+ 56516 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,11n,43p,615b,622s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,11n,43p,755b,541s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/f
 onts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmb10.
 pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-
@@ -1222,10 +1233,10 @@ lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/
 texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></us
 r/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on planRapportVF0.pdf (33 pages, 536925 bytes).
+Output written on planRapportVF0.pdf (33 pages, 536471 bytes).
 PDF statistics:
- 594 PDF objects out of 1000 (max. 8388607)
- 530 compressed objects within 6 object streams
- 127 named destinations out of 1000 (max. 500000)
- 12846 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 467 PDF objects out of 1000 (max. 8388607)
+ 404 compressed objects within 5 object streams
+ 128 named destinations out of 1000 (max. 500000)
+ 12590 words of extra memory for PDF output out of 14400 (max. 10000000)
 

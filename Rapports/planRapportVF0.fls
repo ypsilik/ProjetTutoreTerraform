@@ -189,9 +189,6 @@ INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
 OUTPUT planRapportVF0.toc
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmb10.tfm
@@ -202,6 +199,8 @@ INPUT ./Images/Openstack_diagramme_conceptuel.jpg
 INPUT ./Images/Openstack_diagramme_conceptuel.jpg
 INPUT ./Images/Openstack_diagramme_conceptuel.jpg
 INPUT ./Images/Openstack_diagramme_conceptuel.jpg
+INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt10.tfm
 INPUT ./Images/eeee.png
 INPUT ./Images/eeee.png
@@ -211,6 +210,7 @@ INPUT ./Images/DiagramTerraform.png
 INPUT ./Images/DiagramTerraform.png
 INPUT ./Images/DiagramTerraform.png
 INPUT ./Images/DiagramTerraform.png
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
 INPUT ./Images/reseau.png
 INPUT ./Images/reseau.png
 INPUT ./Images/reseau.png
