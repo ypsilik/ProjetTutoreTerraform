@@ -267,20 +267,29 @@ bien sous OpenStack, sous AWS ou tout autre provider. Terraform va donc
 nous permettre de réduire les dépendances entre ces outils et les
 infrastructures qui les utilisent tout en facilitant leurs mises en place.
 
-\newpage
-\section{Openstack / python-nova}\label{openstack-python-nova}
+\vspace{0,5cm}
+Dans un premier temps, nous allons vous présenter OpenStack, ainsi que son client python-nova.\\
+Nous passerons ensuite à la présentation de Terraform, ainsi qu'aux configurations que nous avons effectué pour le projet.\\
+Ensuite nous verrons le provisionnement avec Ansible, son intégration à Terraform et les problèmes que nous avons rencontré  à ce sujet. \\
+Chapitre 5 vous trouverez comment nous avons géré le projet.\\
+Le chapitre 6 présente et compare quelques technologies semblable à Terraform. \\
+Nous conclurons ce rapport dans le chapitre 7.
 
-Xilopix utilise l'outil Openstack, nous avons donc dû apprendre
+
+\newpage
+\section{OpenStack / python-nova}\label{OpenStack-python-nova}
+
+Xilopix utilise l'outil OpenStack, nous avons donc dû apprendre
 rapidement son fonctionnement pour pouvoir ensuite travailler pleinement
 sur sa mise en place avec Terraform.
 
 \subsection{Introduction}\label{introduction-1}
 
-Openstack est un projet qui est né en 2010 (licence Apache 2.0) par
+OpenStack est un projet qui est né en 2010 (licence Apache 2.0) par
 l'entreprise RackSpace. OpenStack est un logiciel libre qui va nous
 permettre de faire du cloud computing et qui permet de faire du IaaS
 pour du cloud privé ou public.\\
-Le but d'Openstack est d'offrir à son
+Le but d'OpenStack est d'offrir à son
 utilisateur une multitude de modules qui va lui permettre de faire de
 l'infrastructure as a service c'est-à-dire déployer des machines
 virtuelles en optimisant les ressources matérielles. On peut les
@@ -289,9 +298,9 @@ possible de créer un ensemble de machines constituant une
 infrastructure externe.
 
 \subsection{Les modules : services
-d'OpenStack.}\label{les-modules-services-dopenstack.}
+d'OpenStack.}\label{les-modules-services-dOpenStack.}
 
-Openstack se compose de plusieurs modules pour fonctionner, avec des
+OpenStack se compose de plusieurs modules pour fonctionner, avec des
 modules plus ou moins importants pour la création d'infrastructure.
 
 \subsubsection{Keystone, le service
@@ -309,7 +318,7 @@ Compute les utilise lors du provisioning d'instance.
 
 \subsubsection{Nova, le Compute}\label{nova-le-compute}
 
-Nova est le coeur du project Openstack, il gère le cycle de vie des
+Nova est le coeur du project OpenStack, il gère le cycle de vie des
 instances dans un environnement OpenStack. Les tâches incluent la
 planification, la création et la mise hors service de machines
 virtuelles à la demande.
@@ -367,7 +376,7 @@ Voici un schéma qui permet de montrer le lien entre tout les modules.
 \begin{figure}
 \centering
 \includegraphics{Images/Openstack_diagramme_conceptuel.jpg}
-\caption{Schéma d'organisation des modules d'Openstack \footnotesize{source : http://lea-linux.org/documentations/OpenStack} }
+\caption{Schéma d'organisation des modules d'OpenStack \footnotesize{source : http://lea-linux.org/documentations/OpenStack} }
 \end{figure}
 
 \subsection{Le client Python nova}\label{le-client-python-nova}
@@ -384,15 +393,15 @@ installé python et son système d'installation pip. Pour lancer
 l'installation, il suffit de taper pip install -U python-novaclient .
 
 \subsubsection{Configuration des variables d'environnement pour
-Openstack}\label{configuration-des-variables-denvironnement-pour-openstack}
+OpenStack}\label{configuration-des-variables-denvironnement-pour-OpenStack}
 
-Pour configurer toutes les variables, Openstack génère un fichier RC
+Pour configurer toutes les variables, OpenStack génère un fichier RC
 contenant la totalité des variables d'environnement à configurer.
 
 Depuis Cloudwatt, il faut aller dans les paramètres \emph{accès et
 sécurité} puis \emph{accès API} et enfin télécharger le fichier. En
 effet Cloudwatt génère un fichier contenant toutes les variables
-d'environnement nécessaire à la configuration de la connexion Openstack.
+d'environnement nécessaire à la configuration de la connexion OpenStack.
 Ce qui ne sera pas forcément le cas avec un autre service d'hébergement tel qu'Ovh.
 
 L'exécution du fichier se fait grâce à la commande
@@ -413,7 +422,7 @@ ssh}\label{guxe9nuxe9ration-de-la-clef-ssh}
 Une clef ssh a été généré pour le porjet, elle ne contient aucune passphrase pour éviter les problèmes de compatibilité avec Ansible. Ce point vas être expliqué plus bas.
 
 \subsubsection{Intégration clef ssh au keypair
-Openstack}\label{intuxe9gration-clef-ssh-au-keypair-openstack}
+OpenStack}\label{intuxe9gration-clef-ssh-au-keypair-OpenStack}
 
 \texttt{nova\ keypair-add\ -\/-pub-key\ .ssh/id\_rsa.pub\ SSHKEY}
 
@@ -445,7 +454,7 @@ Pour la création de l'instance, on retrouve quatre éléments :
 \begin{figure}
 \centering
 \includegraphics{Images/eeee.png}
-\caption{Paramètres demandés par Openstack pour la création d'une instance}
+\caption{Paramètres demandés par OpenStack pour la création d'une instance}
 \end{figure}
 
 \newpage
@@ -460,15 +469,15 @@ infrastructure.
 
 Terraform fonctionne avec des fichiers textes pour configurer les futures
 infrastructures. Ces fichiers sont appelés \og recette
-\fg, ils servent à décrire l'architecture des providers tel
-qu'Openstack ou AWS. La configuration se fait dans un fichier
+\fg , ils servent à décrire l'architecture des providers tel
+qu'OpenStack ou AWS. La configuration se fait dans un fichier
 \og main.tf \fg qui est écrit en HCL \footnote{HashiCorp Configuration Language}. La configuration peut aussi être
 générée automatiquement par machine avec le format JSON \footnote{JavaScript Object Notation}.
 L'extension du fichier sera alors \og main.tf.json
 \fg.
 
 Un provider pour Terraform est un service pour le cloud computing, généralement un
-IaaS comme c'est la cas pour Openstack. 
+IaaS comme c'est la cas pour OpenStack. 
 Terraform permet de gérer les composants de bas niveau comme les IaaS,
 le stockage et la mise à niveau, ainsi que des composants hauts niveaux
 comme les entrées DNS et les fonctionnalités SaaS.
@@ -491,7 +500,7 @@ plans d'exécution conformément à ces changements.
   \textbf{Plan d'exécution :} Terraform a une étape de \og
   planification \fg qui génère un plan d'exécution. Le
   plan d'exécution montre les actions que Terraform effectuera lorsqu'il
-  sera lancé. Cela permet d'augmenter la sécurité en évitant d'avoir des
+  sera lancé. Cela permet d'augmenter la stabilité en évitant d'avoir des
   surprises lorsque Terraform manipule l'infrastructure.
 \item
   \textbf{Graphique des ressources :} Terraform construit un graphique de
@@ -517,7 +526,7 @@ infrastructure \og self-service \fg,
 permettant aux équipes de gérer leur propre infrastructure à l'aide de
 l'outillage fourni par l'équipe centrale d'exploitation.
 
-A l'aide du fichier de configuration de Terraform on peut rapidement prendre connaissance de l'ensemble de l'infrastructure. Il est alors possible de lancer le script Terraform depuis n'importe quel pc, la seule condition étant d'avoir l'exécutable. Cela représente un réel avantage de portabilité.
+A l'aide du fichier de configuration de Terraform on peut rapidement prendre connaissance de l'ensemble de l'infrastructure décrite dans le fichier. Il est alors possible de lancer le script Terraform depuis n'importe quel pc, la seule condition étant d'avoir l'exécutable. Cela représente un réel avantage de portabilité.
 
 
 \subsubsection{Démos de logiciels}\label{duxe9mos-de-logiciels}
@@ -583,7 +592,7 @@ PATH \texttt{PATH=/usr/local/...:\$PATH}.
 
 \begin{figure}
 \centering
-\includegraphics{Images/DiagramTerraform2.png}
+\includegraphics{Images/DiagramTerraform.png}
 \caption{Utilisation de Terraform dans un environnement}
 \end{figure}
 
@@ -603,7 +612,7 @@ pour la connexion à celui-ci. Terraform peut contenir plusieurs blocs
 provider. Ce bloc gère le cycle de vie des ressources (create, read,
 update, delete).
 \begin{verbatim}
-provider "openstack" {
+provider "OpenStack" {
     user_name  = "admin"
     tenant_name = "admin"
     password  = "pwd"
@@ -611,7 +620,7 @@ provider "openstack" {
 }
 \end{verbatim}
 Cloudwatt offre la génération d'un fichier .sh avec la totalité des
-identifiants et accès pour Openstack. Pour la connexion, nous avons pu
+identifiants et accès pour OpenStack. Pour la connexion, nous avons pu
 omettre le bloc provider, Terraform se charge de récupérer les variables
 environnementales correspondant aux paramètres dont il a besoin pour
 retrouver le provider.
@@ -622,7 +631,7 @@ retrouver le provider.
 Partie de création et gestion des ressources. Les ressources sont les composants physiques et logiciels qui composent l'infrastructure.
 
 \begin{verbatim}
-resource "openstack_compute_instance_v2" "nomTerraform" {
+resource "OpenStack_compute_instance_v2" "nomTerraform" {
 }
 \end{verbatim}
 
@@ -720,7 +729,7 @@ Une des premières configurations effectuées fut l'ajout de clef ssh pour
 le projet. Cet ajout avait pour objectif de nous permettre de nous
 connecter en ssh avec les instances créées.
 \begin{verbatim}
-resource "openstack_compute_keypair_v2" "my_keypair" {
+resource "OpenStack_compute_keypair_v2" "my_keypair" {
   name = "my_keypair"
   public_key = "${var.keypair}"
 }
@@ -728,7 +737,7 @@ resource "openstack_compute_keypair_v2" "my_keypair" {
 Terraform prend en paramètre pour cette ressource un nom et la clef
 publique à ajouter. Cette clef ssh est requise lors de la création
 d'instance. En effet, celles-ci prennent en paramètre une keypair -
-\texttt{key\_pair\ =\ "\$\{openstack\_compute\_keypair\_v2.my\_keypair.name\}"}
+\texttt{key\_pair\ =\ "\$\{OpenStack\_compute\_keypair\_v2.my\_keypair.name\}"}
 - pour permettre la connexion ssh à l'instance en question. Cependant,
 une seule keypair peut être intégrée dans la ressource \emph{instance}.
 Pour avoir tous accès en ssh aux instances, nous nous sommes partagés la
@@ -738,20 +747,20 @@ passphrase pour permettre à ansible de se connecter ensuite.
 \subsubsection{Instances}\label{instances}
 
 Les instances sont la plus grande partie de la configuration, elles
-correspondent aux réseaux privés virtuels (vps) qui vont être créées.
+correspondent aux machines privées virtuelles (vps) qui vont être créées.
 \begin{verbatim}
-resource "openstack_compute_instance_v2" "vps" {
+resource "OpenStack_compute_instance_v2" "vps" {
   count = 3
   name = "vps-test-${(count.index)+1}"
   image_id = "185e1975-c9c5-4358-909e-5e329808902e"
   flavor_id = "16"
-  key_pair = "${openstack_compute_keypair_v2.my_keypair.name}"
-  security_groups = ["${openstack_compute_secgroup_v2.terraform.id}"]
-  floating_ip = "${element(openstack_compute_floatingip_v2.terraform.*.address,
+  key_pair = "${OpenStack_compute_keypair_v2.my_keypair.name}"
+  security_groups = ["${OpenStack_compute_secgroup_v2.terraform.id}"]
+  floating_ip = "${element(OpenStack_compute_floatingip_v2.terraform.*.address,
   count.index+1)}"
 
   network {
-    name = "${openstack_networking_network_v2.network_1.name}"
+    name = "${OpenStack_networking_network_v2.network_1.name}"
     fixed_ip_v4 = "192.168.0.1${(count.index)+1}"
   }
 }
@@ -768,7 +777,7 @@ avons crées un security group nommé \og terraform
 \fg composé d'une seule règle permettant la connexion ssh
 (port 22).
 \begin{verbatim}
-resource "openstack_compute_secgroup_v2" "terraform" {
+resource "OpenStack_compute_secgroup_v2" "terraform" {
   name        = "terraform"
   description = "security group"
   rule {
@@ -810,7 +819,7 @@ variable "id_ip_flottante" {
 }
 
 # Fichier main.tf
-resource "openstack_compute_instance_v2" "vps" {
+resource "OpenStack_compute_instance_v2" "vps" {
         floating_ip = "${var.id_ip_flottante[(count.index)+1]}"
 }
 \end{verbatim}
@@ -830,7 +839,7 @@ réseau ainsi que les sous-réseaux et port utile à celui-ci. Les
 instances sont donc configurées pour être intégrées à ce réseau et
 obtenir une adresse ip dans ce dernier. 
 \begin{verbatim}
-resource "openstack_networking_network_v2" "network_1" {
+resource "OpenStack_networking_network_v2" "network_1" {
   name = "resTerraform"
   admin_state_up = "true"
 }
@@ -838,9 +847,9 @@ resource "openstack_networking_network_v2" "network_1" {
 
 \subparagraph{Sous-réseau}\label{sous-ruxe9seau}
 \begin{verbatim}
-resource "openstack_networking_subnet_v2" "subnet_2" {
+resource "OpenStack_networking_subnet_v2" "subnet_2" {
   name = "SousRes_2"
-  network_id = "${openstack_networking_network_v2.network_1.id}"
+  network_id = "${OpenStack_networking_network_v2.network_1.id}"
   cidr = "192.168.0.0/24"
   ip_version = 4 
 }
@@ -848,9 +857,9 @@ resource "openstack_networking_subnet_v2" "subnet_2" {
 
 \subparagraph{Port du sous-réseau}\label{port-du-sous-ruxe9seau}
 \begin{verbatim}
-resource "openstack_networking_port_v2" "port_1" {
+resource "OpenStack_networking_port_v2" "port_1" {
   name = "port_1"
-  network_id = "${openstack_networking_network_v2.network_1.id}"
+  network_id = "${OpenStack_networking_network_v2.network_1.id}"
   admin_state_up = "true"
 }
 \end{verbatim}
@@ -862,7 +871,7 @@ autoriser un accès à l'extérieur du réseau. Pour se faire, nous passons
 par un routeur qui est lui-même composé d'une interface le reliant à un
 des réseau crée précédemment.
 \begin{verbatim}
-resource "openstack_networking_router_v2" "router_1" {
+resource "OpenStack_networking_router_v2" "router_1" {
   name = "routerTerraform"
   admin_state_up = "true"
   external_gateway = "6ea98324-0f14-49f6-97c0-885d1b8dc517"
@@ -893,7 +902,7 @@ Celui-ci se complète avec le bloc
 désiré. Ces dernières se mettant dans les instances. Les ressources de
 type \texttt{null-ressource} permettent d'exécuter des commandes après
 la création de certaines ressources. Grâce à cela, il est possible de
-lancer Ansible automatiquement à la fin de la création des vps.
+lancer Ansible automatiquement à la fin de la création des instances.
 
 \subsection{Présentation}\label{pruxe9sentation}
 
@@ -1068,21 +1077,21 @@ Pour pouvoir utiliser Ansible, on va utiliser une \textbf{null-ressource}. Les \
 La partie \textit{triggers} permet d'attendre la fin de création des instances
 \begin{verbatim}
 triggers { 
-    cluster_instance_ids = "${join(",", openstack_compute_instance_v2.vps.*.id)}"
+    cluster_instance_ids = "${join(",", OpenStack_compute_instance_v2.vps.*.id)}"
 }
 \end{verbatim}
 
 La partie \textit{local-exec} permet de lancer une commande depuis la machine hôte, pour notre projet nous l'avons donc utilisée pour lancer notre commande Ansible.
 \begin{verbatim}
 command = "ansible-playbook --private-key=~/.ssh/id_rsa_nopass -u 
-cloud -i ${element(openstack_compute_instance_v2.vps.*.floating_ip, count.index)},
+cloud -i ${element(OpenStack_compute_instance_v2.vps.*.floating_ip, count.index)},
 fichierAnsible.yml"
 \end{verbatim}
 
 
 \subsection{Problèmes rencontrés}\label{probluxe8me-que-lon-a-eu}
 
-Au début avant l'utilisation des null-ressources, nous avions mis l'appel à Ansible toujours dans un provisionner local-exec, mais la position de celui-ci était dans la création du vps. De ce fait, Ansible essayait de se connecter à l'instance avant que celle-ci ne soit complètement créée. \\ Or, Ansible a besoin d'une connexion ssh pour pouvoir fonctionner, et comme les instances
+Au début avant l'utilisation des null-ressources, nous avions mis l'appel à Ansible toujours dans un provisionner local-exec, mais la position de celui-ci était dans la création de l'instance. De ce fait, Ansible essayait de se connecter à l'instance avant que celle-ci ne soit complètement créée. \\ Or, Ansible a besoin d'une connexion ssh pour pouvoir fonctionner, et comme les instances
 n'étant pas complètement terminées, elles ne pouvaient en aucun cas
 assurer une connexion ssh, ce qui provoquait des erreurs.
 
@@ -1117,7 +1126,7 @@ Pour pouvoir se partager et aussi pour versionner nos travaux, nous avons utilis
 Nous avons créé une architecture constituée de 4 dossiers Docs, Notes, Projet et Rapport.\
 Dans le dossier Docs, nous avons mis toute la documentation que l'on a pu trouver et qui nous a été utile. Dans le dossier Notes, on peut trouver tout ce que l'on a pu rédiger sur différentes parties de notre projet, à la fois des petits tutoriels, des aides mémoires, ou encore des parties du rapport. Le dossier Projet contient nos différents scripts Terraform et Ansible et pour finir dans Rapport, on peut y trouver le plan de notre rapport, les images utilisées, le rapport final ainsi que nos slides pour le jour de l'oral.
 
-Le projet se tenait sur une seule technologie qui est Terraform. La
+Le projet portait sur une seule technologie qui est Terraform. La
 répartition des tâches s'est donc faite par rapport aux différentes
 parties que nous avons dû créer pour faire fonctionner notre
 infrastructure.
@@ -1171,7 +1180,7 @@ gestion de configuration logiciel tels que Puppet et Ansible.
 logiciels}\label{terraform-vs-les-autres-logiciels}
 
 Les outils comme CloudFormation, Heat, etc permettent à une
-infrastructure d'être codifiée dans un fichier de configuration. Les
+infrastructure d'être décrite dans un fichier de configuration. Les
 fichiers de configuration permettent à l'infrastructure d'être
 élastiquement créé, modifiée et détruite. Terraform est inspiré par les
 problèmes qu'ils résolvent et élimine complètement les dépendances avec ces services.
@@ -1211,7 +1220,7 @@ changements avec confiance, car ils savent exactement le résultat qui les atten
 \hline
          & Terraform                                                                & Heat                                   & CloudFormation                  \\ \hline
 Plan     & Plan d'exécution des modifications, ajouts et suppressions               & Pas de plan ; exécution directe        & Pas de plan ; exécution directe \\ \hline
-Provider & Openstack, AWS, DigitalOcean, Google Cloud, CloudFlare et plein d'autres & OpenStack                              & AWS                             \\ \hline
+Provider & OpenStack, AWS, DigitalOcean, Google Cloud, CloudFlare et plein d'autres & OpenStack                              & AWS                             \\ \hline
 Graph    & Disponible au format dot \texttt\{terraform graph\}                      & Non                                    & Pas nativement                  \\ \hline
 Rollback & Oui, pas automatiquement                                                 & Oui, option à activer dans la commande & Oui par défaut                  \\ \hline
 \end{tabular}
@@ -1219,7 +1228,7 @@ Rollback & Oui, pas automatiquement                                             
 \newpage
 \section{Conclusion}\label{conclusion}
 
-Terraform est un outils formidable permettant de déployer des
+Terraform est un outil permettant de déployer des
 infrastructures de manière simple et efficace. Il fournit une syntaxe
 simple et unifiée permettant de gérer presque toutes les ressources sans
 apprendre de nouveaux outils. En outre, Terraform est un outil open
@@ -1230,7 +1239,7 @@ existe dans chaque organisation et fournit un standard qui peut être
 adopté pour éviter de réinventer la roue entre et au sein des
 organisations.
 
-Terraform permet de représenter tout matériel physique, machine virtuelle, conteneur, courrier électronique, fournisseur DNS. Grâce à cette incroyable flexibilité Terraform permet de résoudre beaucoup de problèmes différents. Il peut gérer une seule application ou il peut très bien gérer un ensemble de centres de données. Dans ce projet, nous avons appris à manier Terraform, il possède encore certaines capacités que nous n'avons pas exploité tel que les modules ou plugins dont nous n'avons pas eu l'utilité pour notre projet.
+Terraform permet de représenter tout matériel physique, machine virtuelle, conteneur, courrier électronique, fournisseur DNS. Grâce à cette flexibilité, Terraform permet de résoudre beaucoup de problèmes différents. Il peut gérer une seule application ou il peut très bien gérer un ensemble de centres de données. Dans ce projet, nous avons appris à manier Terraform, il possède encore certaines capacités que nous n'avons pas exploité tel que les modules ou plugins dont nous n'avons pas eu l'utilité pour notre projet.
 
 Ce projet nous a permis d'apprendre à travailler en groupe sur un projet conséquent. Nous avons appris à gérer séparément des tâches tout en mettant en commun nos avancées sur le projet. Nous avons aussi pu voir les difficultés que l'on peut avoir avec un hébergeur cloud comme cloudwatt, notamment l'attente des accès et les quelques problèmes d'accès réseaux que nous avons eu.
 
@@ -1239,10 +1248,10 @@ Ce projet nous a permis d'apprendre à travailler en groupe sur un projet consé
 \textbf{Terraform}\\
 Documentation Terraform : \url{https://www.terraform.io/docs/index.html} \\
 Terraform: Up \& Running : \url{http://shop.oreilly.com/product/0636920061939.do } \\
-\url{http://www.matt-j.co.uk/2015/03/27/openstack-infrastructure-automation-with-terraform-part-2/}
+\url{http://www.matt-j.co.uk/2015/03/27/OpenStack-infrastructure-automation-with-terraform-part-2/}
 
-\textbf{Openstack}\\
-Documentation Openstack : Rapport donné en exemple \\
+\textbf{}\\
+Documentation OpenStack : Rapport donné en exemple \\
 Documentation officielle : \url{http://docs.openstack.org}
 
 \textbf{Ansible}\\
