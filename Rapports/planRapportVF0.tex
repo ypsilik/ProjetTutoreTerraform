@@ -1010,7 +1010,10 @@ lors de la connexion ssh. Pour éviter tous doutes, nous avons tenté de se
 connecter directement à une instance en ssh à  la fin de sa création.
 On a vérifié que l'on ne pouvait pas se connecter en
 ssh sur nos instances. De fait, nous nous sommes rendu compte que le problème ne
-venait peut-être pas de nous, mais de Cloudwatt. 
+venait peut-être pas de nous, mais de Cloudwatt.\\
+
+Comme on avait une connexion ssh défaillante sur plusieurs instances, nous n'avons pas pu finaliser l'intégration de Ansible à Terraform.
+Lorsque l'on créait 4 instances, on avait aléatoirment 1 ou 2 instances qui disposaient de la connexion ssh nécessaire à Ansible. Sur ces dernères, il n'y avait pas de problème pour le provionnement mais sur les autres, le provionnement se terminait sur des erreurs.
 \newpage
 \section{Gestion du projet}\label{ruxe9partition-des-tuxe2ches-au-seins-du-groupe}
 Pour pouvoir se partager et aussi pour versionner nos travaux, nous avons utilisé GitHub tout au long de notre projet. \\
@@ -1027,7 +1030,7 @@ infrastructure.
 \caption{Diagramme des tâches en fonction du temps}
 \end{figure}
 \newpage
-\section{Les concurrents de Terraform ?}\label{avant-terraform}
+\section{Les concurrents de Terraform}\label{avant-terraform}
 Dans cette partie, nous allons parler des différents services concurrents à Terraform, de leurs avantages et inconvénients.
 \subsection{AWS CloudFormation}\label{aws-cloudformation}
 CloudFormation fournit par Amazon Web Service permet de créer et de
